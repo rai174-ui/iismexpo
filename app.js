@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════
- *  IISMEXPO TERRA AURA — app.js
+ *  IISMEXPO — Organised by Amigo Connect | app.js
  *  Complete interactive JavaScript for the IISMEXPO 2026 website
  * ═══════════════════════════════════════════════════════════════
  */
