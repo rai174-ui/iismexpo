@@ -82,6 +82,7 @@
           <li><a href="#about"    class="nav-link">About</a></li>
           <li><a href="#vault"    class="nav-link">The Vault</a></li>
           <li><a href="#floor"    class="nav-link">Floor Plan</a></li>
+          <li><a href="#agenda"   class="nav-link">Agenda</a></li>
           <li><a href="#speakers" class="nav-link">Speakers</a></li>
           <li><a href="#logistics" class="nav-link">Logistics</a></li>
           <li><a href="#exhibitor" class="nav-link nav-link--cta">Book Stand</a></li>
@@ -130,8 +131,8 @@
           </div>
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item" role="listitem">
-            <span class="stat-value">8</span>
-            <span class="stat-label">Pavilion Sectors</span>
+            <span class="stat-value">4</span>
+            <span class="stat-label">Core Categories</span>
           </div>
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item" role="listitem">
@@ -187,18 +188,14 @@
           </article>
         </div>
 
-        <!-- 8 Sectors -->
+        <!-- 4 Exhibition Categories -->
         <div class="about__sectors section-reveal">
-          <h3 class="sectors-title">8 Exhibition Sectors</h3>
-          <ul class="sectors-grid" role="list" aria-label="Exhibition sectors">
-            <li class="sector-item" role="listitem"><span class="sector-num">01</span><span class="sector-icon" aria-hidden="true">💎</span><span class="sector-name">Rare Earth Metals</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">02</span><span class="sector-icon" aria-hidden="true">⛏️</span><span class="sector-name">Mining &amp; Coal</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">03</span><span class="sector-icon" aria-hidden="true">🏭</span><span class="sector-name">Metal Making &amp; Mineral Processing</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">04</span><span class="sector-icon" aria-hidden="true">🧪</span><span class="sector-name">Critical Raw Materials</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">05</span><span class="sector-icon" aria-hidden="true">⚡</span><span class="sector-name">Clean-Energy Transition</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">06</span><span class="sector-icon" aria-hidden="true">🔬</span><span class="sector-name">Technology Innovation</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">07</span><span class="sector-icon" aria-hidden="true">💰</span><span class="sector-name">Strategic Investments</span></li>
-            <li class="sector-item" role="listitem"><span class="sector-num">08</span><span class="sector-icon" aria-hidden="true">🤖</span><span class="sector-name">AI / Technology / Hydrogen in Mining</span></li>
+          <h3 class="sectors-title">4 Core Exhibition Categories</h3>
+          <ul class="sectors-grid" role="list" aria-label="Exhibition categories">
+            <li class="sector-item" role="listitem"><span class="sector-num">01</span><span class="sector-icon" aria-hidden="true">🌐</span><span class="sector-name">Global Mining Technology Providers</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">02</span><span class="sector-icon" aria-hidden="true">🚜</span><span class="sector-name">Heavy Machinery &amp; Refining Equippers</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">03</span><span class="sector-icon" aria-hidden="true">💻</span><span class="sector-name">Geological &amp; Software Engineering Firms</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">04</span><span class="sector-icon" aria-hidden="true">♻️</span><span class="sector-name">E-Waste Processing Innovators</span></li>
           </ul>
         </div>
 
@@ -453,15 +450,11 @@
               <div class="form-group">
                 <label for="exhibitorCategory" class="form-label">Exhibition Category <span class="required" aria-hidden="true">*</span></label>
                 <select id="exhibitorCategory" name="exhibitorCategory" class="form-input form-select" required aria-required="true" aria-describedby="exhibitorCategory-error">
-                  <option value="" disabled selected>Select a sector...</option>
-                  <option value="rare-earth">Rare Earth Metals</option>
-                  <option value="mining-coal">Mining &amp; Coal</option>
-                  <option value="metal-processing">Metal Making &amp; Mineral Processing</option>
-                  <option value="critical-raw">Critical Raw Materials</option>
-                  <option value="clean-energy">Clean-Energy Transition</option>
-                  <option value="tech-innovation">Technology Innovation</option>
-                  <option value="strategic-invest">Strategic Investments</option>
-                  <option value="ai-hydrogen">AI / Technology / Hydrogen in Mining</option>
+                  <option value="" disabled selected>Select a category...</option>
+                  <option value="mining-technology">Global Mining Technology Providers</option>
+                  <option value="heavy-machinery">Heavy Machinery &amp; Refining Equippers</option>
+                  <option value="geological-software">Geological &amp; Software Engineering Firms</option>
+                  <option value="e-waste-innovators">E-Waste Processing Innovators</option>
                 </select>
                 <span class="form-error" id="exhibitorCategory-error" role="alert"></span>
               </div>
@@ -689,12 +682,104 @@
       </div>
     </section>
 
+    <!-- ═══ CONFERENCE AGENDA ═══ -->
+    <section class="agenda section-reveal" id="agenda" aria-labelledby="agenda-heading">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Official Program</span>
+          <h2 class="section-title gradient-text" id="agenda-heading">Conference Agenda</h2>
+          <p class="section-subtitle">Location: Bharat Mandapam, Pragati Maidan (IECC), New Delhi</p>
+        </div>
+
+        <div class="agenda__grid">
+          <!-- Day 1 Card -->
+          <div class="glass-card agenda-card">
+            <div class="agenda-card__header">
+              <div class="day-badge">
+                <span class="day-badge__day">DAY 01</span>
+                <span class="day-badge__date">15 September 2026</span>
+              </div>
+              <h3 class="agenda-card__title">Day 1 Agenda</h3>
+            </div>
+            <div class="agenda-card__body">
+              <ol class="agenda-list">
+                <li class="agenda-item">
+                  <span class="agenda-num">I</span>
+                  <div class="agenda-info">
+                    <h4>Bidding &amp; Block Allocation</h4>
+                    <p>Auction frameworks, critical mineral block rights, and transparent licensing procedures.</p>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-num">II</span>
+                  <div class="agenda-info">
+                    <h4>Supply Chain De-risking</h4>
+                    <p>Securing rare earth corridors, strategic stockpiling, and global supply resilience.</p>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-num">III</span>
+                  <div class="agenda-info">
+                    <h4>Sustainable 'Green' Mining</h4>
+                    <p>ESG compliance, zero-impact extraction tech, and eco-friendly mineral processing.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Day 2 Card -->
+          <div class="glass-card agenda-card">
+            <div class="agenda-card__header">
+              <div class="day-badge day-badge--cyan">
+                <span class="day-badge__day">DAY 02</span>
+                <span class="day-badge__date">16 September 2026</span>
+              </div>
+              <h3 class="agenda-card__title">Day 2 Agenda</h3>
+            </div>
+            <div class="agenda-card__body">
+              <ol class="agenda-list">
+                <li class="agenda-item">
+                  <span class="agenda-num">I</span>
+                  <div class="agenda-info">
+                    <h4>Policy, Investment &amp; Global Trade</h4>
+                    <p>International trade pacts, FDI incentives, tariffs, and strategic partnerships.</p>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-num">II</span>
+                  <div class="agenda-info">
+                    <h4>Exploration, Technology &amp; Processing</h4>
+                    <p>Advanced geophysical mapping, AI exploration tools, and high-yield refining technology.</p>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-num">III</span>
+                  <div class="agenda-info">
+                    <h4>Clean Energy &amp; Low-Carbon Integration</h4>
+                    <p>Hydrogen-powered mining fleets, solar smelting, and carbon-neutral facility integration.</p>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-num">IV</span>
+                  <div class="agenda-info">
+                    <h4>Downstream Manufacturing &amp; Recycling</h4>
+                    <p>EV battery materials, permanent magnet manufacturing, and urban e-waste recycling tech.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ LOGISTICS ═══ -->
     <section class="logistics section-reveal" id="logistics" aria-labelledby="logistics-heading">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Plan Your Visit</span>
-          <h2 class="section-title gradient-text" id="logistics-heading">Event Logistics</h2>
+          <h2 class="section-title gradient-text" id="logistics-heading">Event Logistics &amp; Venue</h2>
           <p class="section-subtitle">Everything you need to know to attend or exhibit at IISMEXPO 2026.</p>
         </div>
         <div class="logistics__grid">
@@ -702,24 +787,24 @@
             <div class="logistics-card__icon" aria-hidden="true">&#128197;</div>
             <h3 class="logistics-card__title">Event Dates</h3>
             <div class="logistics-card__body">
-              <div class="date-block"><span class="date-label">Day 1 — Inauguration &amp; Keynotes</span><span class="date-val">15 September 2026</span></div>
-              <div class="date-block"><span class="date-label">Day 2 — Exhibition &amp; B2B Meetings</span><span class="date-val">16 September 2026</span></div>
-              <div class="date-block"><span class="date-label">Day 3 — Policy Forum &amp; MoU Signing</span><span class="date-val">17 September 2026</span></div>
-              <div class="date-block date-block--deadline"><span class="date-label">&#128308; Exhibitor Registration Deadline</span><span class="date-val">30 July 2026</span></div>
+              <div class="date-block"><span class="date-label">Day 1 — Keynotes &amp; Bidding</span><span class="date-val">15 September 2026</span></div>
+              <div class="date-block"><span class="date-label">Day 2 — Tech &amp; Global Trade</span><span class="date-val">16 September 2026</span></div>
+              <div class="date-block"><span class="date-label">Day 3 — Policy &amp; B2B Meetings</span><span class="date-val">17 September 2026</span></div>
+              <div class="date-block date-block--deadline"><span class="date-label">&#128308; Exhibitor Deadline</span><span class="date-val">30 July 2026</span></div>
             </div>
           </div>
           <div class="glass-card logistics-card">
             <div class="logistics-card__icon" aria-hidden="true">&#128205;</div>
-            <h3 class="logistics-card__title">Venue</h3>
+            <h3 class="logistics-card__title">Venue Location</h3>
             <div class="logistics-card__body">
-              <p class="venue-name">Bharat Mandapam</p>
-              <p class="venue-address">Pragati Maidan, Hall 1 &amp; Hall 2<br/>New Delhi — 110001, India</p>
+              <p class="venue-name">Bharat Mandapam, Pragati Maidan (IECC)</p>
+              <p class="venue-address">New Delhi — 110001, India</p>
               <div class="venue-details">
-                <span>&#128647; Pragati Maidan Metro (Blue Line)</span>
-                <span>&#127377; 2,000+ parking spaces on-site</span>
-                <span>&#9992;&#65039; 18 km from Indira Gandhi Airport</span>
+                <span>&#128647; Pragati Maidan / Supreme Court Metro (Blue Line)</span>
+                <span>&#127377; International Exhibition &amp; Convention Centre (IECC)</span>
+                <span>&#9992;&#65039; 18 km from IGI Airport, New Delhi</span>
               </div>
-              <a href="https://maps.google.com/?q=Bharat+Mandapam+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">View on Maps &#8594;</a>
+              <a href="https://maps.google.com/?q=Bharat+Mandapam+Pragati+Maidan+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">View Venue on Maps &#8594;</a>
             </div>
           </div>
           <div class="glass-card logistics-card">
@@ -800,15 +885,13 @@
             <li><a href="#exhibitor" class="footer__link">Exhibitor Booking</a></li>
           </ul>
         </nav>
-        <nav class="footer__col" aria-label="Sector links">
-          <h4 class="footer__col-title">Exhibition Sectors</h4>
+        <nav class="footer__col" aria-label="Category links">
+          <h4 class="footer__col-title">Exhibition Categories</h4>
           <ul class="footer__links" role="list">
-            <li><a href="#about" class="footer__link">Rare Earth Metals</a></li>
-            <li><a href="#about" class="footer__link">Mining &amp; Coal</a></li>
-            <li><a href="#about" class="footer__link">Critical Raw Materials</a></li>
-            <li><a href="#about" class="footer__link">Clean-Energy Transition</a></li>
-            <li><a href="#about" class="footer__link">Technology Innovation</a></li>
-            <li><a href="#about" class="footer__link">Strategic Investments</a></li>
+            <li><a href="#exhibitor" class="footer__link">Mining Tech Providers</a></li>
+            <li><a href="#exhibitor" class="footer__link">Heavy Machinery &amp; Refining</a></li>
+            <li><a href="#exhibitor" class="footer__link">Geological &amp; Software Eng.</a></li>
+            <li><a href="#exhibitor" class="footer__link">E-Waste Innovators</a></li>
           </ul>
         </nav>
         <div class="footer__col footer__newsletter">
