@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta Tags -->
+  <title>IISMEXPO 2026 | India International Strategic Minerals Expo | New Delhi</title>
+  <meta name="description" content="India's premier platform for Rare Earth Mining, Metals, Minerals & Critical Materials. 200+ exhibitors, 8 pavilion sectors, 50K+ industry network. 3-day event at Bharat Mandapam, New Delhi, September 2026." />
+  <meta name="keywords" content="IISMEXPO, India minerals expo, rare earth mining, critical minerals, strategic minerals, New Delhi expo 2026, mining exhibition India, rare metals, mineral processing" />
+  <meta name="author" content="IISMEXPO Organizing Committee" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IISMEXPO 2026 — India's Premier Strategic Minerals Expo" />
+  <meta property="og:description" content="200+ exhibitors, 8 pavilion sectors, 50K+ industry network at Bharat Mandapam New Delhi, September 2026." />
+  <meta property="og:image" content="assets/logoiismexpo.png" />
+  <meta property="og:url" content="https://iismexpo.in" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IISMEXPO 2026 — India's Premier Strategic Minerals Expo" />
+  <meta name="twitter:description" content="200+ exhibitors, 8 pavilion sectors at Bharat Mandapam, New Delhi." />
+  <meta name="twitter:image" content="assets/logoiismexpo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logoiismexpo.png" />
+  <link rel="apple-touch-icon" href="assets/logoiismexpo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "IISMEXPO 2026",
+    "description": "India International Strategic Minerals Expo",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-17",
+    "location": {
+      "@type": "Place",
+      "name": "Bharat Mandapam",
+      "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" }
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Grain overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner container">
+      <a href="#hero" class="navbar__logo" aria-label="IISMEXPO Home">
+        <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="navbar__logo-img" width="160" height="48" />
+      </a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Primary navigation">
+        <ul class="navbar__links" role="list">
+          <li><a href="#about"    class="nav-link">About</a></li>
+          <li><a href="#vault"    class="nav-link">The Vault</a></li>
+          <li><a href="#floor"    class="nav-link">Floor Plan</a></li>
+          <li><a href="#speakers" class="nav-link">Speakers</a></li>
+          <li><a href="#logistics" class="nav-link">Logistics</a></li>
+          <li><a href="#exhibitor" class="nav-link nav-link--cta">Book Stand</a></li>
+        </ul>
+      </nav>
+      <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero" aria-label="Hero — IISMEXPO 2026">
+      <canvas id="crystalCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <div class="hero__eyebrow">
+          <span class="eyebrow-badge">Est. 2026 &nbsp;·&nbsp; New Delhi, India</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title-line gradient-text">Terra Aura</span>
+          <span class="hero__title-sub">India International Strategic Minerals Expo</span>
+        </h1>
+        <p class="hero__desc">
+          Where the Earth's rarest treasures meet India's industrial future.
+          The definitive platform for Rare Earth Metals, Critical Minerals, and
+          the technologies reshaping our world.
+        </p>
+        <div class="hero__ctas">
+          <a href="#exhibitor" class="btn btn--primary" aria-label="Register as exhibitor">
+            <span class="btn__icon" aria-hidden="true">◈</span>Register as Exhibitor
+          </a>
+          <a href="#vault" class="btn btn--ghost" aria-label="Explore mineral vault">
+            <span class="btn__icon" aria-hidden="true">⬡</span>Explore the Vault
+          </a>
+        </div>
+        <div class="hero__stats" role="list" aria-label="Key statistics">
+          <div class="stat-item" role="listitem">
+            <span class="stat-value">200+</span>
+            <span class="stat-label">Exhibitors</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-value">8</span>
+            <span class="stat-label">Pavilion Sectors</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-value">50K+</span>
+            <span class="stat-label">Industry Network</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Day Event</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-label="Scroll down indicator">
+        <span class="scroll-dot"></span>
+        <span class="scroll-text">Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="about section-reveal" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">About IISMEXPO</span>
+          <h2 class="section-title gradient-text" id="about-heading">India's Critical Mineral Future Starts Here</h2>
+          <p class="section-subtitle">
+            IISMEXPO is India's premier exposition uniting mining giants, mineral processors, technology
+            innovators, and policy architects on a single global stage. As India ascends as the world's
+            third-largest rare earth reservoir, this platform bridges the gap between geological wealth
+            and industrial destiny.
+          </p>
+        </div>
+
+        <!-- Fact Cards -->
+        <div class="about__facts" role="list" aria-label="Key facts">
+          <article class="glass-card fact-card section-reveal" role="listitem">
+            <div class="fact-card__icon" aria-hidden="true">🌏</div>
+            <div class="fact-card__num gradient-text">3rd</div>
+            <div class="fact-card__label">Largest Rare Earth Reserves Globally</div>
+            <p class="fact-card__desc">India holds one of the world's most significant deposits of rare earth elements, positioned strategically for global supply chains.</p>
+          </article>
+          <article class="glass-card fact-card section-reveal" role="listitem">
+            <div class="fact-card__icon" aria-hidden="true">📈</div>
+            <div class="fact-card__num gradient-text">+26.8%</div>
+            <div class="fact-card__label">Mineral Production Growth FY2025–26</div>
+            <p class="fact-card__desc">India's mineral sector is experiencing unprecedented expansion, driven by policy reforms and global demand for clean energy materials.</p>
+          </article>
+          <article class="glass-card fact-card section-reveal" role="listitem">
+            <div class="fact-card__icon" aria-hidden="true">⚛️</div>
+            <div class="fact-card__num gradient-text">30</div>
+            <div class="fact-card__label">Critical Minerals Under National Mission</div>
+            <p class="fact-card__desc">India's National Critical Mineral Mission identifies 30 strategic minerals essential for defence, technology, and green energy transition.</p>
+          </article>
+        </div>
+
+        <!-- 8 Sectors -->
+        <div class="about__sectors section-reveal">
+          <h3 class="sectors-title">8 Exhibition Sectors</h3>
+          <ul class="sectors-grid" role="list" aria-label="Exhibition sectors">
+            <li class="sector-item" role="listitem"><span class="sector-num">01</span><span class="sector-icon" aria-hidden="true">💎</span><span class="sector-name">Rare Earth Metals</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">02</span><span class="sector-icon" aria-hidden="true">⛏️</span><span class="sector-name">Mining &amp; Coal</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">03</span><span class="sector-icon" aria-hidden="true">🏭</span><span class="sector-name">Metal Making &amp; Mineral Processing</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">04</span><span class="sector-icon" aria-hidden="true">🧪</span><span class="sector-name">Critical Raw Materials</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">05</span><span class="sector-icon" aria-hidden="true">⚡</span><span class="sector-name">Clean-Energy Transition</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">06</span><span class="sector-icon" aria-hidden="true">🔬</span><span class="sector-name">Technology Innovation</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">07</span><span class="sector-icon" aria-hidden="true">💰</span><span class="sector-name">Strategic Investments</span></li>
+            <li class="sector-item" role="listitem"><span class="sector-num">08</span><span class="sector-icon" aria-hidden="true">🤖</span><span class="sector-name">AI / Technology / Hydrogen in Mining</span></li>
+          </ul>
+        </div>
+
+        <!-- Why Exhibit -->
+        <div class="why-exhibit section-reveal">
+          <h3 class="why-title">Why Exhibit at IISMEXPO?</h3>
+          <div class="why-grid">
+            <div class="glass-card why-card"><span class="why-card__icon" aria-hidden="true">🎯</span><h4>Targeted Reach</h4><p>Connect directly with 50,000+ decision-makers, geologists, investors, and policy architects in a single venue.</p></div>
+            <div class="glass-card why-card"><span class="why-card__icon" aria-hidden="true">🌐</span><h4>Global Visibility</h4><p>Showcase your innovations to international delegations from 40+ countries actively sourcing Indian mineral partnerships.</p></div>
+            <div class="glass-card why-card"><span class="why-card__icon" aria-hidden="true">🤝</span><h4>Deal Flow</h4><p>Structured B2B matchmaking sessions, MoU signing ceremonies, and curated investor meetings drive real commercial outcomes.</p></div>
+            <div class="glass-card why-card"><span class="why-card__icon" aria-hidden="true">📡</span><h4>Media &amp; Policy</h4><p>Unparalleled media coverage and direct access to Ministry of Mines officials shaping India's critical mineral policy.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ THE VAULT ═══ -->
+    <section class="vault section-reveal" id="vault" aria-labelledby="vault-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Mineral Collection</span>
+          <h2 class="section-title gradient-text" id="vault-heading">The Terra Vault</h2>
+          <p class="section-subtitle">A curated collection of the world's rarest and most strategically significant minerals — each one a geological marvel and an industrial imperative.</p>
+        </div>
+        <div class="vault__filters" role="group" aria-label="Filter minerals by category">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All Minerals</button>
+          <button class="filter-btn" data-filter="Gemstone" aria-pressed="false">Gemstones</button>
+          <button class="filter-btn" data-filter="Rare Earth" aria-pressed="false">Rare Earth</button>
+          <button class="filter-btn" data-filter="Critical" aria-pressed="false">Critical</button>
+          <button class="filter-btn" data-filter="Luminescent" aria-pressed="false">Luminescent</button>
+        </div>
+        <div class="vault__grid" id="vaultGrid" role="list" aria-label="Mineral specimens"></div>
+      </div>
+    </section>
+
+    <!-- Mineral Modal -->
+    <div class="mineral-modal" id="mineralModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="mineral-modal__backdrop" id="modalBackdrop"></div>
+      <div class="mineral-modal__panel">
+        <button class="mineral-modal__close" id="modalClose" aria-label="Close mineral details">&#x2715;</button>
+        <div class="mineral-modal__content" id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- ═══ FLOOR PLAN ═══ -->
+    <section class="floor-plan section-reveal" id="floor" aria-labelledby="floor-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Venue Map</span>
+          <h2 class="section-title gradient-text" id="floor-heading">Exhibition Floor Plan</h2>
+          <p class="section-subtitle">Bharat Mandapam, New Delhi — 4 distinct zones. Hover over zones to explore, click to book your space.</p>
+        </div>
+        <div class="floor-plan__wrapper">
+          <div class="floor-legend" role="list" aria-label="Floor plan legend">
+            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--available" aria-hidden="true"></span><span>Available</span></div>
+            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--reserved" aria-hidden="true"></span><span>Reserved</span></div>
+            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--waitlist" aria-hidden="true"></span><span>Waitlist</span></div>
+          </div>
+          <div class="floor-plan__svg-container">
+            <svg id="floorPlanSVG" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="floor-plan__svg" role="img" aria-label="Exhibition hall floor plan">
+              <rect width="900" height="600" fill="#0A0D12" rx="16"/>
+              <rect x="20" y="20" width="860" height="560" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" rx="12"/>
+              <defs>
+                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                </pattern>
+                <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#00F5D4" stop-opacity="0.05"/>
+                </radialGradient>
+                <linearGradient id="veinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#9B5DE5" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#9B5DE5" stop-opacity="0.06"/>
+                </linearGradient>
+                <linearGradient id="geodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E0A96D" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#E0A96D" stop-opacity="0.06"/>
+                </linearGradient>
+                <linearGradient id="vaultGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.12"/>
+                  <stop offset="100%" stop-color="#9B5DE5" stop-opacity="0.12"/>
+                </linearGradient>
+              </defs>
+              <rect width="900" height="600" fill="url(#grid)"/>
+
+              <!-- VEIN zone -->
+              <g id="zone-vein" class="floor-zone" data-zone="THE VEIN" data-desc="Standard &amp; Corner Booths — 48 positions" data-status="mixed" data-booths="48 booths · 3×3m to 3×6m" role="button" tabindex="0" aria-label="The Vein — standard booths">
+                <rect x="40" y="40" width="820" height="100" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
+                <line x1="140" y1="40" x2="140" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="240" y1="40" x2="240" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="340" y1="40" x2="340" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="440" y1="40" x2="440" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="540" y1="40" x2="540" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="640" y1="40" x2="640" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="740" y1="40" x2="740" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <circle cx="90" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="190" cy="90" r="7" fill="#E0A96D" opacity="0.85"/>
+                <circle cx="290" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="390" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="490" cy="90" r="7" fill="#E0A96D" opacity="0.85"/>
+                <circle cx="590" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="690" cy="90" r="7" fill="#9B5DE5" opacity="0.85"/>
+                <circle cx="800" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
+                <rect x="40" y="150" width="120" height="300" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
+                <line x1="40" y1="225" x2="160" y2="225" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="40" y1="300" x2="160" y2="300" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="40" y1="375" x2="160" y2="375" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <circle cx="100" cy="188" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="100" cy="263" r="7" fill="#9B5DE5" opacity="0.85"/>
+                <circle cx="100" cy="338" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="100" cy="413" r="7" fill="#E0A96D" opacity="0.85"/>
+                <rect x="740" y="150" width="120" height="300" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
+                <line x1="740" y1="225" x2="860" y2="225" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="740" y1="300" x2="860" y2="300" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <line x1="740" y1="375" x2="860" y2="375" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
+                <circle cx="800" cy="188" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="800" cy="263" r="7" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="800" cy="338" r="7" fill="#E0A96D" opacity="0.85"/>
+                <circle cx="800" cy="413" r="7" fill="#9B5DE5" opacity="0.85"/>
+                <text x="450" y="76" text-anchor="middle" fill="#9B5DE5" font-size="13" font-family="Cinzel,serif" font-weight="600" opacity="0.9">THE VEIN — Standard &amp; Corner Booths</text>
+              </g>
+
+              <!-- GEODE PAVILION -->
+              <g id="zone-geode" class="floor-zone" data-zone="GEODE PAVILION" data-desc="Island Booths — Open 4-sided exhibition" data-status="mixed" data-booths="16 island booths · 6×6m" role="button" tabindex="0" aria-label="Geode Pavilion — island booths">
+                <rect x="185" y="165" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
+                <rect x="205" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <rect x="280" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <circle cx="232" cy="223" r="6" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="307" cy="223" r="6" fill="#E0A96D" opacity="0.85"/>
+                <rect x="185" y="320" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
+                <rect x="205" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <rect x="280" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <circle cx="232" cy="378" r="6" fill="#E0A96D" opacity="0.85"/>
+                <circle cx="307" cy="378" r="6" fill="#00F5D4" opacity="0.85"/>
+                <rect x="545" y="165" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
+                <rect x="565" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <rect x="640" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <circle cx="592" cy="223" r="6" fill="#00F5D4" opacity="0.85"/>
+                <circle cx="667" cy="223" r="6" fill="#E0A96D" opacity="0.85"/>
+                <rect x="545" y="320" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
+                <rect x="565" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <rect x="640" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
+                <circle cx="592" cy="378" r="6" fill="#9B5DE5" opacity="0.85"/>
+                <circle cx="667" cy="378" r="6" fill="#00F5D4" opacity="0.85"/>
+                <text x="270" y="158" text-anchor="middle" fill="#E0A96D" font-size="11" font-family="Cinzel,serif" font-weight="600" opacity="0.9">GEODE</text>
+                <text x="630" y="158" text-anchor="middle" fill="#E0A96D" font-size="11" font-family="Cinzel,serif" font-weight="600" opacity="0.9">PAVILION</text>
+              </g>
+
+              <!-- THE CORE -->
+              <g id="zone-core" class="floor-zone" data-zone="THE CORE" data-desc="Crown Jewels — Premium 12×12m flagship space" data-status="available" data-booths="1 premium position · 12×12m" role="button" tabindex="0" aria-label="The Core — premium flagship space">
+                <rect x="368" y="238" width="164" height="134" fill="url(#coreGrad)" stroke="#00F5D4" stroke-width="2" stroke-opacity="0.85" rx="10"/>
+                <polygon points="450,260 472,297 450,334 428,297" fill="none" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.6"/>
+                <circle cx="450" cy="305" r="20" fill="none" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.5"/>
+                <circle cx="450" cy="305" r="7" fill="#00F5D4" opacity="0.9"/>
+                <text x="450" y="360" text-anchor="middle" fill="#00F5D4" font-size="12" font-family="Cinzel,serif" font-weight="700" opacity="0.95">THE CORE</text>
+                <text x="450" y="375" text-anchor="middle" fill="#00F5D4" font-size="9" font-family="Plus Jakarta Sans,sans-serif" opacity="0.7">Crown Jewels · 12×12m</text>
+                <rect x="412" y="241" width="76" height="17" rx="8" fill="#00F5D4" opacity="0.15"/>
+                <text x="450" y="253" text-anchor="middle" fill="#00F5D4" font-size="8" font-family="Plus Jakarta Sans,sans-serif" font-weight="700">AVAILABLE</text>
+              </g>
+
+              <!-- PRIVATE VAULTS -->
+              <g id="zone-vault" class="floor-zone" data-zone="PRIVATE VAULTS" data-desc="VIP Suites — Exclusive 9×9m private exhibition suites" data-status="mixed" data-booths="8 VIP suites · 9×9m" role="button" tabindex="0" aria-label="Private Vaults — VIP suites">
+                <rect x="40" y="458" width="820" height="102" fill="url(#vaultGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.4" rx="8"/>
+                <line x1="143" y1="458" x2="143" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="246" y1="458" x2="246" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="349" y1="458" x2="349" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="452" y1="458" x2="452" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="555" y1="458" x2="555" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="658" y1="458" x2="658" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="761" y1="458" x2="761" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <circle cx="91"  cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
+                <circle cx="194" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
+                <circle cx="297" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
+                <circle cx="400" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
+                <circle cx="503" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
+                <circle cx="606" cy="509" r="7" fill="#E0A96D" opacity="0.9"/>
+                <circle cx="709" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
+                <circle cx="811" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
+                <text x="91" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="194" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="297" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="400" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="503" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="606" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="709" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="811" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
+                <text x="450" y="543" text-anchor="middle" fill="rgba(224,169,109,0.85)" font-size="13" font-family="Cinzel,serif" font-weight="600">PRIVATE VAULTS — VIP Suites · 9×9m</text>
+              </g>
+
+              <text x="450" y="207" text-anchor="middle" fill="rgba(240,238,232,0.25)" font-size="10" font-family="Plus Jakarta Sans,sans-serif">NORTH AISLE</text>
+              <text x="450" y="450" text-anchor="middle" fill="rgba(240,238,232,0.25)" font-size="10" font-family="Plus Jakarta Sans,sans-serif">SOUTH AISLE</text>
+              <text x="135" y="310" text-anchor="middle" fill="rgba(240,238,232,0.2)" font-size="10" font-family="Plus Jakarta Sans,sans-serif" transform="rotate(-90,135,310)">WEST AISLE</text>
+              <text x="765" y="310" text-anchor="middle" fill="rgba(240,238,232,0.2)" font-size="10" font-family="Plus Jakarta Sans,sans-serif" transform="rotate(90,765,310)">EAST AISLE</text>
+              <text x="450" y="592" text-anchor="middle" fill="rgba(240,238,232,0.4)" font-size="11" font-family="Plus Jakarta Sans,sans-serif">&#9650; MAIN ENTRANCE — Bharat Mandapam Hall 1</text>
+            </svg>
+          </div>
+          <div class="floor-tooltip" id="floorTooltip" role="tooltip" aria-live="polite">
+            <div class="floor-tooltip__zone" id="tooltipZone"></div>
+            <div class="floor-tooltip__desc" id="tooltipDesc"></div>
+            <div class="floor-tooltip__booths" id="tooltipBooths"></div>
+            <div class="floor-tooltip__cta">Click to Book &#8594;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EXHIBITOR BOOKING ═══ -->
+    <section class="exhibitor section-reveal" id="exhibitor" aria-labelledby="exhibitor-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Secure Your Space</span>
+          <h2 class="section-title gradient-text" id="exhibitor-heading">Exhibitor Registration</h2>
+          <p class="section-subtitle">Join 200+ industry leaders at India's most prestigious minerals gathering. Complete your booking in 5 simple steps.</p>
+        </div>
+        <div class="form-wrapper">
+
+          <!-- Progress Steps -->
+          <nav class="form-progress" aria-label="Form progress">
+            <div class="progress-track" aria-hidden="true"></div>
+            <button class="progress-step active" data-step="1" aria-current="step" aria-label="Step 1: Business Details"><span class="progress-step__num">1</span><span class="progress-step__label">Business</span></button>
+            <button class="progress-step" data-step="2" aria-label="Step 2: Space Selection"><span class="progress-step__num">2</span><span class="progress-step__label">Space</span></button>
+            <button class="progress-step" data-step="3" aria-label="Step 3: Utilities"><span class="progress-step__num">3</span><span class="progress-step__label">Utilities</span></button>
+            <button class="progress-step" data-step="4" aria-label="Step 4: Portfolio"><span class="progress-step__num">4</span><span class="progress-step__label">Portfolio</span></button>
+            <button class="progress-step" data-step="5" aria-label="Step 5: Contact"><span class="progress-step__num">5</span><span class="progress-step__label">Contact</span></button>
+          </nav>
+
+          <!-- Cost Estimator -->
+          <div class="cost-estimator glass-card" aria-live="polite" aria-label="Cost estimate">
+            <div class="cost-estimator__label">Estimated Total</div>
+            <div class="cost-estimator__value" id="costDisplay">&#8377; 0</div>
+            <div class="cost-estimator__breakdown" id="costBreakdown"></div>
+          </div>
+
+          <!-- Form -->
+          <form class="booking-form glass-card" id="bookingForm" novalidate aria-label="Exhibitor booking form">
+
+            <!-- Step 1: Business Details -->
+            <fieldset class="form-step active" id="step1" data-step="1">
+              <legend class="form-step__legend"><span class="step-number">01</span> Business Details</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="companyName" class="form-label">Company Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="companyName" name="companyName" class="form-input" placeholder="e.g. Tata Steel Ltd." autocomplete="organization" required aria-required="true" aria-describedby="companyName-error"/>
+                  <span class="form-error" id="companyName-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="companyWebsite" class="form-label">Website</label>
+                  <input type="url" id="companyWebsite" name="companyWebsite" class="form-input" placeholder="https://yourcompany.com" autocomplete="url" aria-describedby="companyWebsite-error"/>
+                  <span class="form-error" id="companyWebsite-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exhibitorCategory" class="form-label">Exhibition Category <span class="required" aria-hidden="true">*</span></label>
+                <select id="exhibitorCategory" name="exhibitorCategory" class="form-input form-select" required aria-required="true" aria-describedby="exhibitorCategory-error">
+                  <option value="" disabled selected>Select a sector...</option>
+                  <option value="rare-earth">Rare Earth Metals</option>
+                  <option value="mining-coal">Mining &amp; Coal</option>
+                  <option value="metal-processing">Metal Making &amp; Mineral Processing</option>
+                  <option value="critical-raw">Critical Raw Materials</option>
+                  <option value="clean-energy">Clean-Energy Transition</option>
+                  <option value="tech-innovation">Technology Innovation</option>
+                  <option value="strategic-invest">Strategic Investments</option>
+                  <option value="ai-hydrogen">AI / Technology / Hydrogen in Mining</option>
+                </select>
+                <span class="form-error" id="exhibitorCategory-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="companyDesc" class="form-label">Company Description <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="companyDesc" name="companyDesc" class="form-input form-textarea" placeholder="Briefly describe your company, products, and why you wish to exhibit at IISMEXPO 2026..." rows="4" required aria-required="true" aria-describedby="companyDesc-error"></textarea>
+                <span class="form-error" id="companyDesc-error" role="alert"></span>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn--primary btn--next" data-next="2">Next: Space Selection <span aria-hidden="true">&#8594;</span></button>
+              </div>
+            </fieldset>
+
+            <!-- Step 2: Space Selection -->
+            <fieldset class="form-step" id="step2" data-step="2" hidden>
+              <legend class="form-step__legend"><span class="step-number">02</span> Space Selection</legend>
+              <p class="form-intro">Select the booth tier that best fits your exhibition needs. All prices are base rates excluding GST.</p>
+              <div class="tier-grid" role="radiogroup" aria-label="Booth tier selection">
+                <label class="tier-card" for="tierStandard">
+                  <input type="radio" id="tierStandard" name="boothTier" value="standard" data-cost="80000" data-label="Standard Booth (3×3m)" class="tier-radio"/>
+                  <div class="tier-card__inner"><div class="tier-card__badge">Standard</div><div class="tier-card__size">3 &#215; 3 m</div><div class="tier-card__price">&#8377; 80,000</div><ul class="tier-card__features"><li>Back &amp; side wall panels</li><li>1 table, 2 chairs</li><li>Standard lighting</li><li>Fascia board</li></ul></div>
+                </label>
+                <label class="tier-card" for="tierCorner">
+                  <input type="radio" id="tierCorner" name="boothTier" value="corner" data-cost="140000" data-label="Corner Booth (3×6m)" class="tier-radio"/>
+                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--cyan">Corner</div><div class="tier-card__size">3 &#215; 6 m</div><div class="tier-card__price">&#8377; 1,40,000</div><ul class="tier-card__features"><li>Two open sides</li><li>Premium carpet</li><li>2 tables, 4 chairs</li><li>Branded header board</li></ul></div>
+                </label>
+                <label class="tier-card" for="tierIsland">
+                  <input type="radio" id="tierIsland" name="boothTier" value="island" data-cost="450000" data-label="Island Booth (6×6m)" class="tier-radio"/>
+                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--violet">Island</div><div class="tier-card__size">6 &#215; 6 m</div><div class="tier-card__price">&#8377; 4,50,000</div><ul class="tier-card__features"><li>All four sides open</li><li>Custom build allowed</li><li>Dedicated AV system</li><li>Lounge furniture set</li></ul></div>
+                </label>
+                <label class="tier-card tier-card--vip" for="tierVIP">
+                  <input type="radio" id="tierVIP" name="boothTier" value="vip" data-cost="1800000" data-label="VIP Private Vault (9×9m)" class="tier-radio"/>
+                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--gold">VIP Vault</div><div class="tier-card__size">9 &#215; 9 m</div><div class="tier-card__price">&#8377; 18,00,000</div><ul class="tier-card__features"><li>Exclusive private suite</li><li>Dedicated concierge</li><li>Climate-controlled vault</li><li>B2B meeting room included</li></ul></div>
+                </label>
+              </div>
+              <span class="form-error" id="boothTier-error" role="alert"></span>
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost btn--prev" data-prev="1">&#8592; Back</button>
+                <button type="button" class="btn btn--primary btn--next" data-next="3">Next: Utilities <span aria-hidden="true">&#8594;</span></button>
+              </div>
+            </fieldset>
+
+            <!-- Step 3: Utilities -->
+            <fieldset class="form-step" id="step3" data-step="3" hidden>
+              <legend class="form-step__legend"><span class="step-number">03</span> Utility Requirements</legend>
+              <p class="form-intro">Select additional utilities for your exhibition space. All prices are per-event.</p>
+              <div class="utility-grid" role="group" aria-label="Utility options">
+                <label class="utility-item" for="utilDisplay"><input type="checkbox" id="utilDisplay" name="utilities" value="display" data-cost="25000" data-label="Display Cases" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">🪟</span><div><div class="utility-item__name">Display Cases</div><div class="utility-item__price">+ &#8377; 25,000</div></div></div></label>
+                <label class="utility-item" for="utilUV"><input type="checkbox" id="utilUV" name="utilities" value="uv" data-cost="18000" data-label="UV Lighting Rig" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">💜</span><div><div class="utility-item__name">UV Lighting Rig</div><div class="utility-item__price">+ &#8377; 18,000</div></div></div></label>
+                <label class="utility-item" for="utilPower"><input type="checkbox" id="utilPower" name="utilities" value="power" data-cost="12000" data-label="Power Drop (20A)" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">⚡</span><div><div class="utility-item__name">Power Drop (20A)</div><div class="utility-item__price">+ &#8377; 12,000</div></div></div></label>
+                <label class="utility-item" for="utilVault"><input type="checkbox" id="utilVault" name="utilities" value="vault-storage" data-cost="35000" data-label="Secure Vault Storage" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">🔒</span><div><div class="utility-item__name">Secure Vault Storage</div><div class="utility-item__price">+ &#8377; 35,000</div></div></div></label>
+                <label class="utility-item" for="utilInternet"><input type="checkbox" id="utilInternet" name="utilities" value="internet" data-cost="8000" data-label="Dedicated Internet (1Gbps)" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">📡</span><div><div class="utility-item__name">Dedicated Internet (1Gbps)</div><div class="utility-item__price">+ &#8377; 8,000</div></div></div></label>
+                <label class="utility-item" for="utilAppraisal"><input type="checkbox" id="utilAppraisal" name="utilities" value="appraisal" data-cost="40000" data-label="On-Site Appraisal Service" class="utility-check"/><div class="utility-item__inner"><span class="utility-item__icon" aria-hidden="true">🔎</span><div><div class="utility-item__name">On-Site Appraisal Service</div><div class="utility-item__price">+ &#8377; 40,000</div></div></div></label>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost btn--prev" data-prev="2">&#8592; Back</button>
+                <button type="button" class="btn btn--primary btn--next" data-next="4">Next: Portfolio <span aria-hidden="true">&#8594;</span></button>
+              </div>
+            </fieldset>
+
+            <!-- Step 4: Portfolio -->
+            <fieldset class="form-step" id="step4" data-step="4" hidden>
+              <legend class="form-step__legend"><span class="step-number">04</span> Specimen Portfolio</legend>
+              <p class="form-intro">Tell us about the specimens or products you plan to exhibit.</p>
+              <div class="form-group">
+                <label for="specimenDesc" class="form-label">Specimen / Product Description <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="specimenDesc" name="specimenDesc" class="form-input form-textarea" placeholder="Describe the minerals, ores, processed metals, or technology products you plan to display..." rows="5" required aria-required="true" aria-describedby="specimenDesc-error"></textarea>
+                <span class="form-error" id="specimenDesc-error" role="alert"></span>
+              </div>
+              <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload portfolio files — drag and drop or click to browse">
+                <div class="upload-zone__icon" aria-hidden="true">&#128193;</div>
+                <div class="upload-zone__text"><strong>Drag &amp; drop files here</strong><span>or click to browse — JPG, PNG, PDF up to 10MB each</span></div>
+                <input type="file" id="portfolioFiles" name="portfolioFiles" class="upload-input" multiple accept=".jpg,.jpeg,.png,.pdf,.webp" aria-label="Upload portfolio files"/>
+                <div class="upload-zone__file-list" id="uploadFileList" aria-live="polite"></div>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost btn--prev" data-prev="3">&#8592; Back</button>
+                <button type="button" class="btn btn--primary btn--next" data-next="5">Next: Contact <span aria-hidden="true">&#8594;</span></button>
+              </div>
+            </fieldset>
+
+            <!-- Step 5: Contact -->
+            <fieldset class="form-step" id="step5" data-step="5" hidden>
+              <legend class="form-step__legend"><span class="step-number">05</span> Contact &amp; Review</legend>
+              <div class="booking-summary glass-card" id="bookingSummary" aria-label="Booking summary">
+                <h4 class="booking-summary__title">Your Booking Summary</h4>
+                <div id="summaryContent"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName" class="form-label">Full Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="contactName" name="contactName" class="form-input" placeholder="Dr. Rajendra Kumar" autocomplete="name" required aria-required="true" aria-describedby="contactName-error"/>
+                  <span class="form-error" id="contactName-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contactTitle" class="form-label">Job Title <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="contactTitle" name="contactTitle" class="form-input" placeholder="Head of Minerals Division" autocomplete="organization-title" required aria-required="true" aria-describedby="contactTitle-error"/>
+                  <span class="form-error" id="contactTitle-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactEmail" class="form-label">Email Address <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" id="contactEmail" name="contactEmail" class="form-input" placeholder="rajendra@company.in" autocomplete="email" required aria-required="true" aria-describedby="contactEmail-error"/>
+                  <span class="form-error" id="contactEmail-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contactPhone" class="form-label">Phone Number <span class="required" aria-hidden="true">*</span></label>
+                  <input type="tel" id="contactPhone" name="contactPhone" class="form-input" placeholder="+91 98765 43210" autocomplete="tel" required aria-required="true" aria-describedby="contactPhone-error"/>
+                  <span class="form-error" id="contactPhone-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="vatId" class="form-label">GSTIN / VAT ID</label>
+                  <input type="text" id="vatId" name="vatId" class="form-input" placeholder="22AAAAA0000A1Z5" aria-describedby="vatId-error"/>
+                  <span class="form-error" id="vatId-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="followUpMethod" class="form-label">Preferred Follow-up Method</label>
+                  <select id="followUpMethod" name="followUpMethod" class="form-input form-select">
+                    <option value="email">Email</option>
+                    <option value="phone">Phone Call</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="video">Video Call</option>
+                  </select>
+                </div>
+              </div>
+              <label class="form-checkbox" for="agreeTerms">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms" class="checkbox-input" required aria-required="true" aria-describedby="agreeTerms-error"/>
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span class="checkbox-label">I agree to the <a href="#" class="link--cyan">Terms &amp; Conditions</a> and <a href="#" class="link--cyan">Privacy Policy</a> of IISMEXPO 2026 <span class="required" aria-hidden="true">*</span></span>
+              </label>
+              <span class="form-error" id="agreeTerms-error" role="alert"></span>
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost btn--prev" data-prev="4">&#8592; Back</button>
+                <button type="submit" class="btn btn--primary btn--submit" id="submitBtn"><span class="btn__icon" aria-hidden="true">&#10022;</span> Confirm Booking</button>
+              </div>
+            </fieldset>
+
+          </form>
+
+          <!-- Confirmation Screen -->
+          <div class="confirmation-screen" id="confirmationScreen" hidden aria-live="assertive">
+            <div class="confirmation-screen__inner glass-card">
+              <div class="confirmation-screen__crystal" aria-hidden="true">&#9672;</div>
+              <h3 class="confirmation-screen__title gradient-text">Booking Confirmed!</h3>
+              <p class="confirmation-screen__sub">Your IISMEXPO 2026 exhibitor application has been received.</p>
+              <div class="confirmation-screen__ref" id="confirmRef"></div>
+              <p class="confirmation-screen__note">Our team will contact you within 2 business days to confirm your space and process payment.</p>
+              <div class="confirmation-screen__actions">
+                <a href="#about" class="btn btn--primary">Explore IISMEXPO</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SPEAKERS ═══ -->
+    <section class="speakers section-reveal" id="speakers" aria-labelledby="speakers-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Keynote Speakers</span>
+          <h2 class="section-title gradient-text" id="speakers-heading">Voices Shaping the Future of Minerals</h2>
+          <p class="section-subtitle">Industry titans, policy architects, and scientific visionaries converge at IISMEXPO 2026.</p>
+        </div>
+        <div class="speakers__grid" role="list" aria-label="Keynote speakers">
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:175" aria-hidden="true"><span class="avatar-initials">RK</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Dr. Rajiv Kumar</h3>
+              <p class="speaker-card__title">Secretary, Ministry of Mines, Government of India</p>
+              <p class="speaker-card__topic">India's National Critical Mineral Mission: Policy &amp; Roadmap</p>
+              <div class="speaker-card__tags"><span class="tag tag--cyan">Policy</span><span class="tag tag--violet">Governance</span></div>
+            </div>
+          </article>
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:270" aria-hidden="true"><span class="avatar-initials">PS</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Prof. Priya Sharma</h3>
+              <p class="speaker-card__title">Director, Indian Bureau of Mines &amp; IIT-BHU</p>
+              <p class="speaker-card__topic">Rare Earth Processing: Closing the Refinery Gap</p>
+              <div class="speaker-card__tags"><span class="tag tag--cyan">Research</span><span class="tag tag--gold">REE</span></div>
+            </div>
+          </article>
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:45" aria-hidden="true"><span class="avatar-initials">AM</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Arun Mishra</h3>
+              <p class="speaker-card__title">CEO, National Mineral Development Corporation</p>
+              <p class="speaker-card__topic">Scaling India's Mining Output: FY2030 Targets</p>
+              <div class="speaker-card__tags"><span class="tag tag--gold">Industry</span><span class="tag tag--violet">Investment</span></div>
+            </div>
+          </article>
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:320" aria-hidden="true"><span class="avatar-initials">LW</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Dr. Lena Wahlberg</h3>
+              <p class="speaker-card__title">Head of Critical Minerals, International Energy Agency</p>
+              <p class="speaker-card__topic">Global Supply Chain Resilience: India's Strategic Role</p>
+              <div class="speaker-card__tags"><span class="tag tag--cyan">Global</span><span class="tag tag--violet">Energy</span></div>
+            </div>
+          </article>
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:200" aria-hidden="true"><span class="avatar-initials">VN</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Vikram Nair</h3>
+              <p class="speaker-card__title">Managing Partner, Green Mineral Ventures</p>
+              <p class="speaker-card__topic">Financing the Critical Mineral Boom: VC &amp; PE Perspectives</p>
+              <div class="speaker-card__tags"><span class="tag tag--gold">Finance</span><span class="tag tag--cyan">VC</span></div>
+            </div>
+          </article>
+          <article class="glass-card speaker-card section-reveal" role="listitem">
+            <div class="speaker-card__avatar" style="--avatar-hue:130" aria-hidden="true"><span class="avatar-initials">TC</span></div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Dr. Tanvir Choudhury</h3>
+              <p class="speaker-card__title">Chief AI Officer, Vedanta Resources</p>
+              <p class="speaker-card__topic">AI &amp; Machine Learning in Predictive Ore Deposit Modelling</p>
+              <div class="speaker-card__tags"><span class="tag tag--violet">AI/ML</span><span class="tag tag--cyan">Technology</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LOGISTICS ═══ -->
+    <section class="logistics section-reveal" id="logistics" aria-labelledby="logistics-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Plan Your Visit</span>
+          <h2 class="section-title gradient-text" id="logistics-heading">Event Logistics</h2>
+          <p class="section-subtitle">Everything you need to know to attend or exhibit at IISMEXPO 2026.</p>
+        </div>
+        <div class="logistics__grid">
+          <div class="glass-card logistics-card">
+            <div class="logistics-card__icon" aria-hidden="true">&#128197;</div>
+            <h3 class="logistics-card__title">Event Dates</h3>
+            <div class="logistics-card__body">
+              <div class="date-block"><span class="date-label">Day 1 — Inauguration &amp; Keynotes</span><span class="date-val">15 September 2026</span></div>
+              <div class="date-block"><span class="date-label">Day 2 — Exhibition &amp; B2B Meetings</span><span class="date-val">16 September 2026</span></div>
+              <div class="date-block"><span class="date-label">Day 3 — Policy Forum &amp; MoU Signing</span><span class="date-val">17 September 2026</span></div>
+              <div class="date-block date-block--deadline"><span class="date-label">&#128308; Exhibitor Registration Deadline</span><span class="date-val">30 July 2026</span></div>
+            </div>
+          </div>
+          <div class="glass-card logistics-card">
+            <div class="logistics-card__icon" aria-hidden="true">&#128205;</div>
+            <h3 class="logistics-card__title">Venue</h3>
+            <div class="logistics-card__body">
+              <p class="venue-name">Bharat Mandapam</p>
+              <p class="venue-address">Pragati Maidan, Hall 1 &amp; Hall 2<br/>New Delhi — 110001, India</p>
+              <div class="venue-details">
+                <span>&#128647; Pragati Maidan Metro (Blue Line)</span>
+                <span>&#127377; 2,000+ parking spaces on-site</span>
+                <span>&#9992;&#65039; 18 km from Indira Gandhi Airport</span>
+              </div>
+              <a href="https://maps.google.com/?q=Bharat+Mandapam+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">View on Maps &#8594;</a>
+            </div>
+          </div>
+          <div class="glass-card logistics-card">
+            <div class="logistics-card__icon" aria-hidden="true">&#127915;</div>
+            <h3 class="logistics-card__title">Visitor Tickets</h3>
+            <div class="logistics-card__body">
+              <div class="ticket-tier"><span class="ticket-tier__name">Trade Visitor (1 Day)</span><span class="ticket-tier__price">&#8377; 500</span></div>
+              <div class="ticket-tier"><span class="ticket-tier__name">Trade Visitor (3 Days)</span><span class="ticket-tier__price">&#8377; 1,200</span></div>
+              <div class="ticket-tier"><span class="ticket-tier__name">Conference Pass</span><span class="ticket-tier__price">&#8377; 3,500</span></div>
+              <div class="ticket-tier ticket-tier--vip"><span class="ticket-tier__name">VIP All-Access Pass</span><span class="ticket-tier__price">&#8377; 12,000</span></div>
+              <a href="#exhibitor" class="btn btn--primary btn--sm">Register as Exhibitor &#8594;</a>
+            </div>
+          </div>
+        </div>
+        <div class="trust-badges section-reveal" aria-label="Trust and authority badges">
+          <div class="trust-badges__inner">
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#127963;&#65039;</span><span>Ministry of Mines, GoI</span></div>
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#127807;</span><span>ISO 20121 Certified Event</span></div>
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#128272;</span><span>Secure Payment Gateway</span></div>
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#127760;</span><span>40+ Country Delegations</span></div>
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#128240;</span><span>200+ Media Accreditations</span></div>
+            <div class="trust-badge"><span class="trust-badge__icon" aria-hidden="true">&#9851;&#65039;</span><span>Zero-Waste Exhibition</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#hero" class="footer__logo" aria-label="IISMEXPO — back to top">
+            <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="footer__logo-img" width="140" height="42" loading="lazy"/>
+          </a>
+          <p class="footer__brand-desc">India's premier platform for Rare Earth Mining, Metals, Minerals &amp; Critical Materials. Established 2026. Bharat Mandapam, New Delhi.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="social-icon" aria-label="LinkedIn" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter / X" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Quick links">
+          <h4 class="footer__col-title">Quick Links</h4>
+          <ul class="footer__links" role="list">
+            <li><a href="#about" class="footer__link">About IISMEXPO</a></li>
+            <li><a href="#vault" class="footer__link">The Mineral Vault</a></li>
+            <li><a href="#floor" class="footer__link">Exhibition Floor Plan</a></li>
+            <li><a href="#speakers" class="footer__link">Keynote Speakers</a></li>
+            <li><a href="#logistics" class="footer__link">Visitor Logistics</a></li>
+            <li><a href="#exhibitor" class="footer__link">Exhibitor Booking</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Sector links">
+          <h4 class="footer__col-title">Exhibition Sectors</h4>
+          <ul class="footer__links" role="list">
+            <li><a href="#about" class="footer__link">Rare Earth Metals</a></li>
+            <li><a href="#about" class="footer__link">Mining &amp; Coal</a></li>
+            <li><a href="#about" class="footer__link">Critical Raw Materials</a></li>
+            <li><a href="#about" class="footer__link">Clean-Energy Transition</a></li>
+            <li><a href="#about" class="footer__link">Technology Innovation</a></li>
+            <li><a href="#about" class="footer__link">Strategic Investments</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col footer__newsletter">
+          <h4 class="footer__col-title">Stay Updated</h4>
+          <p class="footer__newsletter-desc">Get the latest news on exhibitor openings, speaker announcements, and event updates.</p>
+          <form class="newsletter-form" id="newsletterForm" novalidate aria-label="Newsletter subscription">
+            <div class="newsletter-form__row">
+              <input type="email" id="newsletterEmail" name="newsletterEmail" class="form-input newsletter-input" placeholder="your@email.com" required aria-required="true" aria-label="Email for newsletter" autocomplete="email"/>
+              <button type="submit" class="btn btn--primary btn--newsletter">Subscribe</button>
+            </div>
+            <div class="newsletter-success" id="newsletterSuccess" hidden role="status" aria-live="polite">&#9989; Subscribed! Thank you for joining IISMEXPO updates.</div>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&#169; 2026 IISMEXPO — India International Strategic Minerals Expo. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <span aria-hidden="true">&#183;</span>
+          <a href="#" class="footer__legal-link">Terms &amp; Conditions</a>
+          <span aria-hidden="true">&#183;</span>
+          <a href="#" class="footer__legal-link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
