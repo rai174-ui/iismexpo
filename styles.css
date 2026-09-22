@@ -280,59 +280,95 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
   gap: 2rem;
 }
 
-.navbar__logo {
-  flex-shrink: 0;
+.navbar__brand-wrapper {
   display: flex;
   align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .navbar__logo-img {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px var(--cyan-glow));
+  filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.25));
   transition: var(--transition);
 }
 .navbar__logo-img:hover {
-  filter: drop-shadow(0 0 16px var(--cyan-glow));
+  filter: drop-shadow(0 0 18px rgba(0, 245, 212, 0.5));
+  transform: scale(1.02);
 }
 
-/* Amigo Connect organiser block in navbar */
-.navbar__logo-divider {
+.navbar__brand-divider {
   display: block;
   width: 1px;
-  height: 36px;
-  background: linear-gradient(to bottom, transparent, rgba(0,245,212,0.4), transparent);
-  margin: 0 0.75rem;
+  height: 28px;
+  background: linear-gradient(180deg, transparent, rgba(0, 245, 212, 0.4), transparent);
+  margin: 0 0.15rem;
   flex-shrink: 0;
 }
-.navbar__organiser {
+
+/* Amigo Connect organiser pill badge in navbar */
+.navbar__organiser-badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-.navbar__ac-logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1.5px solid rgba(0,245,212,0.25);
-  flex-shrink: 0;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.45rem;
+  background: rgba(17, 21, 32, 0.7);
+  border: 1px solid rgba(0, 245, 212, 0.22);
+  border-radius: 40px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: var(--transition);
 }
-.navbar__ac-logo:hover { border-color: var(--cyan); box-shadow: 0 0 10px rgba(0,245,212,0.4); }
-.navbar__ac-text {
+.navbar__organiser-badge:hover {
+  border-color: rgba(0, 245, 212, 0.5);
+  box-shadow: 0 0 16px rgba(0, 245, 212, 0.2);
+  transform: translateY(-1px);
+}
+
+.navbar__ac-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(0, 245, 212, 0.4);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0, 245, 212, 0.2);
+}
+
+.navbar__ac-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+}
+
+.navbar__ac-label {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  line-height: 1.3;
-  color: var(--text-muted);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(240, 238, 232, 0.55);
+  font-weight: 500;
   white-space: nowrap;
 }
-.navbar__ac-text strong {
-  color: var(--cyan);
-  font-size: 0.8rem;
+
+.navbar__ac-name {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   font-weight: 700;
+  color: var(--cyan);
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* Hero organiser tag */
@@ -2071,32 +2107,39 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
   margin-bottom: 1.5rem;
 }
 
+.footer__logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .footer__logo-img {
-  height: 40px;
+  height: 44px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0.9);
+  filter: drop-shadow(0 0 10px rgba(0,245,212,0.2));
   transition: var(--transition);
 }
-.footer__logo-img:hover { filter: brightness(1.1) drop-shadow(0 0 8px var(--cyan-glow)); }
+.footer__logo-img:hover { filter: drop-shadow(0 0 16px rgba(0,245,212,0.4)); }
 
 /* Amigo Connect organiser block in footer */
 .footer__organiser-block {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin: 1rem 0 0.5rem;
-  padding: 0.75rem 1rem;
-  background: rgba(0,245,212,0.05);
-  border: 1px solid rgba(0,245,212,0.15);
-  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  background: rgba(17, 21, 32, 0.8);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  border-radius: 12px;
+  max-width: max-content;
 }
 .footer__ac-logo {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(0,245,212,0.3);
+  border: 1.5px solid rgba(0, 245, 212, 0.35);
   flex-shrink: 0;
 }
 .footer__ac-info { line-height: 1.4; }
@@ -2276,7 +2319,15 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
    RESPONSIVE — Mobile
    ═══════════════════════════════════════════════════ */
 @media (max-width: 700px) {
-  /* Navbar */
+  /* Navbar Logo Responsiveness */
+  .navbar__brand-wrapper { gap: 0.5rem; }
+  .navbar__brand-divider { height: 22px; }
+  .navbar__logo-img { height: 34px; }
+  .navbar__organiser-badge { padding: 0.25rem 0.65rem 0.25rem 0.35rem; gap: 0.4rem; }
+  .navbar__ac-logo { width: 24px; height: 24px; }
+  .navbar__ac-label { font-size: 0.55rem; }
+  .navbar__ac-name { font-size: 0.7rem; }
+
   .navbar__nav {
     position: fixed;
     top: 0;

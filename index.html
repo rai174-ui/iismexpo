@@ -64,14 +64,19 @@
   <!-- ═══ NAVBAR ═══ -->
   <header class="navbar" id="navbar" role="banner">
     <div class="navbar__inner container">
-      <a href="#hero" class="navbar__logo" aria-label="IISMEXPO Home">
-        <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="navbar__logo-img" width="130" height="40" />
-        <span class="navbar__logo-divider" aria-hidden="true"></span>
-        <div class="navbar__organiser">
-          <img src="assets/amigoconnect_logo.jpg" alt="Amigo Connect logo" class="navbar__ac-logo" width="36" height="36" />
-          <span class="navbar__ac-text">Organised by<br><strong>Amigo Connect</strong></span>
+      <div class="navbar__brand-wrapper">
+        <a href="#hero" class="navbar__brand" aria-label="IISMEXPO Home">
+          <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="navbar__logo-img" width="140" height="42" />
+        </a>
+        <span class="navbar__brand-divider" aria-hidden="true"></span>
+        <div class="navbar__organiser-badge" title="Organised & Managed by Amigo Connect">
+          <img src="assets/amigoconnect_logo.png" alt="Amigo Connect logo" class="navbar__ac-logo" width="30" height="30" />
+          <div class="navbar__ac-info">
+            <span class="navbar__ac-label">Organised by</span>
+            <span class="navbar__ac-name">Amigo Connect™</span>
+          </div>
         </div>
-      </a>
+      </div>
       <nav class="navbar__nav" id="navMenu" aria-label="Primary navigation">
         <ul class="navbar__links" role="list">
           <li><a href="#about"    class="nav-link">About</a></li>
@@ -749,14 +754,16 @@
     <div class="footer__inner container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="#hero" class="footer__logo" aria-label="IISMEXPO — back to top">
-            <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="footer__logo-img" width="130" height="40" loading="lazy"/>
-          </a>
-          <div class="footer__organiser-block">
-            <img src="assets/amigoconnect_logo.jpg" alt="Amigo Connect logo" class="footer__ac-logo" width="50" height="50" loading="lazy" />
-            <div class="footer__ac-info">
-              <p class="footer__ac-label">Official Organiser</p>
-              <p class="footer__ac-name"><strong>Amigo Connect™</strong></p>
+          <div class="footer__logo-group">
+            <a href="#hero" class="footer__logo" aria-label="IISMEXPO — back to top">
+              <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="footer__logo-img" width="140" height="42" loading="lazy"/>
+            </a>
+            <div class="footer__organiser-block">
+              <img src="assets/amigoconnect_logo.png" alt="Amigo Connect logo" class="footer__ac-logo" width="44" height="44" loading="lazy" />
+              <div class="footer__ac-info">
+                <p class="footer__ac-label">Official Organiser</p>
+                <p class="footer__ac-name"><strong>Amigo Connect™</strong></p>
+              </div>
             </div>
           </div>
           <p class="footer__brand-desc">India's premier platform for Rare Earth Mining, Metals, Minerals &amp; Critical Materials. Established 2026. Bharat Mandapam, New Delhi.</p>
