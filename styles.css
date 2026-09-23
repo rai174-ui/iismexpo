@@ -2697,6 +2697,409 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
     position: fixed;
     top: 0;
     right: 0;
+/* ═══════════════════════════════════════════════════
+   IISME ECOSYSTEM & SECTOR OVERVIEW
+   ═══════════════════════════════════════════════════ */
+.ecosystem {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 245, 212, 0.03) 0%, transparent 60%);
+}
+
+.section-header-sm {
+  margin-bottom: 2rem;
+}
+
+.section-header-sm h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-header-sm p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 720px;
+}
+
+.section-tag-sm {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+}
+
+/* Ecosystem Overview Grid */
+.ecosystem__overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.ecosystem-card {
+  padding: 2.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ecosystem-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.ecosystem-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.ecosystem-card__badge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+}
+
+.ecosystem-card__badge--violet {
+  background: var(--violet-dim);
+  color: var(--violet);
+  border-color: rgba(155, 93, 229, 0.3);
+}
+
+.ecosystem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.ecosystem-list li strong {
+  color: var(--text-primary);
+}
+
+.macro-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+}
+
+.macro-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.macro-stat__val {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.macro-stat__lbl {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.segments-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.segment-pill {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text-primary);
+}
+
+/* State Production Share Grid */
+.state-shares {
+  margin-bottom: 4rem;
+}
+
+.state-shares__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.state-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.state-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.state-card__name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.state-card__share {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+.state-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.state-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan) 0%, var(--violet) 100%);
+  border-radius: 3px;
+  transition: width 1s ease-out;
+}
+
+.state-bar__fill--cyan { background: var(--cyan); }
+.state-bar__fill--gold { background: var(--gold); }
+.state-bar__fill--violet { background: var(--violet); }
+
+.state-card__minerals {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Critical Mineral Reserves Map & Grid */
+.critical-reserves {
+  margin-bottom: 4rem;
+}
+
+.critical-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.critical-card {
+  padding: 2rem;
+}
+
+.critical-card__icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.critical-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.critical-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.critical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.critical-list li strong {
+  color: var(--text-primary);
+}
+
+.metalloid-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.metalloid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.metalloid-table th {
+  padding: 0.6rem 0.75rem;
+  color: var(--cyan);
+  border-bottom: 1px solid var(--glass-border);
+  font-weight: 700;
+}
+
+.metalloid-table td {
+  padding: 0.6rem 0.75rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.metalloid-table td strong {
+  color: var(--text-primary);
+}
+
+/* 8 Exhibition Pavilions Showcase */
+.pavilions-showcase {
+  margin-bottom: 4rem;
+}
+
+.pavilions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.pavilion-card {
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pavilion-num {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.pavilion-icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.pavilion-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.pavilion-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Empowerment & Attendee Matrix */
+.empowerment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.brand-empower-card, .attendees-card {
+  padding: 2.25rem;
+}
+
+.brand-empower-card h3, .attendees-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.brand-empower-card p, .attendees-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.empower-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.empower-list li strong {
+  color: var(--text-primary);
+}
+
+.attendees-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.attendee-tag {
+  font-size: 0.82rem;
+  padding: 0.5rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.attendee-tag:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+/* Responsive Breakpoints for Ecosystem */
+@media (max-width: 1024px) {
+  .ecosystem__overview-grid { grid-template-columns: 1fr; }
+  .state-shares__grid       { grid-template-columns: repeat(2, 1fr); }
+  .critical-grid            { grid-template-columns: 1fr; }
+  .pavilions-grid           { grid-template-columns: repeat(2, 1fr); }
+  .empowerment-grid         { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .state-shares__grid       { grid-template-columns: 1fr; }
+  .pavilions-grid           { grid-template-columns: 1fr; }
+  .macro-stats              { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+@media (max-width: 1024px) {
+  .navbar__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
     bottom: 0;
     width: min(85vw, 320px);
     background: rgba(10, 13, 18, 0.97);
@@ -2783,3 +3186,4 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
   body { background: #fff; color: #000; }
   .glass-card { background: #f5f5f5; border: 1px solid #ddd; backdrop-filter: none; }
 }
+
