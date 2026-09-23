@@ -3003,8 +3003,8 @@ section {
 }
 
 .state-col-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.1rem;
 }
 
@@ -3458,80 +3458,175 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════
-   GOVERNMENT OF INDIA SUPPORT & CREDENTIALS BANNER
+   GOVERNMENT OF INDIA CREDENTIALS & PATRONAGE RIBBON
    ═══════════════════════════════════════════════════ */
-.gov-support-block {
-  margin-top: 2.5rem;
-  padding: 1.5rem 2rem;
-  background: rgba(18, 23, 35, 0.85);
-  border: 1px solid rgba(0, 245, 212, 0.25);
-  border-radius: 20px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-  text-align: center;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
+.gov-credentials-section {
+  position: relative;
+  z-index: 10;
+  padding: 2.25rem 0;
+  background: linear-gradient(180deg, rgba(10, 14, 22, 0.98) 0%, rgba(16, 22, 34, 0.98) 100%);
+  border-top: 1px solid rgba(0, 245, 212, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.gov-support-header {
+.gov-credentials-card {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  background: linear-gradient(135deg, rgba(22, 30, 46, 0.8) 0%, rgba(14, 19, 30, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.75rem 3rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.gov-credentials-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.gov-credentials-emblem {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(0, 245, 212, 0.1);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0, 245, 212, 0.2);
+  flex-shrink: 0;
+}
+
+.gov-credentials-heading-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gov-credentials-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+}
+
+.gov-credentials-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.gov-credentials-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.gov-credentials-logos {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.gov-logo-unit {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.6rem;
 }
 
-.gov-support-emblem {
-  font-size: 1.35rem;
-}
-
-.gov-support-title {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--cyan);
-}
-
-.gov-logos-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.75rem;
-}
-
 .gov-logo-card {
   background: #FFFFFF;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.6rem;
   border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 68px;
+  min-width: 190px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .gov-logo-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0, 245, 212, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 245, 212, 0.35);
 }
 
 .gov-logo-img {
-  height: 54px;
+  height: 52px;
   width: auto;
+  max-width: 200px;
   object-fit: contain;
 }
 
+.gov-logo-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(240, 238, 232, 0.8);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Eyebrow Gov Badge */
+.eyebrow-badge--gov {
+  border-color: rgba(0, 245, 212, 0.35);
+  background: rgba(0, 245, 212, 0.08);
+  color: var(--cyan);
+}
+
+.gov-pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  margin-right: 0.45rem;
+}
+
+@media (max-width: 992px) {
+  .gov-credentials-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.75rem;
+  }
+  .gov-credentials-header {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .gov-credentials-divider {
+    display: none;
+  }
+  .gov-credentials-logos {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 640px) {
-  .gov-support-block { padding: 1.25rem 1rem; }
-  .gov-logo-card { padding: 0.5rem 1rem; }
-  .gov-logo-img { height: 44px; }
+  .gov-logo-card {
+    min-width: 150px;
+    padding: 0.5rem 1rem;
+    height: 58px;
+  }
+  .gov-logo-img {
+    height: 42px;
+  }
 }
 
 /* ═══════════════════════════════════════════════════
