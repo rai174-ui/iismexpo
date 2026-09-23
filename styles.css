@@ -2952,34 +2952,99 @@ section {
   font-weight: 800;
 }
 
-/* State Production Share Grid */
-.state-shares__grid {
+/* State Production Share Column Breakdown */
+.state-breakdown-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.state-col-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: rgba(15, 20, 30, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.state-col-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.1rem;
+}
+
+.state-col-header__badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.state-col-header h4 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.state-col-header__sub {
+  font-size: 0.82rem;
+  color: rgba(240, 238, 232, 0.65);
+  margin-top: 0.25rem;
+}
+
+.state-col-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
 }
 
 .state-card {
-  padding: 1.85rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   background: linear-gradient(145deg, rgba(20, 26, 38, 0.85) 0%, rgba(13, 17, 26, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
+  transition: var(--transition);
+}
+
+.state-card:hover {
+  border-color: rgba(0, 245, 212, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .state-card__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 0.85rem;
+  gap: 0.5rem;
+}
+
+.state-card__rank {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: monospace;
 }
 
 .state-card__name {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-primary);
+  flex-grow: 1;
 }
 
 .state-bar {
@@ -2987,7 +3052,7 @@ section {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .state-bar__fill {
@@ -3001,10 +3066,118 @@ section {
 .state-bar__fill--violet { background: var(--violet); }
 
 .state-card__minerals {
-  font-size: 0.88rem;
-  color: rgba(240, 238, 232, 0.72);
-  line-height: 1.6;
+  font-size: 0.85rem;
+  color: rgba(240, 238, 232, 0.75);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
 }
+
+.state-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.mineral-pill {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cyan);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Icon Wrap & SVG Badges */
+.macro-stat-card__icon-wrap,
+.eco-feature-card__icon,
+.critical-card__icon,
+.pavilion-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.macro-stat-card__icon-wrap {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0.85rem;
+}
+
+.eco-feature-card__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1.25rem;
+}
+
+.critical-card__icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.25rem;
+}
+
+.pavilion-icon-box {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1.1rem;
+}
+
+.icon-cyan {
+  background: rgba(0, 245, 212, 0.12);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+  color: var(--cyan);
+  box-shadow: 0 4px 20px rgba(0, 245, 212, 0.15);
+}
+
+.icon-violet {
+  background: rgba(155, 93, 229, 0.12);
+  border: 1px solid rgba(155, 93, 229, 0.3);
+  color: var(--violet);
+  box-shadow: 0 4px 20px rgba(155, 93, 229, 0.15);
+}
+
+.icon-gold {
+  background: rgba(224, 169, 109, 0.12);
+  border: 1px solid rgba(224, 169, 109, 0.3);
+  color: var(--gold);
+  box-shadow: 0 4px 20px rgba(224, 169, 109, 0.15);
+}
+
+.icon-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10B981;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+/* Pavilion Card Top Accent Highlights */
+.pavilion-card.accent-cyan { border-top: 3px solid var(--cyan); }
+.pavilion-card.accent-violet { border-top: 3px solid var(--violet); }
+.pavilion-card.accent-gold { border-top: 3px solid var(--gold); }
+.pavilion-card.accent-emerald { border-top: 3px solid #10B981; }
+
+.check-icon {
+  color: var(--cyan);
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+.attendee-dot, .tag-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.cyan-dot { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+.violet-dot { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
+.gold-dot { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+.emerald-dot { background: #10B981; box-shadow: 0 0 8px #10B981; }
 
 /* Critical Minerals Grid & Table */
 .critical-grid {
@@ -3018,11 +3191,6 @@ section {
   background: linear-gradient(145deg, rgba(20, 26, 38, 0.85) 0%, rgba(13, 17, 26, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-}
-
-.critical-card__icon {
-  font-size: 2.4rem;
-  margin-bottom: 0.85rem;
 }
 
 .critical-card h4 {
@@ -3106,11 +3274,6 @@ section {
   color: rgba(255, 255, 255, 0.07);
 }
 
-.pavilion-icon {
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
-}
-
 .pavilion-card h4 {
   font-family: var(--font-serif);
   font-size: 1.2rem;
@@ -3187,20 +3350,28 @@ section {
 }
 
 /* Responsive Media Queries for Ecosystem Tabs */
-@media (max-width: 1150px) {
-  .macro-banner            { grid-template-columns: 1fr; }
-  .eco-cards-grid          { grid-template-columns: 1fr; }
-  .state-shares__grid       { grid-template-columns: repeat(2, 1fr); }
-  .critical-grid            { grid-template-columns: 1fr; }
-  .pavilions-grid           { grid-template-columns: repeat(2, 1fr); }
-  .empowerment-grid         { grid-template-columns: 1fr; }
+@media (max-width: 1200px) {
+  .pavilions-grid { grid-template-columns: repeat(4, 1fr); }
+  .state-col-cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 992px) {
+  .macro-banner { grid-template-columns: 1fr 1fr 1fr; }
+  .eco-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .state-breakdown-wrapper { grid-template-columns: 1fr; }
+  .state-col-cards { grid-template-columns: repeat(2, 1fr); }
+  .critical-grid { grid-template-columns: 1fr; }
+  .pavilions-grid { grid-template-columns: repeat(2, 1fr); }
+  .empowerment-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .eco-tabs                 { width: 100%; border-radius: 20px; }
-  .eco-tab-btn              { width: 100%; justify-content: center; }
-  .state-shares__grid       { grid-template-columns: 1fr; }
-  .pavilions-grid           { grid-template-columns: 1fr; }
+  .eco-tabs { width: 100%; border-radius: 20px; }
+  .eco-tab-btn { width: 100%; justify-content: center; }
+  .macro-banner { grid-template-columns: 1fr; }
+  .eco-cards-grid { grid-template-columns: 1fr; }
+  .state-col-cards { grid-template-columns: 1fr; }
+  .pavilions-grid { grid-template-columns: 1fr; }
 }
 
 
@@ -3284,6 +3455,83 @@ section {
   .confirmation-screen__inner {
     padding: 2.5rem 1.5rem;
   }
+}
+
+/* ═══════════════════════════════════════════════════
+   GOVERNMENT OF INDIA SUPPORT & CREDENTIALS BANNER
+   ═══════════════════════════════════════════════════ */
+.gov-support-block {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(18, 23, 35, 0.85);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gov-support-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.gov-support-emblem {
+  font-size: 1.35rem;
+}
+
+.gov-support-title {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+}
+
+.gov-logos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.gov-logo-card {
+  background: #FFFFFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.gov-logo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 245, 212, 0.35);
+}
+
+.gov-logo-img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .gov-support-block { padding: 1.25rem 1rem; }
+  .gov-logo-card { padding: 0.5rem 1rem; }
+  .gov-logo-img { height: 44px; }
 }
 
 /* ═══════════════════════════════════════════════════
