@@ -69,13 +69,13 @@
           <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="navbar__logo-img" width="140" height="42" />
         </a>
         <span class="navbar__brand-divider" aria-hidden="true"></span>
-        <div class="navbar__organiser-badge" title="Organised &amp; Managed by Amigo Connect">
+        <a href="https://amigoconnect.com" target="_blank" rel="noopener noreferrer" class="navbar__organiser-badge" title="Organised &amp; Managed by Amigo Connect — Visit Website">
           <img src="assets/amigoconnect_logo.png" alt="Amigo Connect logo" class="navbar__ac-logo" width="30" height="30" />
           <div class="navbar__ac-info">
             <span class="navbar__ac-label">Organised by</span>
             <span class="navbar__ac-name">Amigo Connect™</span>
           </div>
-        </div>
+        </a>
       </div>
       <nav class="navbar__nav" id="navMenu" aria-label="Primary navigation">
         <ul class="navbar__links" role="list">
@@ -85,7 +85,6 @@
           <li><a href="#floor"     class="nav-link">Floor Plan</a></li>
           <li><a href="#venue"     class="nav-link">Venue</a></li>
           <li><a href="#agenda"    class="nav-link">Agenda</a></li>
-          <li><a href="#speakers"  class="nav-link">Speakers</a></li>
           <li><a href="#logistics" class="nav-link">Logistics</a></li>
           <li><a href="#exhibitor" class="nav-link nav-link--cta">Book Stand</a></li>
         </ul>
@@ -111,7 +110,7 @@
         <h1 class="hero__title">
           <span class="hero__title-line gradient-text">Amigo Connect</span>
           <span class="hero__title-sub">India International Strategic Minerals Expo</span>
-          <span class="hero__organiser-tag">Organised &amp; Managed by <strong>Amigo Connect™</strong></span>
+          <span class="hero__organiser-tag">Organised &amp; Managed by <a href="https://amigoconnect.com" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: underline;"><strong>Amigo Connect™</strong></a></span>
         </h1>
         <p class="hero__desc">
           Where the Earth's rarest treasures meet India's industrial future.
@@ -221,72 +220,106 @@
           <span class="section-tag">Strategic Minerals &amp; Sector Blueprint</span>
           <h2 class="section-title gradient-text" id="ecosystem-heading">Overview of IISME &amp; Indian Mining Ecosystem</h2>
           <p class="section-subtitle">
-            Established in 2026, the India International Strategic Minerals Expo (IISME) is India's premier business and knowledge platform dedicated to protecting and promoting the interests of India's Rare Earth Mining, Metal, and Mineral-based sectors across Private, Joint, and Public Sectors.
+            Established in 2026, the India International Strategic Minerals Expo (IISME) is India's premier platform protecting and promoting the interests of India's Rare Earth Mining, Metal, and Mineral-based sectors.
           </p>
         </div>
 
-        <!-- IISME Core Role & Macro Impact -->
-        <div class="ecosystem__overview-grid">
-          <div class="glass-card ecosystem-card">
-            <div class="ecosystem-card__badge">Core Role</div>
-            <h3>Platform for Strategic Growth</h3>
-            <p>Bringing together mining companies, manufacturers, technology providers, government organizations, research institutions, startups, importers, exporters, and distributors to create a dynamic ecosystem for collaboration.</p>
-            <ul class="ecosystem-list">
-              <li><strong>Lease &amp; Tenure Guidance:</strong> Assisting stakeholders with lease grants, renewals, and tenures.</li>
-              <li><strong>Taxation &amp; Production Rules:</strong> Navigating production benchmarks and taxation policies.</li>
-              <li><strong>Trade &amp; Export Growth:</strong> Facilitating international trade corridors and export frameworks.</li>
-              <li><strong>Workforce &amp; Labor Welfare:</strong> Promoting modern workforce welfare and mining safety standards.</li>
-            </ul>
+        <!-- Ecosystem Tabs Header Navigation -->
+        <div class="eco-tabs" role="tablist" aria-label="Ecosystem Section Categories">
+          <button class="eco-tab-btn active" data-tab="overview" role="tab" aria-selected="true" aria-controls="eco-tab-overview">
+            <span class="tab-icon">📊</span><span class="tab-text">Sector Blueprint</span>
+          </button>
+
+          <button class="eco-tab-btn" data-tab="states" role="tab" aria-selected="false" aria-controls="eco-tab-states">
+            <span class="tab-icon">🗺️</span><span class="tab-text">State Reserves</span>
+          </button>
+
+          <button class="eco-tab-btn" data-tab="critical" role="tab" aria-selected="false" aria-controls="eco-tab-critical">
+            <span class="tab-icon">⚡</span><span class="tab-text">Critical &amp; REE</span>
+          </button>
+
+          <button class="eco-tab-btn" data-tab="pavilions" role="tab" aria-selected="false" aria-controls="eco-tab-pavilions">
+            <span class="tab-icon">🏛️</span><span class="tab-text">8 Pavilions</span>
+          </button>
+
+          <button class="eco-tab-btn" data-tab="empower" role="tab" aria-selected="false" aria-controls="eco-tab-empower">
+            <span class="tab-icon">🤝</span><span class="tab-text">Impact &amp; Attendees</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Sector Blueprint & Macro Overview -->
+        <div class="eco-tab-panel active" id="eco-tab-overview" role="tabpanel">
+          <div class="macro-banner">
+            <div class="glass-card macro-stat-card">
+              <span class="macro-stat-card__icon">📈</span>
+              <span class="macro-stat-card__val gradient-text">2.2% – 2.5%</span>
+              <span class="macro-stat-card__lbl">Contribution to National GDP</span>
+            </div>
+            <div class="glass-card macro-stat-card">
+              <span class="macro-stat-card__icon">🏭</span>
+              <span class="macro-stat-card__val gradient-text">~11%</span>
+              <span class="macro-stat-card__lbl">Share of Industrial Sector</span>
+            </div>
+            <div class="glass-card macro-stat-card">
+              <span class="macro-stat-card__icon">⚛️</span>
+              <span class="macro-stat-card__val gradient-text">30</span>
+              <span class="macro-stat-card__lbl">Critical Minerals (NCMM Mission)</span>
+            </div>
           </div>
 
-          <div class="glass-card ecosystem-card">
-            <div class="ecosystem-card__badge ecosystem-card__badge--violet">Macro Impact</div>
-            <h3>Indian Mining Sector at a Glance</h3>
-            <p>India's mining sector is a core driver of industrial growth, fueling energy, manufacturing, infrastructure, and high-tech defence applications across 95 distinct minerals.</p>
-            <div class="macro-stats">
-              <div class="macro-stat">
-                <span class="macro-stat__val gradient-text">2.2%–2.5%</span>
-                <span class="macro-stat__lbl">Contribution to National GDP</span>
-              </div>
-              <div class="macro-stat">
-                <span class="macro-stat__val gradient-text">~11%</span>
-                <span class="macro-stat__lbl">Share of Industrial Sector</span>
-              </div>
-              <div class="macro-stat">
-                <span class="macro-stat__val gradient-text">30</span>
-                <span class="macro-stat__lbl">Critical Minerals (NCMM Mission)</span>
-              </div>
+          <div class="eco-cards-grid">
+            <div class="glass-card eco-feature-card">
+              <div class="eco-feature-card__icon">📜</div>
+              <h4>Lease &amp; Tenure Guidance</h4>
+              <p>Assisting mining companies and investors with lease grants, renewals, tenures, and regulatory compliance.</p>
             </div>
-            <div class="segments-pills">
-              <span class="segment-pill">⚡ Fuel Minerals (Coal &amp; Lignite)</span>
-              <span class="segment-pill">🏗️ Metallic (Iron Ore, Bauxite, Chromite)</span>
-              <span class="segment-pill">🏛️ Non-Metallic (Limestone)</span>
-              <span class="segment-pill">🔋 Critical Minerals (Lithium, REE, Cobalt)</span>
+            <div class="glass-card eco-feature-card">
+              <div class="eco-feature-card__icon">⚖️</div>
+              <h4>Taxation &amp; Production Rules</h4>
+              <p>Navigating federal production benchmarks, royalty structures, and taxation frameworks for private &amp; public blocks.</p>
             </div>
+            <div class="glass-card eco-feature-card">
+              <div class="eco-feature-card__icon">🌐</div>
+              <h4>Trade &amp; Export Growth</h4>
+              <p>Facilitating international trade corridors, export licensing, and global mineral supply chain partnerships.</p>
+            </div>
+            <div class="glass-card eco-feature-card">
+              <div class="eco-feature-card__icon">🛡️</div>
+              <h4>Workforce &amp; Labor Welfare</h4>
+              <p>Promoting modern workforce welfare, automated safety protocols, and ESG zero-harm standards.</p>
+            </div>
+          </div>
+
+          <div class="segments-bar glass-card">
+            <span class="segments-bar__title">Core Mineral Segments:</span>
+            <span class="segment-tag">⚡ Fuel Minerals (Coal &amp; Lignite)</span>
+            <span class="segment-tag">🏗️ Metallic (Iron Ore, Bauxite, Chromite)</span>
+            <span class="segment-tag">🏛️ Non-Metallic (Limestone)</span>
+            <span class="segment-tag">🔋 Critical Minerals (Lithium, REE, Cobalt)</span>
           </div>
         </div>
 
-        <!-- Production Share by State -->
-        <div class="state-shares section-reveal">
-          <div class="section-header-sm">
+        <!-- Tab 2: Major Mining States -->
+        <div class="eco-tab-panel" id="eco-tab-states" role="tabpanel">
+          <div class="section-header-sm text-center">
             <span class="section-tag-sm">Geological Dominance</span>
-            <h3>Major Mining States &amp; Mineral Production Value Share</h3>
+            <h3>Mineral Production Share by Major States</h3>
             <p>Odisha, Chhattisgarh, Rajasthan, and Karnataka account for over 88% of India's total mineral production value.</p>
           </div>
           <div class="state-shares__grid">
             <div class="glass-card state-card">
               <div class="state-card__header">
                 <span class="state-card__name">Odisha</span>
-                <span class="state-card__share">44.11%</span>
+                <span class="state-card__share badge-cyan">44.11%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill" style="width: 44.11%;"></div></div>
-              <p class="state-card__minerals">Vast majority of Chromite &amp; Bauxite, Iron Ore, Manganese. East Coast REE Corridor (IREL OSCOM).</p>
+              <p class="state-card__minerals">Dominates Chromite &amp; Bauxite, Iron Ore, Manganese. Home to East Coast REE Corridor (IREL OSCOM).</p>
             </div>
 
             <div class="glass-card state-card">
               <div class="state-card__header">
                 <span class="state-card__name">Chhattisgarh</span>
-                <span class="state-card__share">17.34%</span>
+                <span class="state-card__share badge-violet">17.34%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill state-bar__fill--cyan" style="width: 17.34%;"></div></div>
               <p class="state-card__minerals">Powerhouse for Coal, Iron Ore, and Limestone. Katghora composite Lithium &amp; REE block.</p>
@@ -295,16 +328,16 @@
             <div class="glass-card state-card">
               <div class="state-card__header">
                 <span class="state-card__name">Rajasthan</span>
-                <span class="state-card__share">14.10%</span>
+                <span class="state-card__share badge-gold">14.10%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill state-bar__fill--gold" style="width: 14.10%;"></div></div>
-              <p class="state-card__minerals">Dominates non-ferrous minerals: Lead, Zinc, Limestone, Gypsum, Sandstone, Hard-rock REE ores.</p>
+              <p class="state-card__minerals">Leads non-ferrous minerals: Lead, Zinc, Limestone, Gypsum, Sandstone, Hard-rock REE ores.</p>
             </div>
 
             <div class="glass-card state-card">
               <div class="state-card__header">
                 <span class="state-card__name">Karnataka</span>
-                <span class="state-card__share">13.24%</span>
+                <span class="state-card__share badge-cyan">13.24%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill state-bar__fill--violet" style="width: 13.24%;"></div></div>
               <p class="state-card__minerals">Iron Ore, Hutti Gold fields, Limestone, Mandya district hard-rock spodumene Lithium reserves.</p>
@@ -316,7 +349,7 @@
                 <span class="state-card__share">4.36%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill" style="width: 4.36%;"></div></div>
-              <p class="state-card__minerals">Chota Nagpur plateau deposits: Coal, Iron Ore, Copper, Uranium, Cobalt (Singhbhum).</p>
+              <p class="state-card__minerals">Chota Nagpur plateau: Coal, Iron Ore, Copper, Uranium, Cobalt (Singhbhum).</p>
             </div>
 
             <div class="glass-card state-card">
@@ -325,7 +358,7 @@
                 <span class="state-card__share">2.44%</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill state-bar__fill--cyan" style="width: 2.44%;"></div></div>
-              <p class="state-card__minerals">Only commercial diamond state (Panna), Copper, Manganese, Coal, REE Tech Park (Bhopal).</p>
+              <p class="state-card__minerals">India's only diamond state (Panna), Copper, Manganese, Coal, REE Tech Park (Bhopal).</p>
             </div>
 
             <div class="glass-card state-card">
@@ -340,7 +373,7 @@
             <div class="glass-card state-card">
               <div class="state-card__header">
                 <span class="state-card__name">Gujarat &amp; Andhra Pradesh</span>
-                <span class="state-card__share">Key Hubs</span>
+                <span class="state-card__share badge-violet">Key Hubs</span>
               </div>
               <div class="state-bar"><div class="state-bar__fill state-bar__fill--violet" style="width: 100%;"></div></div>
               <p class="state-card__minerals">AP: Barytes, Limestone, Uranium. Gujarat: Lignite, Bauxite, Salt, Carbonatite REE complexes.</p>
@@ -348,22 +381,16 @@
           </div>
         </div>
 
-        <!-- Critical Minerals & REE Corridors -->
-        <div class="critical-reserves section-reveal">
-          <div class="section-header-sm">
-            <span class="section-tag-sm">Clean Energy Transition</span>
-            <h3>Critical Mineral Reserves &amp; Dedicated Corridors</h3>
-            <p>Under the National Critical Mineral Mission (NCMM), India has targeted 30 strategic minerals vital for clean energy, electronics, and defence.</p>
-          </div>
-
+        <!-- Tab 3: Critical Minerals & REE Corridors -->
+        <div class="eco-tab-panel" id="eco-tab-critical" role="tabpanel">
           <div class="critical-grid">
             <div class="glass-card critical-card">
               <div class="critical-card__icon">🔋</div>
               <h4>1. The Lithium Map (EV Transition)</h4>
-              <p>Localized domestic reserves are being fast-tracked through private block auctions:</p>
+              <p>Domestic battery mineral reserves are being fast-tracked through private block auctions:</p>
               <ul class="critical-list">
-                <li><strong>Chhattisgarh (Katghora Block):</strong> Korba district — Premier inland battery mineral block auctioned as a composite Lithium &amp; REE block.</li>
-                <li><strong>Jammu &amp; Kashmir (Salal-Haimna):</strong> Reasi district — Holds 5.9 million tonnes of inferred lithium resources.</li>
+                <li><strong>Chhattisgarh (Katghora Block):</strong> Premier Korba battery mineral block auctioned as composite Lithium &amp; REE.</li>
+                <li><strong>Jammu &amp; Kashmir (Salal-Haimna):</strong> Reasi district deposit with 5.9 Million tonnes inferred lithium resources.</li>
                 <li><strong>Karnataka (Mandya District):</strong> Hard-rock spodumene reserve explored by the Atomic Minerals Directorate.</li>
               </ul>
             </div>
@@ -371,17 +398,17 @@
             <div class="glass-card critical-card">
               <div class="critical-card__icon">🧲</div>
               <h4>2. REE Coastal Corridors &amp; Magnet Scheme</h4>
-              <p>India holds the <strong>world's 3rd largest rare earth reserves</strong> (13.15M tonnes monazite sands). The Union Budget 2026–27 launched dedicated corridors co-locating mining with <strong>₹7,280 Cr REPM Magnet Manufacturing</strong> (6,000 MTPA capacity).</p>
+              <p>India holds the <strong>world's 3rd largest rare earth reserves</strong> (13.15M tonnes monazite sands). The Budget 2026–27 launched dedicated corridors co-locating mining with <strong>₹7,280 Cr REPM Magnet Manufacturing</strong> (6,000 MTPA capacity).</p>
               <ul class="critical-list">
-                <li><strong>East Coast Corridor (Odisha &amp; AP):</strong> Heavy monazite sands managed by IREL OSCOM plant.</li>
-                <li><strong>South Coast Corridor (Kerala &amp; TN):</strong> Chavara &amp; coastal placers rich in Neodymium and Praseodymium.</li>
+                <li><strong>East Coast Corridor (Odisha &amp; AP):</strong> Monazite sands processed by IREL OSCOM.</li>
+                <li><strong>South Coast Corridor (Kerala &amp; TN):</strong> Neodymium &amp; Praseodymium rich sands for EV motors.</li>
                 <li><strong>Hard-Rock Ores:</strong> Carbonatite complexes mapped in Gujarat and Rajasthan.</li>
               </ul>
             </div>
 
             <div class="glass-card critical-card">
               <div class="critical-card__icon">🛡️</div>
-              <h4>3. Other Critical Metalloid Reserves</h4>
+              <h4>3. Strategic Metalloid Reserves</h4>
               <div class="metalloid-table-wrapper">
                 <table class="metalloid-table">
                   <thead>
@@ -394,17 +421,17 @@
                   <tbody>
                     <tr>
                       <td><strong>Graphite</strong></td>
-                      <td>Arunachal Pradesh, Jharkhand, Tamil Nadu</td>
+                      <td>Arunachal Pradesh, Jharkhand, TN</td>
                       <td>EV Battery Anodes &amp; Fuel Cells</td>
                     </tr>
                     <tr>
                       <td><strong>Cobalt &amp; Nickel</strong></td>
-                      <td>Sukinda Valley (Odisha), Singhbhum (Jharkhand)</td>
-                      <td>Lithium-ion Cathodes &amp; Superalloys</td>
+                      <td>Sukinda (Odisha), Singhbhum (JH)</td>
+                      <td>Li-ion Cathodes &amp; Superalloys</td>
                     </tr>
                     <tr>
                       <td><strong>Titanium / Zircon</strong></td>
-                      <td>Coastal Placers (Kerala, TN, Odisha)</td>
+                      <td>Kerala, Tamil Nadu, Odisha Placers</td>
                       <td>Aerospace, Defence &amp; Nuclear Energy</td>
                     </tr>
                   </tbody>
@@ -414,41 +441,35 @@
           </div>
         </div>
 
-        <!-- 8 Specialized Exhibition Pavilions -->
-        <div class="pavilions-showcase section-reveal" id="pavilions">
-          <div class="section-header-sm text-center">
-            <span class="section-tag-sm">Exhibition Infrastructure</span>
-            <h3>8 Specialized Exhibition Pavilions</h3>
-            <p>Showcasing eight core sectors across mining, mineral processing, clean energy, and advanced technology.</p>
-          </div>
-
+        <!-- Tab 4: 8 Exhibition Pavilions -->
+        <div class="eco-tab-panel" id="eco-tab-pavilions" role="tabpanel">
           <div class="pavilions-grid">
             <div class="glass-card pavilion-card">
               <span class="pavilion-num">01</span>
               <div class="pavilion-icon">⛏️</div>
               <h4>Mines &amp; Minerals</h4>
-              <p>Structural bedrock for 95 minerals. Ranks 2nd in limestone &amp; primary aluminium, 3rd in raw zinc, 4th in iron ore (313M tonnes), and 1B+ tonnes coal output annually.</p>
+              <p>Structural bedrock for 95 minerals. Ranks 2nd in limestone &amp; aluminium, 3rd in zinc, 4th in iron ore (313M tonnes), and 1B+ tonnes annual coal.</p>
             </div>
 
             <div class="glass-card pavilion-card">
               <span class="pavilion-num">02</span>
               <div class="pavilion-icon">💎</div>
               <h4>Rare Earth Metals</h4>
-              <p>Scaling from $74.36M to $223.08M by 2033. Showcasing the ₹7,280 Crore REPM Scheme (6,000 MTPA sintered magnets) and BARC/IREL technology transfers.</p>
+              <p>Scaling from $74.36M to $223.08M by 2033. Highlighting the ₹7,280 Crore REPM Scheme (6,000 MTPA sintered magnets) and BARC/IREL tech transfer.</p>
             </div>
 
             <div class="glass-card pavilion-card">
               <span class="pavilion-num">03</span>
               <div class="pavilion-icon">🚜</div>
               <h4>Mining Machinery</h4>
-              <p>Surface haul trucks, hydraulic excavators, walking draglines, underground jumbo drills, LHD units, continuous miners, and crushing/screening plants.</p>
+              <p>Surface haul trucks, hydraulic excavators, walking draglines, underground jumbo drills, LHD units, continuous miners, and crushing plants.</p>
             </div>
 
             <div class="glass-card pavilion-card">
               <span class="pavilion-num">04</span>
               <div class="pavilion-icon">🧪</div>
               <h4>Chemicals &amp; Reagents</h4>
-              <p>Blasting materials (ANFO), froth flotation reagents (collectors, frothers, depressants), hydrometallurgical leaching (cyanide, acids), and tailings flocculants.</p>
+              <p>ANFO blasting chemicals, froth flotation reagents (collectors, frothers), hydrometallurgical leaching (cyanide, acids), and tailings flocculants.</p>
             </div>
 
             <div class="glass-card pavilion-card">
@@ -462,7 +483,7 @@
               <span class="pavilion-num">06</span>
               <div class="pavilion-icon">🚚</div>
               <h4>Logistics Service Providers</h4>
-              <p>Multimodal bulk commodity transport, Transportation Management Systems (TMS), multi-axle project cargo trailers, and HAZMAT explosive/acid handling.</p>
+              <p>Multimodal bulk commodity transport, Transportation Management Systems (TMS), multi-axle project cargo trailers, and HAZMAT chemical handling.</p>
             </div>
 
             <div class="glass-card pavilion-card">
@@ -475,44 +496,46 @@
             <div class="glass-card pavilion-card">
               <span class="pavilion-num">08</span>
               <div class="pavilion-icon">🌱</div>
-              <h4>Clean Energy &amp; Investments</h4>
+              <h4>Clean Energy &amp; Capital</h4>
               <p>Hydrogen-powered mining fleets, low-carbon solar smelting, ₹1,500 Cr critical mineral recycling incentives, and venture capital / private equity funding.</p>
             </div>
           </div>
         </div>
 
-        <!-- Brand Empowerment & Attendee Matrix -->
-        <div class="empowerment-grid section-reveal">
-          <div class="glass-card brand-empower-card">
-            <h3>How IISME Empowers Your Brand</h3>
-            <p>Three days of multi-pronged activities designed to help achieve strategic marketing and commercial objectives:</p>
-            <ul class="empower-list">
-              <li><strong>200+ Exhibitor Showcase:</strong> World-class exhibition in a conducive environment.</li>
-              <li><strong>Sector-Focused Conference:</strong> Collaborating on growth strategies &amp; best practices.</li>
-              <li><strong>Excellence Awards:</strong> Spotlighting leaders in Mining, Metals &amp; Rare Earths.</li>
-              <li><strong>Curated B2B Matchmaking:</strong> 1-on-1 meetings with pre-registered buyers.</li>
-              <li><strong>50,000+ Social Media Reach:</strong> Intensive promotion to a database of industry leaders.</li>
-              <li><strong>Exclusive Print Coverage:</strong> Product launch visibility &amp; features in <strong>The Hindustan Times</strong> and <strong>The Economic Times</strong>.</li>
-            </ul>
-          </div>
+        <!-- Tab 5: Impact & Attendees -->
+        <div class="eco-tab-panel" id="eco-tab-empower" role="tabpanel">
+          <div class="empowerment-grid">
+            <div class="glass-card brand-empower-card">
+              <h3>How IISME Empowers Your Brand</h3>
+              <p>Three days of multi-pronged activities designed to deliver maximum commercial value:</p>
+              <ul class="empower-list">
+                <li><strong>200+ Exhibitor Showcase:</strong> World-class exhibition in a conducive environment.</li>
+                <li><strong>Sector-Focused Conference:</strong> Collaborating on growth strategies &amp; best practices.</li>
+                <li><strong>Excellence Awards:</strong> Spotlighting leaders in Mining, Metals &amp; Rare Earths.</li>
+                <li><strong>Curated B2B Matchmaking:</strong> 1-on-1 meetings with pre-registered buyers.</li>
+                <li><strong>50,000+ Social Media Reach:</strong> Intensive promotion to a database of industry leaders.</li>
+                <li><strong>Exclusive Print Coverage:</strong> Product launch visibility &amp; features in <strong>The Hindustan Times</strong> and <strong>The Economic Times</strong>.</li>
+              </ul>
+            </div>
 
-          <div class="glass-card attendees-card">
-            <h3>Who Attends IISME 2026?</h3>
-            <p>Bringing together key stakeholders across the global strategic minerals value chain:</p>
-            <div class="attendees-tags">
-              <span class="attendee-tag">⛏️ Mining Companies</span>
-              <span class="attendee-tag">🏛️ Government &amp; Regulators</span>
-              <span class="attendee-tag">♻️ Recyclers, Refiners &amp; Processors</span>
-              <span class="attendee-tag">⚡ Renewable Energy Operators</span>
-              <span class="attendee-tag">🏢 State &amp; Public Entities</span>
-              <span class="attendee-tag">🏦 Banks &amp; Insurance Providers</span>
-              <span class="attendee-tag">💰 Investors &amp; Financiers</span>
-              <span class="attendee-tag">🔥 Energy Companies</span>
-              <span class="attendee-tag">🚗 OEMs &amp; Battery Manufacturers</span>
-              <span class="attendee-tag">⚖️ Corporate Advisors &amp; Lawyers</span>
-              <span class="attendee-tag">💻 Technology Professionals</span>
-              <span class="attendee-tag">📦 Physical Commodity Traders</span>
-              <span class="attendee-tag">🚛 Freight &amp; Customs Clearance</span>
+            <div class="glass-card attendees-card">
+              <h3>Who Attends IISME 2026?</h3>
+              <p>Bringing together key decision-makers across the global strategic minerals value chain:</p>
+              <div class="attendees-tags">
+                <span class="attendee-tag">⛏️ Mining Companies</span>
+                <span class="attendee-tag">🏛️ Government &amp; Regulators</span>
+                <span class="attendee-tag">♻️ Recyclers, Refiners &amp; Processors</span>
+                <span class="attendee-tag">⚡ Renewable Energy Operators</span>
+                <span class="attendee-tag">🏢 State &amp; Public Entities</span>
+                <span class="attendee-tag">🏦 Banks &amp; Insurance Providers</span>
+                <span class="attendee-tag">💰 Investors &amp; Financiers</span>
+                <span class="attendee-tag">🔥 Energy Companies</span>
+                <span class="attendee-tag">🚗 OEMs &amp; Battery Manufacturers</span>
+                <span class="attendee-tag">⚖️ Corporate Advisors &amp; Lawyers</span>
+                <span class="attendee-tag">💻 Technology Professionals</span>
+                <span class="attendee-tag">📦 Physical Commodity Traders</span>
+                <span class="attendee-tag">🚛 Freight &amp; Customs Clearance</span>
+              </div>
             </div>
           </div>
         </div>
@@ -923,73 +946,6 @@
       </div>
     </section>
 
-    <!-- ═══ SPEAKERS ═══ -->
-    <section class="speakers section-reveal" id="speakers" aria-labelledby="speakers-heading">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Keynote Speakers</span>
-          <h2 class="section-title gradient-text" id="speakers-heading">Voices Shaping the Future of Minerals</h2>
-          <p class="section-subtitle">Industry titans, policy architects, and scientific visionaries converge at IISMEXPO 2026.</p>
-        </div>
-        <div class="speakers__grid" role="list" aria-label="Keynote speakers">
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:175" aria-hidden="true"><span class="avatar-initials">RK</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr. Rajiv Kumar</h3>
-              <p class="speaker-card__title">Secretary, Ministry of Mines, Government of India</p>
-              <p class="speaker-card__topic">India's National Critical Mineral Mission: Policy &amp; Roadmap</p>
-              <div class="speaker-card__tags"><span class="tag tag--cyan">Policy</span><span class="tag tag--violet">Governance</span></div>
-            </div>
-          </article>
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:270" aria-hidden="true"><span class="avatar-initials">PS</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Prof. Priya Sharma</h3>
-              <p class="speaker-card__title">Director, Indian Bureau of Mines &amp; IIT-BHU</p>
-              <p class="speaker-card__topic">Rare Earth Processing: Closing the Refinery Gap</p>
-              <div class="speaker-card__tags"><span class="tag tag--cyan">Research</span><span class="tag tag--gold">REE</span></div>
-            </div>
-          </article>
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:45" aria-hidden="true"><span class="avatar-initials">AM</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Arun Mishra</h3>
-              <p class="speaker-card__title">CEO, National Mineral Development Corporation</p>
-              <p class="speaker-card__topic">Scaling India's Mining Output: FY2030 Targets</p>
-              <div class="speaker-card__tags"><span class="tag tag--gold">Industry</span><span class="tag tag--violet">Investment</span></div>
-            </div>
-          </article>
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:320" aria-hidden="true"><span class="avatar-initials">LW</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr. Lena Wahlberg</h3>
-              <p class="speaker-card__title">Head of Critical Minerals, International Energy Agency</p>
-              <p class="speaker-card__topic">Global Supply Chain Resilience: India's Strategic Role</p>
-              <div class="speaker-card__tags"><span class="tag tag--cyan">Global</span><span class="tag tag--violet">Energy</span></div>
-            </div>
-          </article>
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:200" aria-hidden="true"><span class="avatar-initials">VN</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Vikram Nair</h3>
-              <p class="speaker-card__title">Managing Partner, Green Mineral Ventures</p>
-              <p class="speaker-card__topic">Financing the Critical Mineral Boom: VC &amp; PE Perspectives</p>
-              <div class="speaker-card__tags"><span class="tag tag--gold">Finance</span><span class="tag tag--cyan">VC</span></div>
-            </div>
-          </article>
-          <article class="glass-card speaker-card section-reveal" role="listitem">
-            <div class="speaker-card__avatar" style="--avatar-hue:130" aria-hidden="true"><span class="avatar-initials">TC</span></div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr. Tanvir Choudhury</h3>
-              <p class="speaker-card__title">Chief AI Officer, Vedanta Resources</p>
-              <p class="speaker-card__topic">AI &amp; Machine Learning in Predictive Ore Deposit Modelling</p>
-              <div class="speaker-card__tags"><span class="tag tag--violet">AI/ML</span><span class="tag tag--cyan">Technology</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ VENUE SHOWCASE ═══ -->
     <section class="venue section-reveal" id="venue" aria-labelledby="venue-heading">
       <div class="container">
@@ -1229,13 +1185,13 @@
             <a href="#hero" class="footer__logo" aria-label="IISMEXPO — back to top">
               <img src="assets/logoiismexpo.png" alt="IISMEXPO logo" class="footer__logo-img" width="140" height="42" loading="lazy"/>
             </a>
-            <div class="footer__organiser-block">
+            <a href="https://amigoconnect.com" target="_blank" rel="noopener noreferrer" class="footer__organiser-block" title="Visit Amigo Connect Website">
               <img src="assets/amigoconnect_logo.png" alt="Amigo Connect logo" class="footer__ac-logo" width="44" height="44" loading="lazy" />
               <div class="footer__ac-info">
                 <p class="footer__ac-label">Official Organiser</p>
                 <p class="footer__ac-name"><strong>Amigo Connect™</strong></p>
               </div>
-            </div>
+            </a>
           </div>
           <p class="footer__brand-desc">India's premier platform for Rare Earth Mining, Metals, Minerals &amp; Critical Materials. Established 2026. Bharat Mandapam, New Delhi.</p>
           <div class="footer__contact-block">
@@ -1266,7 +1222,6 @@
             <li><a href="#about" class="footer__link">About IISMEXPO</a></li>
             <li><a href="#vault" class="footer__link">The Mineral Vault</a></li>
             <li><a href="#floor" class="footer__link">Exhibition Floor Plan</a></li>
-            <li><a href="#speakers" class="footer__link">Keynote Speakers</a></li>
             <li><a href="#logistics" class="footer__link">Visitor Logistics</a></li>
             <li><a href="#exhibitor" class="footer__link">Exhibitor Booking</a></li>
           </ul>
@@ -1293,7 +1248,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">&#169; 2026 IISMEXPO — India International Strategic Minerals Expo. Organised &amp; Managed by <strong>Amigo Connect™</strong>. All rights reserved.</p>
+        <p class="footer__copy">&#169; 2026 IISMEXPO — India International Strategic Minerals Expo. Organised &amp; Managed by <a href="https://amigoconnect.com" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: underline;"><strong>Amigo Connect™</strong></a>. All rights reserved.</p>
         <div class="footer__legal">
           <a href="#" class="footer__legal-link">Privacy Policy</a>
           <span aria-hidden="true">&#183;</span>

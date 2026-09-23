@@ -1107,7 +1107,38 @@ function initFloorPlan() {
 })();
 
 /* ─────────────────────────────────────────────────
-   11. INIT ALL MODULES ON DOM READY
+   11. ECOSYSTEM SECTION TABS
+───────────────────────────────────────────────── */
+
+function initEcosystemTabs() {
+  const tabBtns = document.querySelectorAll('.eco-tab-btn');
+  const tabPanels = document.querySelectorAll('.eco-tab-panel');
+  if (!tabBtns.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabTarget = btn.getAttribute('data-tab');
+
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      tabPanels.forEach(panel => {
+        if (panel.id === `eco-tab-${tabTarget}`) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    });
+  });
+}
+
+/* ─────────────────────────────────────────────────
+   12. INIT ALL MODULES ON DOM READY
 ───────────────────────────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1115,6 +1146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVaultFilters();
   initMineralModal();
   initFloorPlan();
+  initEcosystemTabs();
 
   // Trigger scroll reveal for all existing section-reveal elements
   document.querySelectorAll('.section-reveal').forEach(el => {
@@ -1132,3 +1164,4 @@ document.addEventListener('DOMContentLoaded', () => {
     statsObserver.observe(heroSection);
   }
 });
+
