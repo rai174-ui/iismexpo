@@ -577,7 +577,7 @@ section {
 
 .stat-item {
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 }
 
 .stat-value {
@@ -599,6 +599,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-top: 0.25rem;
+  white-space: nowrap;
 }
 
 .stat-divider {
