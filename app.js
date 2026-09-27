@@ -687,77 +687,7 @@ function initMineralModal() {
   });
 }
 
-/* ─────────────────────────────────────────────────
-   7. FLOOR PLAN — SVG Hover Tooltips
-───────────────────────────────────────────────── */
 
-function initFloorPlan() {
-  const svg     = document.getElementById('floorPlanSVG');
-  const tooltip = document.getElementById('floorTooltip');
-  if (!svg || !tooltip) return;
-
-  const zones = svg.querySelectorAll('.floor-zone');
-
-  function showTooltip(zone, x, y) {
-    document.getElementById('tooltipZone').textContent   = zone.dataset.zone   || '';
-    document.getElementById('tooltipDesc').textContent   = zone.dataset.desc   || '';
-    document.getElementById('tooltipBooths').textContent = zone.dataset.booths || '';
-
-    tooltip.classList.add('visible');
-    positionTooltip(x, y);
-  }
-
-  function hideTooltip() {
-    tooltip.classList.remove('visible');
-  }
-
-  function positionTooltip(x, y) {
-    const TW = tooltip.offsetWidth  || 210;
-    const TH = tooltip.offsetHeight || 110;
-    const VW = window.innerWidth;
-    const VH = window.innerHeight;
-
-    let left = x + 16;
-    let top  = y - TH / 2;
-
-    if (left + TW > VW - 16) left = x - TW - 16;
-    if (top < 8) top = 8;
-    if (top + TH > VH - 8) top = VH - TH - 8;
-
-    tooltip.style.left = left + 'px';
-    tooltip.style.top  = top  + 'px';
-  }
-
-  zones.forEach(zone => {
-    // Mouse hover
-    zone.addEventListener('mouseenter', (e) => showTooltip(zone, e.clientX, e.clientY));
-    zone.addEventListener('mousemove',  (e) => positionTooltip(e.clientX, e.clientY));
-    zone.addEventListener('mouseleave', hideTooltip);
-
-    // Click → scroll to exhibitor form
-    zone.addEventListener('click', () => {
-      hideTooltip();
-      const exhibitor = document.getElementById('exhibitor');
-      if (exhibitor) exhibitor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Keyboard support: Enter / Space
-    zone.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const exhibitor = document.getElementById('exhibitor');
-        if (exhibitor) exhibitor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-
-    // Focus / Blur for keyboard tooltip
-    zone.addEventListener('focus', (e) => {
-      const rect = zone.getBoundingClientRect();
-      showTooltip(zone, rect.right, rect.top + rect.height / 2);
-    });
-    zone.addEventListener('blur', hideTooltip);
-  });
-}
 
 /* ─────────────────────────────────────────────────
    8. MULTI-STEP EXHIBITOR BOOKING FORM
@@ -869,7 +799,7 @@ function initFloorPlan() {
       const selected = form.querySelector('input[name="boothTier"]:checked');
       const errEl    = document.getElementById('boothTier-error');
       if (!selected) {
-        if (errEl) errEl.textContent = 'Please select a booth tier.';
+        if (errEl) errEl.textContent = 'Please select a registration category.';
         valid = false;
       } else {
         if (errEl) errEl.textContent = '';
@@ -930,8 +860,8 @@ function initFloorPlan() {
     summaryContent.innerHTML = `
       <div class="summary-row"><span class="summary-key">Company</span><span class="summary-val">${companyName || '—'}</span></div>
       <div class="summary-row"><span class="summary-key">Sector</span><span class="summary-val">${categoryText}</span></div>
-      <div class="summary-row"><span class="summary-key">Booth Type</span><span class="summary-val">${boothLabel || 'Not selected'}</span></div>
-      <div class="summary-row"><span class="summary-key">Booth Cost</span><span class="summary-val">${formatINR(boothCost)}</span></div>
+      <div class="summary-row"><span class="summary-key">Registration Category</span><span class="summary-val">${boothLabel || 'Not selected'}</span></div>
+      <div class="summary-row"><span class="summary-key">Category Fee</span><span class="summary-val">${formatINR(boothCost)}</span></div>
       <div class="summary-row"><span class="summary-key">Utilities</span><span class="summary-val" style="max-width:300px">${utilLines}</span></div>
       <div class="summary-row"><span class="summary-key">Utility Cost</span><span class="summary-val">${formatINR(utilityCost)}</span></div>
       <div class="summary-row" style="border-top: 1px solid var(--glass-border); margin-top:0.5rem; padding-top:0.75rem;">
@@ -1145,7 +1075,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderMineralCards();
   initVaultFilters();
   initMineralModal();
-  initFloorPlan();
   initEcosystemTabs();
 
   // Trigger scroll reveal for all existing section-reveal elements

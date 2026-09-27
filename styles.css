@@ -1154,115 +1154,7 @@ section {
   gap: 0.5rem;
 }
 
-/* ═══════════════════════════════════════════════════
-   FLOOR PLAN
-   ═══════════════════════════════════════════════════ */
-.floor-plan {
-  background: var(--obsidian);
-}
 
-.floor-plan__wrapper {
-  position: relative;
-}
-
-.floor-legend {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.legend-dot--available { background: var(--cyan);   box-shadow: 0 0 8px var(--cyan); }
-.legend-dot--reserved  { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
-.legend-dot--waitlist  { background: var(--gold);   box-shadow: 0 0 8px var(--gold); }
-
-.floor-plan__svg-container {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-elevated);
-}
-
-.floor-plan__svg {
-  width: 100%;
-  display: block;
-}
-
-/* SVG Zone Hover effects */
-.floor-zone {
-  transition: filter 0.25s ease;
-  cursor: pointer;
-}
-.floor-zone:hover { filter: brightness(1.4); }
-.floor-zone:focus { outline: none; }
-.floor-zone:focus-visible rect:first-of-type {
-  stroke: var(--cyan) !important;
-  stroke-width: 3 !important;
-}
-
-/* Floor Tooltip */
-.floor-tooltip {
-  position: fixed;
-  z-index: 200;
-  background: rgba(14, 18, 28, 0.95);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-sm);
-  padding: 0.9rem 1.2rem;
-  pointer-events: none;
-  min-width: 200px;
-  box-shadow: var(--shadow-elevated);
-  backdrop-filter: blur(12px);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.floor-tooltip.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.floor-tooltip__zone {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--cyan);
-  margin-bottom: 0.3rem;
-}
-
-.floor-tooltip__desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 0.3rem;
-}
-
-.floor-tooltip__booths {
-  font-size: 0.75rem;
-  color: var(--text-subtle);
-  margin-bottom: 0.6rem;
-}
-
-.floor-tooltip__cta {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-}
 
 /* ═══════════════════════════════════════════════════
    EXHIBITOR BOOKING FORM
@@ -1525,8 +1417,8 @@ section {
 /* Tier Cards */
 .tier-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
   margin-bottom: 1rem;
 }
 
@@ -1544,6 +1436,8 @@ section {
   padding: 1.5rem 1.25rem;
   transition: var(--transition);
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tier-card:hover .tier-card__inner {
@@ -1557,17 +1451,36 @@ section {
   box-shadow: var(--glow-cyan);
 }
 
-.tier-card--vip .tier-card__inner {
-  background: linear-gradient(135deg, rgba(224, 169, 109, 0.06), rgba(155, 93, 229, 0.06));
+.tier-card--platinum .tier-card__inner {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.08), rgba(155, 93, 229, 0.08));
 }
-.tier-card--vip .tier-radio:checked + .tier-card__inner {
+.tier-card--platinum .tier-radio:checked + .tier-card__inner {
+  border-color: #00F5D4;
+  box-shadow: 0 0 24px rgba(0, 245, 212, 0.3);
+  background: rgba(0, 245, 212, 0.12);
+}
+
+.tier-card--gold .tier-card__inner {
+  background: linear-gradient(135deg, rgba(224, 169, 109, 0.08), rgba(224, 169, 109, 0.03));
+}
+.tier-card--gold .tier-radio:checked + .tier-card__inner {
   border-color: var(--gold);
   box-shadow: var(--glow-gold);
   background: var(--gold-dim);
 }
 
+.tier-card--silver .tier-card__inner {
+  background: linear-gradient(135deg, rgba(240, 238, 232, 0.04), rgba(240, 238, 232, 0.01));
+}
+.tier-card--silver .tier-radio:checked + .tier-card__inner {
+  border-color: rgba(240, 238, 232, 0.8);
+  box-shadow: 0 0 16px rgba(240, 238, 232, 0.2);
+  background: rgba(240, 238, 232, 0.08);
+}
+
 .tier-card__badge {
   display: inline-block;
+  align-self: flex-start;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1579,9 +1492,9 @@ section {
   border: 1px solid var(--glass-border);
   margin-bottom: 0.75rem;
 }
-.tier-card__badge--cyan   { color: var(--cyan);   border-color: var(--cyan-dim);   background: var(--cyan-dim); }
-.tier-card__badge--violet { color: var(--violet); border-color: var(--violet-dim); background: var(--violet-dim); }
-.tier-card__badge--gold   { color: var(--gold);   border-color: var(--gold-dim);   background: var(--gold-dim); }
+.tier-card__badge--platinum { color: #00F5D4; border-color: rgba(0, 245, 212, 0.4); background: rgba(0, 245, 212, 0.15); }
+.tier-card__badge--gold     { color: var(--gold); border-color: var(--gold-dim); background: var(--gold-dim); }
+.tier-card__badge--silver   { color: rgba(240, 238, 232, 0.85); border-color: rgba(240, 238, 232, 0.25); background: rgba(240, 238, 232, 0.08); }
 
 .tier-card__size {
   font-family: var(--font-serif);
@@ -2680,7 +2593,7 @@ section {
   .why-grid             { grid-template-columns: repeat(2, 1fr); }
   .sectors-grid         { grid-template-columns: repeat(3, 1fr); }
   .footer__grid         { grid-template-columns: 1fr 1fr; }
-  .tier-grid            { grid-template-columns: repeat(2, 1fr); }
+  .tier-grid            { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -3437,9 +3350,7 @@ section {
   .footer__bottom    { flex-direction: column; text-align: center; }
   .footer__legal     { flex-wrap: wrap; justify-content: center; }
 
-  /* Floor plan */
-  .floor-plan__svg-container { overflow-x: auto; }
-  .floor-plan__svg           { min-width: 600px; }
+
 
   /* Modal */
   .mineral-modal__panel { max-height: 95vh; margin: 0.5rem; }
@@ -3623,7 +3534,7 @@ section {
    ═══════════════════════════════════════════════════ */
 @media print {
   .navbar, .hero__canvas, .hero__grid, .grain-overlay,
-  .vault__filters, .floor-plan, .speakers, .footer { display: none !important; }
+  .vault__filters, .speakers, .footer { display: none !important; }
   body { background: #fff; color: #000; }
   .glass-card { background: #f5f5f5; border: 1px solid #ddd; backdrop-filter: none; }
 }

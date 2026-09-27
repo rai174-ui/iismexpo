@@ -82,7 +82,6 @@
           <li><a href="#about"     class="nav-link">About</a></li>
           <li><a href="#ecosystem" class="nav-link">Ecosystem</a></li>
           <li><a href="#vault"     class="nav-link">The Vault</a></li>
-          <li><a href="#floor"     class="nav-link">Floor Plan</a></li>
           <li><a href="#venue"     class="nav-link">Venue</a></li>
           <li><a href="#agenda"    class="nav-link">Agenda</a></li>
           <li><a href="#logistics" class="nav-link">Logistics</a></li>
@@ -740,167 +739,7 @@
       </div>
     </div>
 
-    <!-- ═══ FLOOR PLAN ═══ -->
-    <section class="floor-plan section-reveal" id="floor" aria-labelledby="floor-heading">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Venue Map</span>
-          <h2 class="section-title gradient-text" id="floor-heading">Exhibition Floor Plan</h2>
-          <p class="section-subtitle">Bharat Mandapam, New Delhi — 4 distinct zones. Hover over zones to explore, click to book your space.</p>
-        </div>
-        <div class="floor-plan__wrapper">
-          <div class="floor-legend" role="list" aria-label="Floor plan legend">
-            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--available" aria-hidden="true"></span><span>Available</span></div>
-            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--reserved" aria-hidden="true"></span><span>Reserved</span></div>
-            <div class="legend-item" role="listitem"><span class="legend-dot legend-dot--waitlist" aria-hidden="true"></span><span>Waitlist</span></div>
-          </div>
-          <div class="floor-plan__svg-container">
-            <svg id="floorPlanSVG" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="floor-plan__svg" role="img" aria-label="Exhibition hall floor plan">
-              <rect width="900" height="600" fill="#0A0D12" rx="16"/>
-              <rect x="20" y="20" width="860" height="560" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" rx="12"/>
-              <defs>
-                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-                </pattern>
-                <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.25"/>
-                  <stop offset="100%" stop-color="#00F5D4" stop-opacity="0.05"/>
-                </radialGradient>
-                <linearGradient id="veinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#9B5DE5" stop-opacity="0.2"/>
-                  <stop offset="100%" stop-color="#9B5DE5" stop-opacity="0.06"/>
-                </linearGradient>
-                <linearGradient id="geodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#E0A96D" stop-opacity="0.2"/>
-                  <stop offset="100%" stop-color="#E0A96D" stop-opacity="0.06"/>
-                </linearGradient>
-                <linearGradient id="vaultGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                  <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.12"/>
-                  <stop offset="100%" stop-color="#9B5DE5" stop-opacity="0.12"/>
-                </linearGradient>
-              </defs>
-              <rect width="900" height="600" fill="url(#grid)"/>
 
-              <!-- VEIN zone -->
-              <g id="zone-vein" class="floor-zone" data-zone="THE VEIN" data-desc="Standard &amp; Corner Booths — 48 positions" data-status="mixed" data-booths="48 booths · 3×3m to 3×6m" role="button" tabindex="0" aria-label="The Vein — standard booths">
-                <rect x="40" y="40" width="820" height="100" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
-                <line x1="140" y1="40" x2="140" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="240" y1="40" x2="240" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="340" y1="40" x2="340" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="440" y1="40" x2="440" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="540" y1="40" x2="540" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="640" y1="40" x2="640" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="740" y1="40" x2="740" y2="140" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <circle cx="90" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="190" cy="90" r="7" fill="#E0A96D" opacity="0.85"/>
-                <circle cx="290" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="390" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="490" cy="90" r="7" fill="#E0A96D" opacity="0.85"/>
-                <circle cx="590" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="690" cy="90" r="7" fill="#9B5DE5" opacity="0.85"/>
-                <circle cx="800" cy="90" r="7" fill="#00F5D4" opacity="0.85"/>
-                <rect x="40" y="150" width="120" height="300" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
-                <line x1="40" y1="225" x2="160" y2="225" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="40" y1="300" x2="160" y2="300" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="40" y1="375" x2="160" y2="375" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <circle cx="100" cy="188" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="100" cy="263" r="7" fill="#9B5DE5" opacity="0.85"/>
-                <circle cx="100" cy="338" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="100" cy="413" r="7" fill="#E0A96D" opacity="0.85"/>
-                <rect x="740" y="150" width="120" height="300" fill="url(#veinGrad)" stroke="#9B5DE5" stroke-width="1.5" stroke-opacity="0.5" rx="6"/>
-                <line x1="740" y1="225" x2="860" y2="225" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="740" y1="300" x2="860" y2="300" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <line x1="740" y1="375" x2="860" y2="375" stroke="#9B5DE5" stroke-width="0.5" stroke-opacity="0.3"/>
-                <circle cx="800" cy="188" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="800" cy="263" r="7" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="800" cy="338" r="7" fill="#E0A96D" opacity="0.85"/>
-                <circle cx="800" cy="413" r="7" fill="#9B5DE5" opacity="0.85"/>
-                <text x="450" y="76" text-anchor="middle" fill="#9B5DE5" font-size="13" font-family="Cinzel,serif" font-weight="600" opacity="0.9">THE VEIN — Standard &amp; Corner Booths</text>
-              </g>
-
-              <!-- GEODE PAVILION -->
-              <g id="zone-geode" class="floor-zone" data-zone="GEODE PAVILION" data-desc="Island Booths — Open 4-sided exhibition" data-status="mixed" data-booths="16 island booths · 6×6m" role="button" tabindex="0" aria-label="Geode Pavilion — island booths">
-                <rect x="185" y="165" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
-                <rect x="205" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <rect x="280" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <circle cx="232" cy="223" r="6" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="307" cy="223" r="6" fill="#E0A96D" opacity="0.85"/>
-                <rect x="185" y="320" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
-                <rect x="205" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <rect x="280" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <circle cx="232" cy="378" r="6" fill="#E0A96D" opacity="0.85"/>
-                <circle cx="307" cy="378" r="6" fill="#00F5D4" opacity="0.85"/>
-                <rect x="545" y="165" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
-                <rect x="565" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <rect x="640" y="183" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <circle cx="592" cy="223" r="6" fill="#00F5D4" opacity="0.85"/>
-                <circle cx="667" cy="223" r="6" fill="#E0A96D" opacity="0.85"/>
-                <rect x="545" y="320" width="170" height="120" fill="url(#geodeGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.5" rx="8"/>
-                <rect x="565" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <rect x="640" y="338" width="55" height="80" fill="rgba(224,169,109,0.1)" stroke="#E0A96D" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-                <circle cx="592" cy="378" r="6" fill="#9B5DE5" opacity="0.85"/>
-                <circle cx="667" cy="378" r="6" fill="#00F5D4" opacity="0.85"/>
-                <text x="270" y="158" text-anchor="middle" fill="#E0A96D" font-size="11" font-family="Cinzel,serif" font-weight="600" opacity="0.9">GEODE</text>
-                <text x="630" y="158" text-anchor="middle" fill="#E0A96D" font-size="11" font-family="Cinzel,serif" font-weight="600" opacity="0.9">PAVILION</text>
-              </g>
-
-              <!-- THE CORE -->
-              <g id="zone-core" class="floor-zone" data-zone="THE CORE" data-desc="Crown Jewels — Premium 12×12m flagship space" data-status="available" data-booths="1 premium position · 12×12m" role="button" tabindex="0" aria-label="The Core — premium flagship space">
-                <rect x="368" y="238" width="164" height="134" fill="url(#coreGrad)" stroke="#00F5D4" stroke-width="2" stroke-opacity="0.85" rx="10"/>
-                <polygon points="450,260 472,297 450,334 428,297" fill="none" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.6"/>
-                <circle cx="450" cy="305" r="20" fill="none" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.5"/>
-                <circle cx="450" cy="305" r="7" fill="#00F5D4" opacity="0.9"/>
-                <text x="450" y="360" text-anchor="middle" fill="#00F5D4" font-size="12" font-family="Cinzel,serif" font-weight="700" opacity="0.95">THE CORE</text>
-                <text x="450" y="375" text-anchor="middle" fill="#00F5D4" font-size="9" font-family="Plus Jakarta Sans,sans-serif" opacity="0.7">Crown Jewels · 12×12m</text>
-                <rect x="412" y="241" width="76" height="17" rx="8" fill="#00F5D4" opacity="0.15"/>
-                <text x="450" y="253" text-anchor="middle" fill="#00F5D4" font-size="8" font-family="Plus Jakarta Sans,sans-serif" font-weight="700">AVAILABLE</text>
-              </g>
-
-              <!-- PRIVATE VAULTS -->
-              <g id="zone-vault" class="floor-zone" data-zone="PRIVATE VAULTS" data-desc="VIP Suites — Exclusive 9×9m private exhibition suites" data-status="mixed" data-booths="8 VIP suites · 9×9m" role="button" tabindex="0" aria-label="Private Vaults — VIP suites">
-                <rect x="40" y="458" width="820" height="102" fill="url(#vaultGrad)" stroke="#E0A96D" stroke-width="1.5" stroke-opacity="0.4" rx="8"/>
-                <line x1="143" y1="458" x2="143" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="246" y1="458" x2="246" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="349" y1="458" x2="349" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="452" y1="458" x2="452" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="555" y1="458" x2="555" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="658" y1="458" x2="658" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="761" y1="458" x2="761" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <circle cx="91"  cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
-                <circle cx="194" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
-                <circle cx="297" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
-                <circle cx="400" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
-                <circle cx="503" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
-                <circle cx="606" cy="509" r="7" fill="#E0A96D" opacity="0.9"/>
-                <circle cx="709" cy="509" r="7" fill="#00F5D4" opacity="0.9"/>
-                <circle cx="811" cy="509" r="7" fill="#9B5DE5" opacity="0.9"/>
-                <text x="91" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="194" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="297" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="400" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="503" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="606" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="709" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="811" y="487" font-size="14" text-anchor="middle" fill="#E0A96D" opacity="0.7">&#9819;</text>
-                <text x="450" y="543" text-anchor="middle" fill="rgba(224,169,109,0.85)" font-size="13" font-family="Cinzel,serif" font-weight="600">PRIVATE VAULTS — VIP Suites · 9×9m</text>
-              </g>
-
-              <text x="450" y="207" text-anchor="middle" fill="rgba(240,238,232,0.25)" font-size="10" font-family="Plus Jakarta Sans,sans-serif">NORTH AISLE</text>
-              <text x="450" y="450" text-anchor="middle" fill="rgba(240,238,232,0.25)" font-size="10" font-family="Plus Jakarta Sans,sans-serif">SOUTH AISLE</text>
-              <text x="135" y="310" text-anchor="middle" fill="rgba(240,238,232,0.2)" font-size="10" font-family="Plus Jakarta Sans,sans-serif" transform="rotate(-90,135,310)">WEST AISLE</text>
-              <text x="765" y="310" text-anchor="middle" fill="rgba(240,238,232,0.2)" font-size="10" font-family="Plus Jakarta Sans,sans-serif" transform="rotate(90,765,310)">EAST AISLE</text>
-              <text x="450" y="592" text-anchor="middle" fill="rgba(240,238,232,0.4)" font-size="11" font-family="Plus Jakarta Sans,sans-serif">&#9650; MAIN ENTRANCE — Bharat Mandapam Hall 1</text>
-            </svg>
-          </div>
-          <div class="floor-tooltip" id="floorTooltip" role="tooltip" aria-live="polite">
-            <div class="floor-tooltip__zone" id="tooltipZone"></div>
-            <div class="floor-tooltip__desc" id="tooltipDesc"></div>
-            <div class="floor-tooltip__booths" id="tooltipBooths"></div>
-            <div class="floor-tooltip__cta">Click to Book &#8594;</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══ EXHIBITOR BOOKING ═══ -->
     <section class="exhibitor section-reveal" id="exhibitor" aria-labelledby="exhibitor-heading">
@@ -970,24 +809,53 @@
 
             <!-- Step 2: Space Selection -->
             <fieldset class="form-step" id="step2" data-step="2" hidden>
-              <legend class="form-step__legend"><span class="step-number">02</span> Space Selection</legend>
-              <p class="form-intro">Select the booth tier that best fits your exhibition needs. All prices are base rates excluding GST.</p>
-              <div class="tier-grid" role="radiogroup" aria-label="Booth tier selection">
-                <label class="tier-card" for="tierStandard">
-                  <input type="radio" id="tierStandard" name="boothTier" value="standard" data-cost="80000" data-label="Standard Booth (3×3m)" class="tier-radio"/>
-                  <div class="tier-card__inner"><div class="tier-card__badge">Standard</div><div class="tier-card__size">3 &#215; 3 m</div><div class="tier-card__price">&#8377; 80,000</div><ul class="tier-card__features"><li>Back &amp; side wall panels</li><li>1 table, 2 chairs</li><li>Standard lighting</li><li>Fascia board</li></ul></div>
+              <legend class="form-step__legend"><span class="step-number">02</span> Registration Category Selection</legend>
+              <p class="form-intro">Select your exhibitor registration category. All prices are base rates excluding GST.</p>
+              <div class="tier-grid" role="radiogroup" aria-label="Exhibitor registration category selection">
+                <label class="tier-card tier-card--platinum" for="tierPlatinum">
+                  <input type="radio" id="tierPlatinum" name="boothTier" value="platinum" data-cost="1200000" data-label="Platinum Category (9×9m)" class="tier-radio"/>
+                  <div class="tier-card__inner">
+                    <div class="tier-card__badge tier-card__badge--platinum">Platinum</div>
+                    <div class="tier-card__size">9 &#215; 9 m Suite</div>
+                    <div class="tier-card__price">&#8377; 12,00,000</div>
+                    <ul class="tier-card__features">
+                      <li>Prime Front-Row Placement</li>
+                      <li>4 Open Sides &amp; Custom Structure</li>
+                      <li>10 VIP Delegate Passes</li>
+                      <li>Dedicated B2B Lounge Suite</li>
+                      <li>Logo Branding on All Backdrops</li>
+                    </ul>
+                  </div>
                 </label>
-                <label class="tier-card" for="tierCorner">
-                  <input type="radio" id="tierCorner" name="boothTier" value="corner" data-cost="140000" data-label="Corner Booth (3×6m)" class="tier-radio"/>
-                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--cyan">Corner</div><div class="tier-card__size">3 &#215; 6 m</div><div class="tier-card__price">&#8377; 1,40,000</div><ul class="tier-card__features"><li>Two open sides</li><li>Premium carpet</li><li>2 tables, 4 chairs</li><li>Branded header board</li></ul></div>
+                <label class="tier-card tier-card--gold" for="tierGold">
+                  <input type="radio" id="tierGold" name="boothTier" value="gold" data-cost="500000" data-label="Gold Category (6×6m)" class="tier-radio"/>
+                  <div class="tier-card__inner">
+                    <div class="tier-card__badge tier-card__badge--gold">Gold</div>
+                    <div class="tier-card__size">6 &#215; 6 m Pavilion</div>
+                    <div class="tier-card__price">&#8377; 5,00,000</div>
+                    <ul class="tier-card__features">
+                      <li>High-Visibility Corner / Island</li>
+                      <li>2 to 3 Open Sides</li>
+                      <li>5 Conference Passes</li>
+                      <li>Dedicated Power &amp; 1Gbps Internet</li>
+                      <li>Featured Listing in Event Directory</li>
+                    </ul>
+                  </div>
                 </label>
-                <label class="tier-card" for="tierIsland">
-                  <input type="radio" id="tierIsland" name="boothTier" value="island" data-cost="450000" data-label="Island Booth (6×6m)" class="tier-radio"/>
-                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--violet">Island</div><div class="tier-card__size">6 &#215; 6 m</div><div class="tier-card__price">&#8377; 4,50,000</div><ul class="tier-card__features"><li>All four sides open</li><li>Custom build allowed</li><li>Dedicated AV system</li><li>Lounge furniture set</li></ul></div>
-                </label>
-                <label class="tier-card tier-card--vip" for="tierVIP">
-                  <input type="radio" id="tierVIP" name="boothTier" value="vip" data-cost="1800000" data-label="VIP Private Vault (9×9m)" class="tier-radio"/>
-                  <div class="tier-card__inner"><div class="tier-card__badge tier-card__badge--gold">VIP Vault</div><div class="tier-card__size">9 &#215; 9 m</div><div class="tier-card__price">&#8377; 18,00,000</div><ul class="tier-card__features"><li>Exclusive private suite</li><li>Dedicated concierge</li><li>Climate-controlled vault</li><li>B2B meeting room included</li></ul></div>
+                <label class="tier-card tier-card--silver" for="tierSilver">
+                  <input type="radio" id="tierSilver" name="boothTier" value="silver" data-cost="150000" data-label="Silver Category (3×3m)" class="tier-radio"/>
+                  <div class="tier-card__inner">
+                    <div class="tier-card__badge tier-card__badge--silver">Silver</div>
+                    <div class="tier-card__size">3 &#215; 3 m Booth</div>
+                    <div class="tier-card__price">&#8377; 1,50,000</div>
+                    <ul class="tier-card__features">
+                      <li>Octanorm Shell Scheme Booth</li>
+                      <li>1 Table, 2 Chairs &amp; Fascia Board</li>
+                      <li>2 Visitor Passes</li>
+                      <li>Standard Lighting &amp; Power Point</li>
+                      <li>Listing in Official Directory</li>
+                    </ul>
+                  </div>
                 </label>
               </div>
               <span class="form-error" id="boothTier-error" role="alert"></span>
@@ -1391,7 +1259,6 @@
           <ul class="footer__links" role="list">
             <li><a href="#about" class="footer__link">About IISMEXPO</a></li>
             <li><a href="#vault" class="footer__link">The Mineral Vault</a></li>
-            <li><a href="#floor" class="footer__link">Exhibition Floor Plan</a></li>
             <li><a href="#logistics" class="footer__link">Visitor Logistics</a></li>
             <li><a href="#exhibitor" class="footer__link">Exhibitor Booking</a></li>
           </ul>
