@@ -213,57 +213,63 @@ function generateRefId() {
 
   const geoTypes = ['nugget', 'octahedron', 'crystal', 'prism', 'raw'];
   const floatingMetals = [];
+  const TOTAL_ELEMENTS = LANTHANIDE_ELEMENTS.length; // 15 elements
+  const SPAN_Y = 44; // Wide vertical track so only 2-3 items appear in visible camera viewport at once
 
-  // Create 30 flying Lanthanide ore specimens (2 per element so all 15 elements are present and floating)
-  for (let i = 0; i < 30; i++) {
-    const elem = LANTHANIDE_ELEMENTS[i % LANTHANIDE_ELEMENTS.length];
+  // Create 15 micro Lanthanide element specimens evenly spaced vertically along outer side margins
+  for (let i = 0; i < TOTAL_ELEMENTS; i++) {
+    const elem = LANTHANIDE_ELEMENTS[i];
     const geoType = geoTypes[i % geoTypes.length];
-    const geo = createDeformedOreGeometry(geoType, 0.20, 0.32);
+    // Micro ore geometry (radius 0.08 for non-intrusive subtle size)
+    const geo = createDeformedOreGeometry(geoType, 0.08, 0.28);
 
     const mat = new THREE.MeshPhongMaterial({
       color: elem.color,
       specular: elem.specular,
-      shininess: 300,
-      emissive: 0x101015,
+      shininess: 320,
+      emissive: 0x0a0a10,
       flatShading: true,
       transparent: true,
-      opacity: 0.92
+      opacity: 0.88
     });
 
     const oreGroup = new THREE.Group();
     const mesh = new THREE.Mesh(geo, mat);
     oreGroup.add(mesh);
 
-    // Element Badge Tag Sprite attached to ore
+    // Micro Element Badge Tag Sprite (compact & non-intrusive)
     const badgeTex = createElementBadgeTexture(elem);
-    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.95 });
+    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.90 });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(0.65, 0.325, 1);
-    sprite.position.set(0, 0.38, 0);
+    sprite.scale.set(0.24, 0.12, 1);
+    sprite.position.set(0, 0.15, 0);
     oreGroup.add(sprite);
 
-    // Initial random placement around screen
-    const x = (Math.random() - 0.5) * 14;
-    const y = (Math.random() - 0.5) * 11;
-    const z = (Math.random() - 0.5) * 5.5 - 0.5;
+    // Stagger vertically across SPAN_Y so only 2-3 are on screen at any given time
+    const y = -22 + (i / TOTAL_ELEMENTS) * SPAN_Y + (Math.random() - 0.5) * 1.5;
+    // Constrain to outer left and right margins (x: -6.2 to -4.5 or +4.5 to +6.2) so text is never overlapped
+    const side = (i % 2 === 0) ? -1 : 1;
+    const x = side * (4.5 + Math.random() * 1.8);
+    const z = (Math.random() - 0.5) * 3 - 0.5;
 
     oreGroup.position.set(x, y, z);
     mesh.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
 
-    const scale = Math.random() * 0.55 + 0.65;
+    const scale = Math.random() * 0.25 + 0.45;
     oreGroup.scale.set(scale, scale, scale);
 
     const metalObj = {
       group: oreGroup,
       mesh: mesh,
       element: elem,
-      speedY: Math.random() * 0.007 + 0.003,
-      speedX: (Math.random() - 0.5) * 0.003,
-      rotX: (Math.random() - 0.5) * 0.025 + 0.008,
-      rotY: (Math.random() - 0.5) * 0.025 + 0.008,
-      rotZ: (Math.random() - 0.5) * 0.02,
-      wobbleSpeed: Math.random() * 1.5 + 0.5,
-      wobbleOffset: Math.random() * Math.PI * 2
+      speedY: 0.0012 + (Math.random() - 0.5) * 0.0003, // Ultra-slow, calm drifting pace
+      speedX: side * 0.0001,
+      rotX: (Math.random() - 0.5) * 0.006 + 0.002,
+      rotY: (Math.random() - 0.5) * 0.006 + 0.002,
+      rotZ: (Math.random() - 0.5) * 0.004,
+      wobbleSpeed: Math.random() * 0.8 + 0.3,
+      wobbleOffset: Math.random() * Math.PI * 2,
+      side: side
     };
 
     floatingMetals.push(metalObj);
@@ -348,21 +354,19 @@ function generateRefId() {
       innerMesh.rotation.z    = Math.cos(t * 0.3) * 0.15;
     }
 
-    // Continuous flight & 3D tumbling animation of 15 Lanthanide rare earth metal specimens
+    // Continuous ultra-slow flight & gentle 3D tumbling animation (max 2-3 visible at a time)
     floatingMetals.forEach(m => {
       m.group.position.y += m.speedY;
-      m.group.position.x += m.speedX + Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0015;
+      m.group.position.x += Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0008;
       m.mesh.rotation.x += m.rotX;
       m.mesh.rotation.y += m.rotY;
       m.mesh.rotation.z += m.rotZ;
 
-      // Wrap around screen boundaries for endless flying metals effect
-      if (m.group.position.y > 6.2) {
-        m.group.position.y = -6.2;
-        m.group.position.x = (Math.random() - 0.5) * 14;
+      // Wrap around wide vertical track (-22 to +22) for seamless loop
+      if (m.group.position.y > 22.0) {
+        m.group.position.y = -22.0;
+        m.group.position.x = m.side * (4.5 + Math.random() * 1.8);
       }
-      if (m.group.position.x > 7.5)  m.group.position.x = -7.5;
-      if (m.group.position.x < -7.5) m.group.position.x = 7.5;
     });
 
     // Pulsing lights
