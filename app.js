@@ -118,11 +118,30 @@ function generateRefId() {
   // Align sphere 3D center directly behind main title
   crystalGroup.position.set(0, 0.4, 0);
 
-  // ── Floating 3D Metal & Mineral Ore System (Flying metal specimens) ──
+  // ── Floating 3D Metal & Mineral Ore System — 15 Lanthanide Elements (La to Lu) ──
   const floatingMetalsGroup = new THREE.Group();
   scene.add(floatingMetalsGroup);
 
-  // Helper to generate realistic, organic deformed mineral ore geometries (Gold nuggets, raw ores, crystal clusters)
+  // 15 Lanthanide Rare Earth Elements (Atomic numbers 57 to 71: La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu)
+  const LANTHANIDE_ELEMENTS = [
+    { num: 57, symbol: 'La', name: 'Lanthanum',   mineral: 'Bastnäsite / Monazite', color: 0xE0A96D, specular: 0xFFF0AA, glow: '#E0A96D' },
+    { num: 58, symbol: 'Ce', name: 'Cerium',      mineral: 'Cerite / Monazite',     color: 0xD97736, specular: 0xFFD8CC, glow: '#D97736' },
+    { num: 59, symbol: 'Pr', name: 'Praseodymium', mineral: 'Bastnäsite Ore',       color: 0x2A9D8F, specular: 0x80FFE8, glow: '#2A9D8F' },
+    { num: 60, symbol: 'Nd', name: 'Neodymium',   mineral: 'NdFeB Magnet Ore',      color: 0x9B5DE5, specular: 0xE0AAFF, glow: '#9B5DE5' },
+    { num: 61, symbol: 'Pm', name: 'Promethium',  mineral: 'Nuclear REE Isotope',   color: 0x00F5D4, specular: 0xA6FFF2, glow: '#00F5D4' },
+    { num: 62, symbol: 'Sm', name: 'Samarium',    mineral: 'Samarskite Ore',        color: 0xF4A261, specular: 0xFFE5D9, glow: '#F4A261' },
+    { num: 63, symbol: 'Eu', name: 'Europium',    mineral: 'Europium Phosphor',     color: 0xFF3142, specular: 0xFFB3BA, glow: '#FF3142' },
+    { num: 64, symbol: 'Gd', name: 'Gadolinium',  mineral: 'Gadolinite Specimen',   color: 0xE2E8F0, specular: 0xFFFFFF, glow: '#E2E8F0' },
+    { num: 65, symbol: 'Tb', name: 'Terbium',     mineral: 'Terfenol-D Ore',        color: 0x00BB77, specular: 0x88FFCC, glow: '#00BB77' },
+    { num: 66, symbol: 'Dy', name: 'Dysprosium',  mineral: 'Xenotime REE Ore',      color: 0x7209B7, specular: 0xD8B4FE, glow: '#7209B7' },
+    { num: 67, symbol: 'Ho', name: 'Holmium',     mineral: 'Holmite Crystal',       color: 0xE63946, specular: 0xFFC2C7, glow: '#E63946' },
+    { num: 68, symbol: 'Er', name: 'Erbium',      mineral: 'Erbium Erbita Ore',     color: 0xFF69B4, specular: 0xFFC0CB, glow: '#FF69B4' },
+    { num: 69, symbol: 'Tm', name: 'Thulium',     mineral: 'Thulite Specimen',      color: 0x4895EF, specular: 0xBEE9E8, glow: '#4895EF' },
+    { num: 70, symbol: 'Yb', name: 'Ytterbium',   mineral: 'Ytterbite Specimen',    color: 0x4CC9F0, specular: 0xE0F7FA, glow: '#4CC9F0' },
+    { num: 71, symbol: 'Lu', name: 'Lutetium',    mineral: 'Heavy REE Lutetium',    color: 0xFFD700, specular: 0xFFFAEB, glow: '#FFD700' },
+  ];
+
+  // Helper to generate realistic, organic deformed mineral ore geometries
   function createDeformedOreGeometry(type, radius, distortion) {
     let geo;
     if (type === 'nugget') {
@@ -142,7 +161,6 @@ function generateRefId() {
       const vx = pos.getX(i);
       const vy = pos.getY(i);
       const vz = pos.getZ(i);
-      // Pseudo-random deterministic noise per vertex for authentic raw metallic ore bumps and facets
       const scale = 1 + (Math.sin(vx * 14.0 + vy * 9.0 + vz * 16.0) * 0.45 + Math.cos(vy * 11.0 + vz * 13.0) * 0.45) * distortion;
       pos.setXYZ(i, vx * scale, vy * scale, vz * scale);
     }
@@ -150,64 +168,95 @@ function generateRefId() {
     return geo;
   }
 
-  // Collection of realistic metallic crystal ore geometries
-  const oreGeometries = [
-    createDeformedOreGeometry('nugget', 0.22, 0.35),      // Organic Raw Gold Nugget
-    createDeformedOreGeometry('octahedron', 0.20, 0.20),  // Octahedral Pyrite / Mineral Specimen
-    createDeformedOreGeometry('crystal', 0.19, 0.25),     // Faceted Rare Earth Crystal Cluster
-    createDeformedOreGeometry('prism', 0.16, 0.18),       // Prismatic Metallic Shard
-    createDeformedOreGeometry('raw', 0.21, 0.38)          // Irregular Jagged Metal Ore Specimen
-  ];
+  // Create Element Pill Badge Canvas Texture (e.g. 57 La, 60 Nd, 63 Eu)
+  function createElementBadgeTexture(elem) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 128;
+    const ctx = canvas.getContext('2d');
 
-  // Metallic & mineral materials with flatShading so every facet glints distinctly as metallic specimens tumble
-  const metalMaterials = [
-    // Native Gold Nugget (Deep Metallic Gold)
-    new THREE.MeshPhongMaterial({
-      color: 0xFFD700, specular: 0xFFFAEB, shininess: 320, emissive: 0x3a2800, flatShading: true, transparent: true, opacity: 0.92
-    }),
-    // Platinum / Titanium Ore Specimen (Bright Silver Metal)
-    new THREE.MeshPhongMaterial({
-      color: 0xE2E8F0, specular: 0xFFFFFF, shininess: 380, emissive: 0x151c28, flatShading: true, transparent: true, opacity: 0.90
-    }),
-    // Strategic Rare Earth Metal (Cyan Ore Specimen)
-    new THREE.MeshPhongMaterial({
-      color: 0x00F5D4, specular: 0xA6FFF2, shininess: 280, emissive: 0x00332c, flatShading: true, transparent: true, opacity: 0.90
-    }),
-    // Violet Amethyst / Lithium Mineral Specimen
-    new THREE.MeshPhongMaterial({
-      color: 0x9B5DE5, specular: 0xE8D5FF, shininess: 260, emissive: 0x21004a, flatShading: true, transparent: true, opacity: 0.90
-    }),
-    // Ruby / Garnet Critical Mineral Specimen (Crimson Metal)
-    new THREE.MeshPhongMaterial({
-      color: 0xFF3142, specular: 0xFFC2C7, shininess: 290, emissive: 0x380007, flatShading: true, transparent: true, opacity: 0.92
-    }),
-    // Raw Copper / Bronze Ore Specimen
-    new THREE.MeshPhongMaterial({
-      color: 0xE07A5F, specular: 0xFFD8CC, shininess: 250, emissive: 0x2b1008, flatShading: true, transparent: true, opacity: 0.90
-    })
-  ];
+    // Draw pill background
+    ctx.fillStyle = 'rgba(10, 13, 22, 0.88)';
+    ctx.strokeStyle = elem.glow;
+    ctx.lineWidth = 4;
 
-  const METAL_COUNT = 36;
+    const x = 8, y = 8, w = 240, h = 112, r = 24;
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Atomic number
+    ctx.fillStyle = 'rgba(240, 238, 232, 0.75)';
+    ctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText(`${elem.num}`, 24, 46);
+
+    // Element symbol
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 50px "Cinzel", serif';
+    ctx.fillText(elem.symbol, 135, 72);
+
+    // Element name
+    ctx.fillStyle = elem.glow;
+    ctx.font = 'bold 20px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText(elem.name, 24, 98);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    return texture;
+  }
+
+  const geoTypes = ['nugget', 'octahedron', 'crystal', 'prism', 'raw'];
   const floatingMetals = [];
 
-  for (let i = 0; i < METAL_COUNT; i++) {
-    const geo = oreGeometries[i % oreGeometries.length];
-    const mat = metalMaterials[i % metalMaterials.length];
-    const mesh = new THREE.Mesh(geo, mat);
+  // Create 30 flying Lanthanide ore specimens (2 per element so all 15 elements are present and floating)
+  for (let i = 0; i < 30; i++) {
+    const elem = LANTHANIDE_ELEMENTS[i % LANTHANIDE_ELEMENTS.length];
+    const geoType = geoTypes[i % geoTypes.length];
+    const geo = createDeformedOreGeometry(geoType, 0.20, 0.32);
 
-    // Random initial placement across full hero viewport
-    const x = (Math.random() - 0.5) * 13;
+    const mat = new THREE.MeshPhongMaterial({
+      color: elem.color,
+      specular: elem.specular,
+      shininess: 300,
+      emissive: 0x101015,
+      flatShading: true,
+      transparent: true,
+      opacity: 0.92
+    });
+
+    const oreGroup = new THREE.Group();
+    const mesh = new THREE.Mesh(geo, mat);
+    oreGroup.add(mesh);
+
+    // Element Badge Tag Sprite attached to ore
+    const badgeTex = createElementBadgeTexture(elem);
+    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.95 });
+    const sprite = new THREE.Sprite(spriteMat);
+    sprite.scale.set(0.65, 0.325, 1);
+    sprite.position.set(0, 0.38, 0);
+    oreGroup.add(sprite);
+
+    // Initial random placement around screen
+    const x = (Math.random() - 0.5) * 14;
     const y = (Math.random() - 0.5) * 11;
     const z = (Math.random() - 0.5) * 5.5 - 0.5;
 
-    mesh.position.set(x, y, z);
+    oreGroup.position.set(x, y, z);
     mesh.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
 
-    const scale = Math.random() * 0.75 + 0.65;
-    mesh.scale.set(scale, scale, scale);
+    const scale = Math.random() * 0.55 + 0.65;
+    oreGroup.scale.set(scale, scale, scale);
 
     const metalObj = {
-      mesh,
+      group: oreGroup,
+      mesh: mesh,
+      element: elem,
       speedY: Math.random() * 0.007 + 0.003,
       speedX: (Math.random() - 0.5) * 0.003,
       rotX: (Math.random() - 0.5) * 0.025 + 0.008,
@@ -218,7 +267,7 @@ function generateRefId() {
     };
 
     floatingMetals.push(metalObj);
-    floatingMetalsGroup.add(mesh);
+    floatingMetalsGroup.add(oreGroup);
   }
 
   // Mouse interaction state
@@ -299,21 +348,21 @@ function generateRefId() {
       innerMesh.rotation.z    = Math.cos(t * 0.3) * 0.15;
     }
 
-    // Continuous flight & 3D tumbling animation of raw metallic mineral specimens
+    // Continuous flight & 3D tumbling animation of 15 Lanthanide rare earth metal specimens
     floatingMetals.forEach(m => {
-      m.mesh.position.y += m.speedY;
-      m.mesh.position.x += m.speedX + Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0015;
+      m.group.position.y += m.speedY;
+      m.group.position.x += m.speedX + Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0015;
       m.mesh.rotation.x += m.rotX;
       m.mesh.rotation.y += m.rotY;
       m.mesh.rotation.z += m.rotZ;
 
-      // Wrap around screen boundaries for continuous flying metals effect
-      if (m.mesh.position.y > 6.0) {
-        m.mesh.position.y = -6.0;
-        m.mesh.position.x = (Math.random() - 0.5) * 13;
+      // Wrap around screen boundaries for endless flying metals effect
+      if (m.group.position.y > 6.2) {
+        m.group.position.y = -6.2;
+        m.group.position.x = (Math.random() - 0.5) * 14;
       }
-      if (m.mesh.position.x > 7.0)  m.mesh.position.x = -7.0;
-      if (m.mesh.position.x < -7.0) m.mesh.position.x = 7.0;
+      if (m.group.position.x > 7.5)  m.group.position.x = -7.5;
+      if (m.group.position.x < -7.5) m.group.position.x = 7.5;
     });
 
     // Pulsing lights
