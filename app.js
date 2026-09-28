@@ -122,60 +122,99 @@ function generateRefId() {
   const floatingMetalsGroup = new THREE.Group();
   scene.add(floatingMetalsGroup);
 
-  const METAL_COUNT = 32;
-  const floatingMetals = [];
+  // Helper to generate realistic, organic deformed mineral ore geometries (Gold nuggets, raw ores, crystal clusters)
+  function createDeformedOreGeometry(type, radius, distortion) {
+    let geo;
+    if (type === 'nugget') {
+      geo = new THREE.IcosahedronGeometry(radius, 2);
+    } else if (type === 'crystal') {
+      geo = new THREE.DodecahedronGeometry(radius, 1);
+    } else if (type === 'octahedron') {
+      geo = new THREE.OctahedronGeometry(radius, 1);
+    } else if (type === 'prism') {
+      geo = new THREE.CylinderGeometry(radius * 0.4, radius * 0.75, radius * 2.2, 5);
+    } else {
+      geo = new THREE.TetrahedronGeometry(radius, 2);
+    }
 
-  // Geometries representing diverse metallic crystal ores
-  const metalGeometries = [
-    new THREE.OctahedronGeometry(0.18, 0),   // Octahedral crystal
-    new THREE.TetrahedronGeometry(0.20, 0),  // Pyramidal ore
-    new THREE.DodecahedronGeometry(0.16, 0), // Faceted mineral
-    new THREE.IcosahedronGeometry(0.15, 0),  // Polished gem
-    new THREE.BoxGeometry(0.16, 0.16, 0.16)  // Crystal cube
+    const pos = geo.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const vx = pos.getX(i);
+      const vy = pos.getY(i);
+      const vz = pos.getZ(i);
+      // Pseudo-random deterministic noise per vertex for authentic raw metallic ore bumps and facets
+      const scale = 1 + (Math.sin(vx * 14.0 + vy * 9.0 + vz * 16.0) * 0.45 + Math.cos(vy * 11.0 + vz * 13.0) * 0.45) * distortion;
+      pos.setXYZ(i, vx * scale, vy * scale, vz * scale);
+    }
+    geo.computeVertexNormals();
+    return geo;
+  }
+
+  // Collection of realistic metallic crystal ore geometries
+  const oreGeometries = [
+    createDeformedOreGeometry('nugget', 0.22, 0.35),      // Organic Raw Gold Nugget
+    createDeformedOreGeometry('octahedron', 0.20, 0.20),  // Octahedral Pyrite / Mineral Specimen
+    createDeformedOreGeometry('crystal', 0.19, 0.25),     // Faceted Rare Earth Crystal Cluster
+    createDeformedOreGeometry('prism', 0.16, 0.18),       // Prismatic Metallic Shard
+    createDeformedOreGeometry('raw', 0.21, 0.38)          // Irregular Jagged Metal Ore Specimen
   ];
 
-  // Metallic & mineral materials representing critical metals (Gold, Platinum, Rare Earth, Cobalt, Ruby Ore)
+  // Metallic & mineral materials with flatShading so every facet glints distinctly as metallic specimens tumble
   const metalMaterials = [
+    // Native Gold Nugget (Deep Metallic Gold)
     new THREE.MeshPhongMaterial({
-      color: 0xE0A96D, specular: 0xFFD700, shininess: 250, emissive: 0x2a1a00, transparent: true, opacity: 0.85
+      color: 0xFFD700, specular: 0xFFFAEB, shininess: 320, emissive: 0x3a2800, flatShading: true, transparent: true, opacity: 0.92
     }),
+    // Platinum / Titanium Ore Specimen (Bright Silver Metal)
     new THREE.MeshPhongMaterial({
-      color: 0xD4D8E0, specular: 0xFFFFFF, shininess: 300, emissive: 0x101520, transparent: true, opacity: 0.85
+      color: 0xE2E8F0, specular: 0xFFFFFF, shininess: 380, emissive: 0x151c28, flatShading: true, transparent: true, opacity: 0.90
     }),
+    // Strategic Rare Earth Metal (Cyan Ore Specimen)
     new THREE.MeshPhongMaterial({
-      color: 0x00F5D4, specular: 0x80FFE8, shininess: 200, emissive: 0x002e28, transparent: true, opacity: 0.85
+      color: 0x00F5D4, specular: 0xA6FFF2, shininess: 280, emissive: 0x00332c, flatShading: true, transparent: true, opacity: 0.90
     }),
+    // Violet Amethyst / Lithium Mineral Specimen
     new THREE.MeshPhongMaterial({
-      color: 0x9B5DE5, specular: 0xE0AAFF, shininess: 220, emissive: 0x1f0038, transparent: true, opacity: 0.85
+      color: 0x9B5DE5, specular: 0xE8D5FF, shininess: 260, emissive: 0x21004a, flatShading: true, transparent: true, opacity: 0.90
     }),
+    // Ruby / Garnet Critical Mineral Specimen (Crimson Metal)
     new THREE.MeshPhongMaterial({
-      color: 0xFF3142, specular: 0xFF99A4, shininess: 240, emissive: 0x380008, transparent: true, opacity: 0.85
+      color: 0xFF3142, specular: 0xFFC2C7, shininess: 290, emissive: 0x380007, flatShading: true, transparent: true, opacity: 0.92
+    }),
+    // Raw Copper / Bronze Ore Specimen
+    new THREE.MeshPhongMaterial({
+      color: 0xE07A5F, specular: 0xFFD8CC, shininess: 250, emissive: 0x2b1008, flatShading: true, transparent: true, opacity: 0.90
     })
   ];
 
+  const METAL_COUNT = 36;
+  const floatingMetals = [];
+
   for (let i = 0; i < METAL_COUNT; i++) {
-    const geo = metalGeometries[i % metalGeometries.length];
+    const geo = oreGeometries[i % oreGeometries.length];
     const mat = metalMaterials[i % metalMaterials.length];
     const mesh = new THREE.Mesh(geo, mat);
 
-    // Initial random floating position
-    const x = (Math.random() - 0.5) * 12;
-    const y = (Math.random() - 0.5) * 10;
-    const z = (Math.random() - 0.5) * 6 - 1;
+    // Random initial placement across full hero viewport
+    const x = (Math.random() - 0.5) * 13;
+    const y = (Math.random() - 0.5) * 11;
+    const z = (Math.random() - 0.5) * 5.5 - 0.5;
 
     mesh.position.set(x, y, z);
-    mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+    mesh.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
 
-    const scale = Math.random() * 0.75 + 0.55;
+    const scale = Math.random() * 0.75 + 0.65;
     mesh.scale.set(scale, scale, scale);
 
     const metalObj = {
       mesh,
-      speedY: Math.random() * 0.008 + 0.003,
+      speedY: Math.random() * 0.007 + 0.003,
       speedX: (Math.random() - 0.5) * 0.003,
-      rotX: (Math.random() - 0.5) * 0.02,
-      rotY: (Math.random() - 0.5) * 0.02,
-      rotZ: (Math.random() - 0.5) * 0.02
+      rotX: (Math.random() - 0.5) * 0.025 + 0.008,
+      rotY: (Math.random() - 0.5) * 0.025 + 0.008,
+      rotZ: (Math.random() - 0.5) * 0.02,
+      wobbleSpeed: Math.random() * 1.5 + 0.5,
+      wobbleOffset: Math.random() * Math.PI * 2
     };
 
     floatingMetals.push(metalObj);
@@ -260,21 +299,21 @@ function generateRefId() {
       innerMesh.rotation.z    = Math.cos(t * 0.3) * 0.15;
     }
 
-    // Continuous flight & tumble animation of floating 3D metal specimens
+    // Continuous flight & 3D tumbling animation of raw metallic mineral specimens
     floatingMetals.forEach(m => {
       m.mesh.position.y += m.speedY;
-      m.mesh.position.x += m.speedX;
+      m.mesh.position.x += m.speedX + Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0015;
       m.mesh.rotation.x += m.rotX;
       m.mesh.rotation.y += m.rotY;
       m.mesh.rotation.z += m.rotZ;
 
-      // Wrap around screen boundaries for endless flying metals effect
-      if (m.mesh.position.y > 5.5) {
-        m.mesh.position.y = -5.5;
-        m.mesh.position.x = (Math.random() - 0.5) * 12;
+      // Wrap around screen boundaries for continuous flying metals effect
+      if (m.mesh.position.y > 6.0) {
+        m.mesh.position.y = -6.0;
+        m.mesh.position.x = (Math.random() - 0.5) * 13;
       }
-      if (m.mesh.position.x > 6.5)  m.mesh.position.x = -6.5;
-      if (m.mesh.position.x < -6.5) m.mesh.position.x = 6.5;
+      if (m.mesh.position.x > 7.0)  m.mesh.position.x = -7.0;
+      if (m.mesh.position.x < -7.0) m.mesh.position.x = 7.0;
     });
 
     // Pulsing lights
