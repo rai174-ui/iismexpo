@@ -68,8 +68,17 @@ function generateRefId() {
   pointLight3.position.set(3, -5, -2);
   scene.add(pointLight3);
 
-  // Main crystal — IcosahedronGeometry with detail level
-  const crystalGeo = new THREE.IcosahedronGeometry(1.5, 1);
+  // Red accent point light for CONNECT red theme
+  const pointLightRed = new THREE.PointLight(0xFF3142, 2.5, 20);
+  pointLightRed.position.set(0, 2, 4);
+  scene.add(pointLightRed);
+
+  // Crystal Group to align sphere behind AMIGOCONNECT heading
+  const crystalGroup = new THREE.Group();
+  scene.add(crystalGroup);
+
+  // Main crystal — IcosahedronGeometry scaled to encapsulate title in center
+  const crystalGeo = new THREE.IcosahedronGeometry(2.6, 1);
   const crystalMat = new THREE.MeshPhongMaterial({
     color:      0x0a2e3a,
     emissive:   0x001a22,
@@ -77,34 +86,37 @@ function generateRefId() {
     shininess:  180,
     wireframe:  false,
     transparent: true,
-    opacity:    0.75,
+    opacity:    0.6,
   });
   const crystalMesh = new THREE.Mesh(crystalGeo, crystalMat);
-  scene.add(crystalMesh);
+  crystalGroup.add(crystalMesh);
 
   // Wireframe overlay
-  const wireGeo = new THREE.IcosahedronGeometry(1.52, 1);
+  const wireGeo = new THREE.IcosahedronGeometry(2.63, 1);
   const wireMat = new THREE.MeshBasicMaterial({
     color:      0x00F5D4,
     wireframe:  true,
-    opacity:    0.12,
+    opacity:    0.18,
     transparent: true,
   });
   const wireMesh = new THREE.Mesh(wireGeo, wireMat);
-  scene.add(wireMesh);
+  crystalGroup.add(wireMesh);
 
   // Inner dodecahedron
-  const innerGeo = new THREE.DodecahedronGeometry(0.85, 0);
+  const innerGeo = new THREE.DodecahedronGeometry(1.4, 0);
   const innerMat = new THREE.MeshPhongMaterial({
     color:      0x1a0a30,
     emissive:   0x0d0020,
     specular:   0x9B5DE5,
     shininess:  220,
     transparent: true,
-    opacity:    0.9,
+    opacity:    0.85,
   });
   const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-  scene.add(innerMesh);
+  crystalGroup.add(innerMesh);
+
+  // Align sphere 3D center directly behind main title
+  crystalGroup.position.set(0, 0.5, 0);
 
   // Floating particle system
   const PARTICLE_COUNT = 80;
@@ -220,6 +232,7 @@ function generateRefId() {
     // Pulsing lights
     pointLight1.intensity = 2.5 + Math.sin(t * 1.2) * 0.8;
     pointLight2.intensity = 1.8 + Math.cos(t * 0.9) * 0.6;
+    pointLightRed.intensity = 2.2 + Math.sin(t * 1.4) * 0.7;
 
     renderer.render(scene, camera);
   }
