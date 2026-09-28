@@ -350,13 +350,13 @@ section {
 }
 
 .navbar__ac-logo {
-  height: 18px;
-  width: auto;
-  object-fit: contain;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(0, 245, 212, 0.4);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0, 245, 212, 0.2);
 }
 
 .navbar__ac-info {
@@ -2437,13 +2437,12 @@ section {
   transform: translateY(-1px);
 }
 .footer__ac-logo {
-  height: 24px;
-  width: auto;
-  object-fit: contain;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(0, 245, 212, 0.35);
+  flex-shrink: 0;
 }
 .footer__ac-info { line-height: 1.4; }
 .footer__ac-label {
