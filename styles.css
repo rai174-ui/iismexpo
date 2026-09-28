@@ -122,6 +122,17 @@ section {
   background-clip: text;
 }
 
+/* === AMIGOCONNECT SPLIT BRANDING === */
+.brand-amigo {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.brand-connect {
+  color: #FF2B2B !important;
+  -webkit-text-fill-color: #FF2B2B !important;
+}
+
 /* === GLASS CARD === */
 .glass-card {
   background: var(--glass-bg);
@@ -318,7 +329,7 @@ section {
   flex-shrink: 0;
 }
 
-/* Amigo Connect organiser pill badge in navbar */
+/* AMIGOCONNECT organiser pill badge in navbar */
 .navbar__organiser-badge {
   display: flex;
   align-items: center;
@@ -2405,7 +2416,7 @@ section {
 }
 .footer__logo-img:hover { filter: drop-shadow(0 0 16px rgba(0,245,212,0.4)); }
 
-/* Amigo Connect organiser block in footer */
+/* AMIGOCONNECT organiser block in footer */
 .footer__organiser-block {
   display: flex;
   align-items: center;
