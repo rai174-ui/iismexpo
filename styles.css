@@ -396,7 +396,7 @@ section {
   display: block;
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #FFFFFF;
   margin-top: 0.4rem;
   letter-spacing: 0.05em;
 }
