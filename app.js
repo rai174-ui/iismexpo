@@ -73,12 +73,12 @@ function generateRefId() {
   pointLightRed.position.set(0, 2, 4);
   scene.add(pointLightRed);
 
-  // Crystal Group to align sphere behind AMIGOCONNECT heading
+  // Crystal Group to align sphere behind AMIGOCONNECT heading (scaled to ~45% size)
   const crystalGroup = new THREE.Group();
   scene.add(crystalGroup);
 
-  // Main crystal — IcosahedronGeometry scaled to encapsulate title in center
-  const crystalGeo = new THREE.IcosahedronGeometry(2.6, 1);
+  // Main crystal — scaled to ~45% size (~1.25 radius) to frame title text compactly
+  const crystalGeo = new THREE.IcosahedronGeometry(1.25, 1);
   const crystalMat = new THREE.MeshPhongMaterial({
     color:      0x0a2e3a,
     emissive:   0x001a22,
@@ -92,7 +92,7 @@ function generateRefId() {
   crystalGroup.add(crystalMesh);
 
   // Wireframe overlay
-  const wireGeo = new THREE.IcosahedronGeometry(2.63, 1);
+  const wireGeo = new THREE.IcosahedronGeometry(1.28, 1);
   const wireMat = new THREE.MeshBasicMaterial({
     color:      0x00F5D4,
     wireframe:  true,
@@ -103,7 +103,7 @@ function generateRefId() {
   crystalGroup.add(wireMesh);
 
   // Inner dodecahedron
-  const innerGeo = new THREE.DodecahedronGeometry(1.4, 0);
+  const innerGeo = new THREE.DodecahedronGeometry(0.68, 0);
   const innerMat = new THREE.MeshPhongMaterial({
     color:      0x1a0a30,
     emissive:   0x0d0020,
@@ -116,7 +116,7 @@ function generateRefId() {
   crystalGroup.add(innerMesh);
 
   // Align sphere 3D center directly behind main title
-  crystalGroup.position.set(0, 0.5, 0);
+  crystalGroup.position.set(0, 0.4, 0);
 
   // ── Floating 3D Metal & Mineral Ore System (Flying metal specimens) ──
   const floatingMetalsGroup = new THREE.Group();
