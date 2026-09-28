@@ -386,7 +386,7 @@ section {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--cyan);
+  color: #FFFFFF;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -2462,7 +2462,7 @@ section {
   margin: 0;
   font-size: 0.95rem;
 }
-.footer__ac-name strong { color: var(--cyan); }
+.footer__ac-name strong { color: inherit; }
 
 /* Footer contact block */
 .footer__contact-block {
