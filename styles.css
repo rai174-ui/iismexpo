@@ -123,12 +123,18 @@ section {
 }
 
 /* === AMIGOCONNECT SPLIT BRANDING === */
-.brand-amigo {
+.brand-amigo,
+.hero__organiser-tag .brand-amigo,
+.navbar__ac-name .brand-amigo,
+.footer__ac-name .brand-amigo {
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
 }
 
-.brand-connect {
+.brand-connect,
+.hero__organiser-tag .brand-connect,
+.navbar__ac-name .brand-connect,
+.footer__ac-name .brand-connect {
   color: #FF3142 !important;
   -webkit-text-fill-color: #FF3142 !important;
 }
@@ -394,7 +400,7 @@ section {
   margin-top: 0.4rem;
   letter-spacing: 0.05em;
 }
-.hero__organiser-tag strong { color: var(--gold); }
+.hero__organiser-tag strong { color: inherit; }
 
 .navbar__links {
   display: flex;

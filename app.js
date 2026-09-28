@@ -118,34 +118,69 @@ function generateRefId() {
   // Align sphere 3D center directly behind main title
   crystalGroup.position.set(0, 0.5, 0);
 
-  // Floating particle system
-  const PARTICLE_COUNT = 80;
-  const particleGeo = new THREE.BufferGeometry();
-  const positions    = new Float32Array(PARTICLE_COUNT * 3);
-  const particleSizes = new Float32Array(PARTICLE_COUNT);
+  // ── Floating 3D Metal & Mineral Ore System (Flying metal specimens) ──
+  const floatingMetalsGroup = new THREE.Group();
+  scene.add(floatingMetalsGroup);
 
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    const r     = 3 + Math.random() * 5;
-    const theta = Math.random() * Math.PI * 2;
-    const phi   = Math.random() * Math.PI;
-    positions[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
-    positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-    positions[i * 3 + 2] = r * Math.cos(phi);
-    particleSizes[i]     = Math.random() * 0.04 + 0.01;
+  const METAL_COUNT = 32;
+  const floatingMetals = [];
+
+  // Geometries representing diverse metallic crystal ores
+  const metalGeometries = [
+    new THREE.OctahedronGeometry(0.18, 0),   // Octahedral crystal
+    new THREE.TetrahedronGeometry(0.20, 0),  // Pyramidal ore
+    new THREE.DodecahedronGeometry(0.16, 0), // Faceted mineral
+    new THREE.IcosahedronGeometry(0.15, 0),  // Polished gem
+    new THREE.BoxGeometry(0.16, 0.16, 0.16)  // Crystal cube
+  ];
+
+  // Metallic & mineral materials representing critical metals (Gold, Platinum, Rare Earth, Cobalt, Ruby Ore)
+  const metalMaterials = [
+    new THREE.MeshPhongMaterial({
+      color: 0xE0A96D, specular: 0xFFD700, shininess: 250, emissive: 0x2a1a00, transparent: true, opacity: 0.85
+    }),
+    new THREE.MeshPhongMaterial({
+      color: 0xD4D8E0, specular: 0xFFFFFF, shininess: 300, emissive: 0x101520, transparent: true, opacity: 0.85
+    }),
+    new THREE.MeshPhongMaterial({
+      color: 0x00F5D4, specular: 0x80FFE8, shininess: 200, emissive: 0x002e28, transparent: true, opacity: 0.85
+    }),
+    new THREE.MeshPhongMaterial({
+      color: 0x9B5DE5, specular: 0xE0AAFF, shininess: 220, emissive: 0x1f0038, transparent: true, opacity: 0.85
+    }),
+    new THREE.MeshPhongMaterial({
+      color: 0xFF3142, specular: 0xFF99A4, shininess: 240, emissive: 0x380008, transparent: true, opacity: 0.85
+    })
+  ];
+
+  for (let i = 0; i < METAL_COUNT; i++) {
+    const geo = metalGeometries[i % metalGeometries.length];
+    const mat = metalMaterials[i % metalMaterials.length];
+    const mesh = new THREE.Mesh(geo, mat);
+
+    // Initial random floating position
+    const x = (Math.random() - 0.5) * 12;
+    const y = (Math.random() - 0.5) * 10;
+    const z = (Math.random() - 0.5) * 6 - 1;
+
+    mesh.position.set(x, y, z);
+    mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+
+    const scale = Math.random() * 0.75 + 0.55;
+    mesh.scale.set(scale, scale, scale);
+
+    const metalObj = {
+      mesh,
+      speedY: Math.random() * 0.008 + 0.003,
+      speedX: (Math.random() - 0.5) * 0.003,
+      rotX: (Math.random() - 0.5) * 0.02,
+      rotY: (Math.random() - 0.5) * 0.02,
+      rotZ: (Math.random() - 0.5) * 0.02
+    };
+
+    floatingMetals.push(metalObj);
+    floatingMetalsGroup.add(mesh);
   }
-
-  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-  const particleMat = new THREE.PointsMaterial({
-    color:       0x00F5D4,
-    size:        0.04,
-    transparent: true,
-    opacity:     0.6,
-    sizeAttenuation: true,
-  });
-
-  const particles = new THREE.Points(particleGeo, particleMat);
-  scene.add(particles);
 
   // Mouse interaction state
   let isDragging    = false;
@@ -225,9 +260,22 @@ function generateRefId() {
       innerMesh.rotation.z    = Math.cos(t * 0.3) * 0.15;
     }
 
-    // Floating particles drift
-    particles.rotation.y += 0.0008;
-    particles.rotation.x  = Math.sin(t * 0.1) * 0.05;
+    // Continuous flight & tumble animation of floating 3D metal specimens
+    floatingMetals.forEach(m => {
+      m.mesh.position.y += m.speedY;
+      m.mesh.position.x += m.speedX;
+      m.mesh.rotation.x += m.rotX;
+      m.mesh.rotation.y += m.rotY;
+      m.mesh.rotation.z += m.rotZ;
+
+      // Wrap around screen boundaries for endless flying metals effect
+      if (m.mesh.position.y > 5.5) {
+        m.mesh.position.y = -5.5;
+        m.mesh.position.x = (Math.random() - 0.5) * 12;
+      }
+      if (m.mesh.position.x > 6.5)  m.mesh.position.x = -6.5;
+      if (m.mesh.position.x < -6.5) m.mesh.position.x = 6.5;
+    });
 
     // Pulsing lights
     pointLight1.intensity = 2.5 + Math.sin(t * 1.2) * 0.8;
