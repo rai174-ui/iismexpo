@@ -127,16 +127,16 @@ section {
 .hero__organiser-tag .brand-amigo,
 .navbar__ac-name .brand-amigo,
 .footer__ac-name .brand-amigo {
-  color: #FFFFFF !important;
-  -webkit-text-fill-color: #FFFFFF !important;
+  color: #FF3142 !important;
+  -webkit-text-fill-color: #FF3142 !important;
 }
 
 .brand-connect,
 .hero__organiser-tag .brand-connect,
 .navbar__ac-name .brand-connect,
 .footer__ac-name .brand-connect {
-  color: #FF3142 !important;
-  -webkit-text-fill-color: #FF3142 !important;
+  color: #A0A6B2 !important;
+  -webkit-text-fill-color: #A0A6B2 !important;
 }
 
 /* === GLASS CARD === */

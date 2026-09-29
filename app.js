@@ -1,7 +1,7 @@
 /**
  * ═══════════════════════════════════════════════════════════════
  *  IISMEXPO — Organised by AMIGOCONNECT | app.js
- *  Complete interactive JavaScript for the IISMEXPO 2026 website
+ *  Complete interactive JavaScript for the IISMEXPO 2027 website
  * ═══════════════════════════════════════════════════════════════
  */
 
@@ -22,7 +22,7 @@ function formatINR(amount) {
 
 /**
  * Generate a random IISMEXPO booking reference ID
- * e.g. IISM-2026-AB4X7K
+ * e.g. IISM-2027-AB4X7K
  */
 function generateRefId() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -30,7 +30,7 @@ function generateRefId() {
   for (let i = 0; i < 6; i++) {
     id += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  return `IISM-2026-${id}`;
+  return `IISM-2027-${id}`;
 }
 
 /* ─────────────────────────────────────────────────
@@ -73,12 +73,12 @@ function generateRefId() {
   pointLightRed.position.set(0, 2, 4);
   scene.add(pointLightRed);
 
-  // Crystal Group to align sphere behind AMIGOCONNECT heading (scaled to ~45% size)
+  // Crystal Group to align sphere encapsulating all hero content inside
   const crystalGroup = new THREE.Group();
   scene.add(crystalGroup);
 
-  // Main crystal — scaled to ~45% size (~1.25 radius) to frame title text compactly
-  const crystalGeo = new THREE.IcosahedronGeometry(1.25, 1);
+  // Main crystal — expanded to encapsulate eyebrow, title, description & CTA buttons inside
+  const crystalGeo = new THREE.IcosahedronGeometry(2.35, 1);
   const crystalMat = new THREE.MeshPhongMaterial({
     color:      0x0a2e3a,
     emissive:   0x001a22,
@@ -86,37 +86,37 @@ function generateRefId() {
     shininess:  180,
     wireframe:  false,
     transparent: true,
-    opacity:    0.6,
+    opacity:    0.55,
   });
   const crystalMesh = new THREE.Mesh(crystalGeo, crystalMat);
   crystalGroup.add(crystalMesh);
 
   // Wireframe overlay
-  const wireGeo = new THREE.IcosahedronGeometry(1.28, 1);
+  const wireGeo = new THREE.IcosahedronGeometry(2.38, 1);
   const wireMat = new THREE.MeshBasicMaterial({
     color:      0x00F5D4,
     wireframe:  true,
-    opacity:    0.18,
+    opacity:    0.20,
     transparent: true,
   });
   const wireMesh = new THREE.Mesh(wireGeo, wireMat);
   crystalGroup.add(wireMesh);
 
   // Inner dodecahedron
-  const innerGeo = new THREE.DodecahedronGeometry(0.68, 0);
+  const innerGeo = new THREE.DodecahedronGeometry(1.25, 0);
   const innerMat = new THREE.MeshPhongMaterial({
     color:      0x1a0a30,
     emissive:   0x0d0020,
     specular:   0x9B5DE5,
     shininess:  220,
     transparent: true,
-    opacity:    0.85,
+    opacity:    0.80,
   });
   const innerMesh = new THREE.Mesh(innerGeo, innerMat);
   crystalGroup.add(innerMesh);
 
-  // Align sphere 3D center directly behind main title
-  crystalGroup.position.set(0, 0.4, 0);
+  // Align sphere 3D center directly behind hero content box
+  crystalGroup.position.set(0, 0.35, 0);
 
   // ── Floating 3D Metal & Mineral Ore System — 15 Lanthanide Elements (La to Lu) ──
   const floatingMetalsGroup = new THREE.Group();
@@ -213,63 +213,57 @@ function generateRefId() {
 
   const geoTypes = ['nugget', 'octahedron', 'crystal', 'prism', 'raw'];
   const floatingMetals = [];
-  const TOTAL_ELEMENTS = LANTHANIDE_ELEMENTS.length; // 15 elements
-  const SPAN_Y = 44; // Wide vertical track so only 2-3 items appear in visible camera viewport at once
 
-  // Create 15 micro Lanthanide element specimens evenly spaced vertically along outer side margins
-  for (let i = 0; i < TOTAL_ELEMENTS; i++) {
-    const elem = LANTHANIDE_ELEMENTS[i];
+  // Create 24 flying 3D Lanthanide ore specimens visible across the hero viewport
+  for (let i = 0; i < 24; i++) {
+    const elem = LANTHANIDE_ELEMENTS[i % LANTHANIDE_ELEMENTS.length];
     const geoType = geoTypes[i % geoTypes.length];
-    // Micro ore geometry (radius 0.08 for non-intrusive subtle size)
-    const geo = createDeformedOreGeometry(geoType, 0.08, 0.28);
+    const geo = createDeformedOreGeometry(geoType, 0.16, 0.32);
 
     const mat = new THREE.MeshPhongMaterial({
       color: elem.color,
       specular: elem.specular,
       shininess: 320,
-      emissive: 0x0a0a10,
+      emissive: 0x101015,
       flatShading: true,
       transparent: true,
-      opacity: 0.88
+      opacity: 0.90
     });
 
     const oreGroup = new THREE.Group();
     const mesh = new THREE.Mesh(geo, mat);
     oreGroup.add(mesh);
 
-    // Micro Element Badge Tag Sprite (compact & non-intrusive)
+    // Sleek Element Badge Tag Sprite attached above ore
     const badgeTex = createElementBadgeTexture(elem);
-    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.90 });
+    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.92 });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(0.24, 0.12, 1);
-    sprite.position.set(0, 0.15, 0);
+    sprite.scale.set(0.48, 0.24, 1);
+    sprite.position.set(0, 0.28, 0);
     oreGroup.add(sprite);
 
-    // Stagger vertically across SPAN_Y so only 2-3 are on screen at any given time
-    const y = -22 + (i / TOTAL_ELEMENTS) * SPAN_Y + (Math.random() - 0.5) * 1.5;
-    // Constrain to outer left and right margins (x: -6.2 to -4.5 or +4.5 to +6.2) so text is never overlapped
-    const side = (i % 2 === 0) ? -1 : 1;
-    const x = side * (4.5 + Math.random() * 1.8);
-    const z = (Math.random() - 0.5) * 3 - 0.5;
+    // Random initial placement within visible viewport bounds
+    const x = (Math.random() - 0.5) * 11;
+    const y = (Math.random() - 0.5) * 9.5;
+    const z = (Math.random() - 0.5) * 4.5 - 0.5;
 
     oreGroup.position.set(x, y, z);
     mesh.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
 
-    const scale = Math.random() * 0.25 + 0.45;
+    const scale = Math.random() * 0.35 + 0.70;
     oreGroup.scale.set(scale, scale, scale);
 
     const metalObj = {
       group: oreGroup,
       mesh: mesh,
       element: elem,
-      speedY: 0.0012 + (Math.random() - 0.5) * 0.0003, // Ultra-slow, calm drifting pace
-      speedX: side * 0.0001,
-      rotX: (Math.random() - 0.5) * 0.006 + 0.002,
-      rotY: (Math.random() - 0.5) * 0.006 + 0.002,
-      rotZ: (Math.random() - 0.5) * 0.004,
-      wobbleSpeed: Math.random() * 0.8 + 0.3,
-      wobbleOffset: Math.random() * Math.PI * 2,
-      side: side
+      speedY: Math.random() * 0.004 + 0.0025,
+      speedX: (Math.random() - 0.5) * 0.002,
+      rotX: (Math.random() - 0.5) * 0.02 + 0.005,
+      rotY: (Math.random() - 0.5) * 0.02 + 0.005,
+      rotZ: (Math.random() - 0.5) * 0.015,
+      wobbleSpeed: Math.random() * 1.2 + 0.4,
+      wobbleOffset: Math.random() * Math.PI * 2
     };
 
     floatingMetals.push(metalObj);
@@ -354,19 +348,21 @@ function generateRefId() {
       innerMesh.rotation.z    = Math.cos(t * 0.3) * 0.15;
     }
 
-    // Continuous ultra-slow flight & gentle 3D tumbling animation (max 2-3 visible at a time)
+    // Continuous 3D flight & tumbling animation of 15 Lanthanide rare earth metal specimens
     floatingMetals.forEach(m => {
       m.group.position.y += m.speedY;
-      m.group.position.x += Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0008;
+      m.group.position.x += m.speedX + Math.sin(t * m.wobbleSpeed + m.wobbleOffset) * 0.0012;
       m.mesh.rotation.x += m.rotX;
       m.mesh.rotation.y += m.rotY;
       m.mesh.rotation.z += m.rotZ;
 
-      // Wrap around wide vertical track (-22 to +22) for seamless loop
-      if (m.group.position.y > 22.0) {
-        m.group.position.y = -22.0;
-        m.group.position.x = m.side * (4.5 + Math.random() * 1.8);
+      // Wrap around visible viewport bounds (-5.5 to +5.5) for continuous floating effect
+      if (m.group.position.y > 5.5) {
+        m.group.position.y = -5.5;
+        m.group.position.x = (Math.random() - 0.5) * 11;
       }
+      if (m.group.position.x > 6.2)  m.group.position.x = -6.2;
+      if (m.group.position.x < -6.2) m.group.position.x = 6.2;
     });
 
     // Pulsing lights
