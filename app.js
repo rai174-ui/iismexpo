@@ -73,12 +73,12 @@ function generateRefId() {
   pointLightRed.position.set(0, 2, 4);
   scene.add(pointLightRed);
 
-  // Crystal Group to align sphere encapsulating all hero content inside
+  // Crystal Group to align sphere encapsulating central text block
   const crystalGroup = new THREE.Group();
   scene.add(crystalGroup);
 
-  // Main crystal — expanded to encapsulate eyebrow, title, description & CTA buttons inside
-  const crystalGeo = new THREE.IcosahedronGeometry(2.35, 1);
+  // Main crystal — sized to fit title text block neatly without going into navbar
+  const crystalGeo = new THREE.IcosahedronGeometry(1.55, 1);
   const crystalMat = new THREE.MeshPhongMaterial({
     color:      0x0a2e3a,
     emissive:   0x001a22,
@@ -92,7 +92,7 @@ function generateRefId() {
   crystalGroup.add(crystalMesh);
 
   // Wireframe overlay
-  const wireGeo = new THREE.IcosahedronGeometry(2.38, 1);
+  const wireGeo = new THREE.IcosahedronGeometry(1.58, 1);
   const wireMat = new THREE.MeshBasicMaterial({
     color:      0x00F5D4,
     wireframe:  true,
@@ -103,7 +103,7 @@ function generateRefId() {
   crystalGroup.add(wireMesh);
 
   // Inner dodecahedron
-  const innerGeo = new THREE.DodecahedronGeometry(1.25, 0);
+  const innerGeo = new THREE.DodecahedronGeometry(0.85, 0);
   const innerMat = new THREE.MeshPhongMaterial({
     color:      0x1a0a30,
     emissive:   0x0d0020,
@@ -115,14 +115,14 @@ function generateRefId() {
   const innerMesh = new THREE.Mesh(innerGeo, innerMat);
   crystalGroup.add(innerMesh);
 
-  // Align sphere 3D center directly behind hero content box
-  crystalGroup.position.set(0, 0.35, 0);
+  // Align sphere 3D center directly behind main title text block
+  crystalGroup.position.set(0, 0.42, 0);
 
   // ── Floating 3D Metal & Mineral Ore System — 15 Lanthanide Elements (La to Lu) ──
   const floatingMetalsGroup = new THREE.Group();
   scene.add(floatingMetalsGroup);
 
-  // 15 Lanthanide Rare Earth Elements (Atomic numbers 57 to 71: La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu)
+  // 15 Lanthanide Rare Earth Elements
   const LANTHANIDE_ELEMENTS = [
     { num: 57, symbol: 'La', name: 'Lanthanum',   mineral: 'Bastnäsite / Monazite', color: 0xE0A96D, specular: 0xFFF0AA, glow: '#E0A96D' },
     { num: 58, symbol: 'Ce', name: 'Cerium',      mineral: 'Cerite / Monazite',     color: 0xD97736, specular: 0xFFD8CC, glow: '#D97736' },
@@ -168,19 +168,19 @@ function generateRefId() {
     return geo;
   }
 
-  // Create Element Pill Badge Canvas Texture (e.g. 57 La, 60 Nd, 63 Eu)
+  // Create Element Pill Badge Canvas Texture — showing ONLY Metal Name (no symbol/atomic number)
   function createElementBadgeTexture(elem) {
     const canvas = document.createElement('canvas');
     canvas.width = 256;
-    canvas.height = 128;
+    canvas.height = 80;
     const ctx = canvas.getContext('2d');
 
     // Draw pill background
     ctx.fillStyle = 'rgba(10, 13, 22, 0.88)';
     ctx.strokeStyle = elem.glow;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 3;
 
-    const x = 8, y = 8, w = 240, h = 112, r = 24;
+    const x = 6, y = 6, w = 244, h = 68, r = 18;
     ctx.beginPath();
     ctx.moveTo(x + r, y);
     ctx.arcTo(x + w, y, x + w, y + h, r);
@@ -191,20 +191,12 @@ function generateRefId() {
     ctx.fill();
     ctx.stroke();
 
-    // Atomic number
-    ctx.fillStyle = 'rgba(240, 238, 232, 0.75)';
-    ctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(`${elem.num}`, 24, 46);
-
-    // Element symbol
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 50px "Cinzel", serif';
-    ctx.fillText(elem.symbol, 135, 72);
-
-    // Element name
+    // Metal Name (centered bold)
     ctx.fillStyle = elem.glow;
-    ctx.font = 'bold 20px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(elem.name, 24, 98);
+    ctx.font = 'bold 30px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(elem.name, 128, 40);
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.minFilter = THREE.LinearFilter;
@@ -214,55 +206,56 @@ function generateRefId() {
   const geoTypes = ['nugget', 'octahedron', 'crystal', 'prism', 'raw'];
   const floatingMetals = [];
 
-  // Create 24 flying 3D Lanthanide ore specimens visible across the hero viewport
-  for (let i = 0; i < 24; i++) {
+  // Create 20 50%-sized flying 3D Lanthanide metal ore specimens
+  for (let i = 0; i < 20; i++) {
     const elem = LANTHANIDE_ELEMENTS[i % LANTHANIDE_ELEMENTS.length];
     const geoType = geoTypes[i % geoTypes.length];
-    const geo = createDeformedOreGeometry(geoType, 0.16, 0.32);
+    // 50% radius size (0.08)
+    const geo = createDeformedOreGeometry(geoType, 0.08, 0.28);
 
     const mat = new THREE.MeshPhongMaterial({
       color: elem.color,
       specular: elem.specular,
       shininess: 320,
-      emissive: 0x101015,
+      emissive: 0x0a0a10,
       flatShading: true,
       transparent: true,
-      opacity: 0.90
+      opacity: 0.88
     });
 
     const oreGroup = new THREE.Group();
     const mesh = new THREE.Mesh(geo, mat);
     oreGroup.add(mesh);
 
-    // Sleek Element Badge Tag Sprite attached above ore
+    // Micro Metal Name Badge Tag Sprite attached above ore (50% scale)
     const badgeTex = createElementBadgeTexture(elem);
-    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.92 });
+    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.90 });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(0.48, 0.24, 1);
-    sprite.position.set(0, 0.28, 0);
+    sprite.scale.set(0.24, 0.075, 1);
+    sprite.position.set(0, 0.14, 0);
     oreGroup.add(sprite);
 
-    // Random initial placement within visible viewport bounds
+    // Placement around outer screen margins
     const x = (Math.random() - 0.5) * 11;
-    const y = (Math.random() - 0.5) * 9.5;
-    const z = (Math.random() - 0.5) * 4.5 - 0.5;
+    const y = (Math.random() - 0.5) * 9;
+    const z = (Math.random() - 0.5) * 4 - 0.5;
 
     oreGroup.position.set(x, y, z);
     mesh.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
 
-    const scale = Math.random() * 0.35 + 0.70;
+    const scale = Math.random() * 0.25 + 0.45;
     oreGroup.scale.set(scale, scale, scale);
 
     const metalObj = {
       group: oreGroup,
       mesh: mesh,
       element: elem,
-      speedY: Math.random() * 0.004 + 0.0025,
-      speedX: (Math.random() - 0.5) * 0.002,
-      rotX: (Math.random() - 0.5) * 0.02 + 0.005,
-      rotY: (Math.random() - 0.5) * 0.02 + 0.005,
-      rotZ: (Math.random() - 0.5) * 0.015,
-      wobbleSpeed: Math.random() * 1.2 + 0.4,
+      speedY: Math.random() * 0.003 + 0.0018,
+      speedX: (Math.random() - 0.5) * 0.0015,
+      rotX: (Math.random() - 0.5) * 0.012 + 0.004,
+      rotY: (Math.random() - 0.5) * 0.012 + 0.004,
+      rotZ: (Math.random() - 0.5) * 0.01,
+      wobbleSpeed: Math.random() * 1.0 + 0.4,
       wobbleOffset: Math.random() * Math.PI * 2
     };
 
