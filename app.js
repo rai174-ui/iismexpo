@@ -168,19 +168,19 @@ function generateRefId() {
     return geo;
   }
 
-  // Create Element Pill Badge Canvas Texture — showing ONLY Metal Name (no symbol/atomic number)
+  // Create Element Pill Badge Canvas Texture — Razor-sharp, high-contrast crisp Metal Name display
   function createElementBadgeTexture(elem) {
     const canvas = document.createElement('canvas');
-    canvas.width = 256;
-    canvas.height = 80;
+    canvas.width = 512;
+    canvas.height = 160;
     const ctx = canvas.getContext('2d');
 
-    // Draw pill background
-    ctx.fillStyle = 'rgba(10, 13, 22, 0.88)';
+    // Draw dark obsidian glass pill background with glowing border
+    ctx.fillStyle = 'rgba(8, 10, 18, 0.94)';
     ctx.strokeStyle = elem.glow;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 6;
 
-    const x = 6, y = 6, w = 244, h = 68, r = 18;
+    const x = 12, y = 12, w = 488, h = 136, r = 36;
     ctx.beginPath();
     ctx.moveTo(x + r, y);
     ctx.arcTo(x + w, y, x + w, y + h, r);
@@ -191,26 +191,32 @@ function generateRefId() {
     ctx.fill();
     ctx.stroke();
 
-    // Metal Name (centered bold)
-    ctx.fillStyle = elem.glow;
-    ctx.font = 'bold 30px "Plus Jakarta Sans", sans-serif';
+    // Text Shadow for extra legibility
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.95)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 2;
+
+    // Metal Name — Crisp, bold, high-contrast text
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 44px "Plus Jakarta Sans", Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(elem.name, 128, 40);
+    ctx.fillText(elem.name, 256, 80);
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
     return texture;
   }
 
   const geoTypes = ['nugget', 'octahedron', 'crystal', 'prism', 'raw'];
   const floatingMetals = [];
 
-  // Create 20 50%-sized flying 3D Lanthanide metal ore specimens
+  // Create 20 flying 3D Lanthanide metal ore specimens with razor-sharp crisp metal name badges
   for (let i = 0; i < 20; i++) {
     const elem = LANTHANIDE_ELEMENTS[i % LANTHANIDE_ELEMENTS.length];
     const geoType = geoTypes[i % geoTypes.length];
-    // 50% radius size (0.08)
     const geo = createDeformedOreGeometry(geoType, 0.08, 0.28);
 
     const mat = new THREE.MeshPhongMaterial({
@@ -227,12 +233,12 @@ function generateRefId() {
     const mesh = new THREE.Mesh(geo, mat);
     oreGroup.add(mesh);
 
-    // Micro Metal Name Badge Tag Sprite attached above ore (50% scale)
+    // High-resolution crisp Metal Name Badge Tag Sprite attached above ore
     const badgeTex = createElementBadgeTexture(elem);
-    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.90 });
+    const spriteMat = new THREE.SpriteMaterial({ map: badgeTex, transparent: true, opacity: 0.95 });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(0.24, 0.075, 1);
-    sprite.position.set(0, 0.14, 0);
+    sprite.scale.set(0.42, 0.13, 1);
+    sprite.position.set(0, 0.18, 0);
     oreGroup.add(sprite);
 
     // Placement around outer screen margins
