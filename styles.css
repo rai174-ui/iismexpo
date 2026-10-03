@@ -25,8 +25,8 @@
   --glass-bg-hover:  rgba(255, 255, 255, 0.07);
   --glass-border:    rgba(255, 255, 255, 0.08);
   --glass-border-hover: rgba(255, 255, 255, 0.15);
-  --font-serif:      'Cinzel', 'Cormorant Garamond', serif;
-  --font-sans:       'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+  --font-serif:      'Times New Roman', Times, Georgia, serif;
+  --font-sans:       'Times New Roman', Times, Georgia, serif;
   --transition:      0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   --radius:          16px;
@@ -44,6 +44,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Times New Roman', Times, Georgia, serif !important;
 }
 
 html {
@@ -52,8 +53,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  font-family: var(--font-sans);
+body, button, input, select, textarea, optgroup {
+  font-family: 'Times New Roman', Times, Georgia, serif !important;
   background-color: var(--obsidian);
   color: var(--text-primary);
   line-height: 1.65;
@@ -3549,12 +3550,776 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════
+   BUTTON VARIANTS & NEW UTILITIES
+   ═══════════════════════════════════════════════════ */
+.btn--secondary-gold {
+  background: linear-gradient(135deg, rgba(224, 169, 109, 0.25) 0%, rgba(155, 93, 229, 0.2) 100%);
+  color: var(--gold);
+  border: 1px solid rgba(224, 169, 109, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(224, 169, 109, 0.15);
+}
+
+.btn--secondary-gold:hover {
+  background: linear-gradient(135deg, rgba(224, 169, 109, 0.4) 0%, rgba(155, 93, 229, 0.35) 100%);
+  color: #FFFFFF;
+  border-color: var(--gold);
+  box-shadow: 0 6px 24px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* 8 Pavilions Grid in About Section */
+.sectors-grid--8 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.sectors-grid--8 .sector-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.sectors-grid--8 .sector-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.sector-sub {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.35;
+}
+
+/* ═══════════════════════════════════════════════════
+   NATIONAL MISSION & STATE GOVERNMENTS
+   ═══════════════════════════════════════════════════ */
+.national-mission {
+  position: relative;
+  background: linear-gradient(180deg, var(--obsidian) 0%, var(--obsidian-light) 100%);
+}
+
+.ncmm-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .ncmm-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ncmm-pillar-card {
+  padding: 2.25rem 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ncmm-pillar-num {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 0.5rem;
+}
+
+.ncmm-pillar-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.ncmm-pillar-card p {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.ncmm-pillar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* State Government Focus Block */
+.state-gov-block {
+  padding: 2.5rem;
+  border-color: rgba(224, 169, 109, 0.3);
+  background: linear-gradient(135deg, rgba(224, 169, 109, 0.05) 0%, rgba(155, 93, 229, 0.05) 100%);
+}
+
+.state-gov-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-dim);
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid rgba(224, 169, 109, 0.3);
+  margin-bottom: 0.85rem;
+}
+
+.state-gov-block__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.state-gov-block__body {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.state-gov-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.state-gov-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  background: rgba(10, 13, 18, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.state-gov-chip:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  background: rgba(224, 169, 109, 0.08);
+}
+
+.state-flag {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.state-chip-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.state-chip-info strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.state-chip-info span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.clearance-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════
+   BRAND AMPLIFICATION & MEDIA PR
+   ═══════════════════════════════════════════════════ */
+.pr-deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  .pr-deliverables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .pr-deliverables-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pr-card {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pr-card__icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.pr-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.pr-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.pr-card__badge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+}
+
+/* ═══════════════════════════════════════════════════
+   EXCELLENCE AWARDS 2027
+   ═══════════════════════════════════════════════════ */
+.awards-hero-card {
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-color: rgba(155, 93, 229, 0.3);
+  background: linear-gradient(135deg, rgba(155, 93, 229, 0.08) 0%, rgba(0, 245, 212, 0.05) 100%);
+}
+
+.awards-hero-card__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  background: var(--violet-dim);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(155, 93, 229, 0.3);
+  margin-bottom: 1rem;
+}
+
+.awards-hero-card__content h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.awards-hero-card__content p {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1100px) {
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.award-cat-card {
+  padding: 1.75rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.award-cat-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.award-cat-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+
+}
+
+.award-cat-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.awards-features-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .awards-features-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.awards-feature-col {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.awards-feature-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.awards-feature-col h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.awards-feature-col p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.awards-cta-wrap {
+  margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   3-DAY AGENDA GRID
+   ═══════════════════════════════════════════════════ */
+.agenda__grid--3days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+  .agenda__grid--3days {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agenda-item--gala {
+  background: rgba(224, 169, 109, 0.08);
+  border: 1px solid rgba(224, 169, 109, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   INTERNATIONAL DELEGATIONS (LOGISTICS)
+   ═══════════════════════════════════════════════════ */
+.international-delegations {
+  padding: 2.5rem;
+  margin-top: 3rem;
+  border-color: rgba(0, 245, 212, 0.25);
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.04) 0%, rgba(155, 93, 229, 0.04) 100%);
+}
+
+.delegations-header {
+  margin-bottom: 2rem;
+}
+
+.delegations-header h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.delegations-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.delegations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .delegations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.delegation-card {
+  padding: 1.5rem;
+  background: rgba(10, 13, 18, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.delegation-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.delegation-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.delegation-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.delegation-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════
+   FLOATING WHATSAPP QUICK-CONNECT WIDGET
+   ═══════════════════════════════════════════════════ */
+.whatsapp-floating-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 400;
+}
+
+.whatsapp-floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: var(--transition);
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-floating-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-btn__badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #FF3142;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--obsidian);
+}
+
+.whatsapp-popover {
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 320px;
+  background: var(--obsidian-light);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  animation: fadeSlideUp 0.3s ease;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.whatsapp-popover__header {
+  background: linear-gradient(135deg, #075E54 0%, #128C7E 100%);
+  padding: 1rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.whatsapp-popover__avatar {
+  font-size: 1.5rem;
+}
+
+.whatsapp-popover__header strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.whatsapp-popover__header p {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.whatsapp-popover__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.whatsapp-popover__close:hover { opacity: 1; }
+
+.whatsapp-popover__body {
+  padding: 1.25rem;
+}
+
+.whatsapp-popover__body p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.whatsapp-contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.whatsapp-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.whatsapp-contact-item:hover {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: #25D366;
+}
+
+.wa-ico {
+  font-size: 1.3rem;
+}
+
+.whatsapp-contact-item strong {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.whatsapp-contact-item span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════
+   SITE MODALS (PROSPECTUS & AWARDS)
+   ═══════════════════════════════════════════════════ */
+.site-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.site-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.site-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 13, 18, 0.88);
+  backdrop-filter: blur(10px);
+}
+
+.site-modal__panel {
+  position: relative;
+  z-index: 1;
+  background: var(--obsidian-light);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  max-width: 540px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--transition);
+}
+
+.site-modal[aria-hidden="false"] .site-modal__panel {
+  transform: translateY(0) scale(1);
+}
+
+.site-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.site-modal__close:hover {
+  background: rgba(0, 245, 212, 0.1);
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.site-modal__content {
+  padding: 2.25rem;
+}
+
+.modal-header-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-dim);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+}
+
+.site-modal__content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-success {
+  padding: 1.25rem;
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+}
+
+/* ═══════════════════════════════════════════════════
    PRINT
    ═══════════════════════════════════════════════════ */
 @media print {
   .navbar, .hero__canvas, .hero__grid, .grain-overlay,
-  .vault__filters, .speakers, .footer { display: none !important; }
+  .vault__filters, .speakers, .footer, .whatsapp-floating-widget { display: none !important; }
   body { background: #fff; color: #000; }
   .glass-card { background: #f5f5f5; border: 1px solid #ddd; backdrop-filter: none; }
 }
+
 

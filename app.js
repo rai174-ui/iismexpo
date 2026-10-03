@@ -199,7 +199,7 @@ function generateRefId() {
 
     // Metal Name — Large, bold, high-contrast text (+25% size)
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 56px "Plus Jakarta Sans", Inter, sans-serif';
+    ctx.font = 'bold 56px "Times New Roman", Times, serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(elem.name, 256, 80);
@@ -1216,7 +1216,91 @@ function initEcosystemTabs() {
 }
 
 /* ─────────────────────────────────────────────────
-   12. INIT ALL MODULES ON DOM READY
+   13. PROSPECTUS & AWARDS MODALS + WHATSAPP WIDGET
+───────────────────────────────────────────────── */
+
+function initModalsAndWidgets() {
+  // --- Prospectus Modal ---
+  const prospectusBtn    = document.getElementById('heroProspectusBtn');
+  const prospectusModal  = document.getElementById('prospectusModal');
+  const prospectusClose  = document.getElementById('prospectusClose');
+  const prospectusBg     = document.getElementById('prospectusBackdrop');
+  const prospectusForm   = document.getElementById('prospectusForm');
+  const prospectusSucc   = document.getElementById('prospectusSuccess');
+
+  function openProspectus() {
+    if (!prospectusModal) return;
+    prospectusModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeProspectus() {
+    if (!prospectusModal) return;
+    prospectusModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (prospectusBtn)   prospectusBtn.addEventListener('click', openProspectus);
+  if (prospectusClose) prospectusClose.addEventListener('click', closeProspectus);
+  if (prospectusBg)    prospectusBg.addEventListener('click', closeProspectus);
+
+  if (prospectusForm) {
+    prospectusForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      prospectusForm.hidden = true;
+      if (prospectusSucc) prospectusSucc.hidden = false;
+    });
+  }
+
+  // --- Awards Modal ---
+  const awardsBtn      = document.getElementById('awardsNominationBtn');
+  const awardsModal    = document.getElementById('awardsModal');
+  const awardsClose    = document.getElementById('awardsClose');
+  const awardsBg       = document.getElementById('awardsBackdrop');
+  const awardsForm     = document.getElementById('awardsForm');
+  const awardsSucc     = document.getElementById('awardsSuccess');
+
+  function openAwards() {
+    if (!awardsModal) return;
+    awardsModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAwards() {
+    if (!awardsModal) return;
+    awardsModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (awardsBtn)   awardsBtn.addEventListener('click', openAwards);
+  if (awardsClose) awardsClose.addEventListener('click', closeAwards);
+  if (awardsBg)    awardsBg.addEventListener('click', closeAwards);
+
+  if (awardsForm) {
+    awardsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      awardsForm.hidden = true;
+      if (awardsSucc) awardsSucc.hidden = false;
+    });
+  }
+
+  // --- WhatsApp Widget ---
+  const toggleWaBtn   = document.getElementById('toggleWhatsappBtn');
+  const closeWaPop    = document.getElementById('closeWhatsappPopover');
+  const waPopover     = document.getElementById('whatsappPopover');
+
+  if (toggleWaBtn && waPopover) {
+    toggleWaBtn.addEventListener('click', () => {
+      waPopover.hidden = !waPopover.hidden;
+    });
+  }
+  if (closeWaPop && waPopover) {
+    closeWaPop.addEventListener('click', () => {
+      waPopover.hidden = true;
+    });
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   14. INIT ALL MODULES ON DOM READY
 ───────────────────────────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1224,6 +1308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVaultFilters();
   initMineralModal();
   initEcosystemTabs();
+  initModalsAndWidgets();
 
   // Trigger scroll reveal for all existing section-reveal elements
   document.querySelectorAll('.section-reveal').forEach(el => {
@@ -1241,4 +1326,5 @@ document.addEventListener('DOMContentLoaded', () => {
     statsObserver.observe(heroSection);
   }
 });
+
 
